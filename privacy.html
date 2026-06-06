@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>SafePulse Privacy Policy &mdash; Check In On Me</title>
+    <link rel="canonical" href="https://checkinonme.app/privacy">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 24px 20px 60px;
+            line-height: 1.6;
+            color: #222;
+            background: #fff;
+        }
+        h1 { color: #1a1a2e; margin-bottom: 4px; }
+        h2 { color: #16213e; margin-top: 32px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+        h3 { color: #16213e; margin-top: 20px; }
+        .effective-date { color: #666; font-style: italic; margin-bottom: 24px; }
+        .home-link { display: inline-block; margin-bottom: 18px; color: #1a5d1a; text-decoration: none; font-weight: 600; }
+        ul { padding-left: 22px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: top; }
+        th { background: #f4f6f8; }
+        code { background: #f4f6f8; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
+        .highlight { background: #f1f8e9; border-left: 4px solid #4caf50; padding: 14px 18px; margin: 20px 0; }
+        a { color: #1a5d1a; }
+    </style>
+</head>
+<body>
+
+<a class="home-link" href="/">&larr; Check In On Me</a>
+
+<h1>SafePulse Privacy Policy</h1>
+<p class="effective-date"><strong>Effective Date:</strong> May 5, 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> May 5, 2026</p>
+
+<p>SafePulse ("we", "our", "the app") is a personal safety check-in and emergency alert application developed by Frank Nowicki, and is the app behind this website, <strong>checkinonme.app</strong>. (The same app is distributed as <strong>PulseGuard</strong> on the Apple App Store and Amazon Appstore.) This Privacy Policy explains what information SafePulse accesses, how it is used, where it is stored, how long it is retained, and how you can delete it. By using SafePulse you agree to the practices described below.</p>
+
+<div class="highlight">
+    <strong>Summary:</strong> SafePulse stores all of your data locally on your own device. We do not operate any servers, do not collect analytics, and do not share or sell your data. You can delete every piece of data SafePulse holds at any time by clearing the app's storage or uninstalling the app.
+</div>
+
+<h2>1. Information SafePulse Accesses</h2>
+<p>SafePulse only accesses information that is required to provide its safety check-in and emergency alert features. All of the following is stored <strong>locally on your device</strong> in the app's private database — none of it is transmitted to us or any third-party server controlled by us.</p>
+<ul>
+    <li><strong>Your name (optional)</strong> — Used to personalize emergency alert messages sent to your contacts.</li>
+    <li><strong>Emergency contacts</strong> — Names and phone numbers you choose to add. You may import these from your phone's contacts (with your permission) or enter them manually.</li>
+    <li><strong>Check-in preferences</strong> — Your check-in interval and notification settings.</li>
+    <li><strong>Location data</strong> — Your last known GPS coordinates, captured only when you perform a check-in or trigger an SOS alert. Used solely to include a location link in emergency SMS messages.</li>
+    <li><strong>Check-in history</strong> — Records of when you completed or missed check-ins.</li>
+    <li><strong>Wellness entries (optional)</strong> — Mood entries and journal notes you choose to record inside the app.</li>
+</ul>
+
+<h3>What SafePulse does NOT collect</h3>
+<ul>
+    <li>No accounts, usernames, passwords, or email registration.</li>
+    <li>No analytics, crash reporting SDKs, or behavioral tracking.</li>
+    <li>No advertising identifiers or third-party advertising SDKs.</li>
+    <li>No background location tracking.</li>
+    <li>No cloud sync — SafePulse does not operate any servers that hold your data.</li>
+</ul>
+
+<h2>2. How SafePulse Uses Your Information</h2>
+<ul>
+    <li><strong>Emergency alerts:</strong> If you miss a scheduled check-in or activate the SOS button, SafePulse uses your stored emergency contacts and last known location to send SMS alerts directly from your device.</li>
+    <li><strong>SMS messages:</strong> Sent directly from your device to the phone numbers you saved as emergency contacts, using Android's SMS APIs. SafePulse never sends SMS messages on its own and never sends marketing or promotional SMS.</li>
+    <li><strong>Phone call on SOS:</strong> When you tap the SOS button, SafePulse auto-dials the first emergency contact you saved. No call is made without your explicit SOS action.</li>
+    <li><strong>Local notifications:</strong> Used to remind you of upcoming check-ins.</li>
+</ul>
+
+<h2>3. Permissions SafePulse Requests</h2>
+<table>
+    <tr><th>Permission</th><th>Purpose</th></tr>
+    <tr><td><code>SEND_SMS</code></td><td>To send emergency SMS alerts directly from your device to the contacts you saved.</td></tr>
+    <tr><td><code>READ_CONTACTS</code></td><td>To let you import emergency contacts from your phone's contact list (optional).</td></tr>
+    <tr><td><code>ACCESS_FINE_LOCATION</code> / <code>ACCESS_COARSE_LOCATION</code></td><td>To include your last known location in emergency alerts.</td></tr>
+    <tr><td><code>CALL_PHONE</code></td><td>To auto-dial your first emergency contact when you tap the SOS button.</td></tr>
+    <tr><td><code>POST_NOTIFICATIONS</code></td><td>To display check-in reminders and emergency notifications.</td></tr>
+    <tr><td><code>USE_FULL_SCREEN_INTENT</code></td><td>To display urgent check-in reminders before a missed-deadline emergency.</td></tr>
+    <tr><td><code>SCHEDULE_EXACT_ALARM</code></td><td>To deliver check-in reminders at exact times.</td></tr>
+    <tr><td><code>RECEIVE_BOOT_COMPLETED</code></td><td>To restore your scheduled check-ins after the device restarts.</td></tr>
+    <tr><td><code>WAKE_LOCK</code></td><td>To ensure alarms fire reliably while the device is idle.</td></tr>
+</table>
+
+<h2>4. Third-Party Services</h2>
+<ul>
+    <li><strong>Google Play Services (FusedLocationProvider)</strong> — Used to obtain your device's location locally. SafePulse does not transmit your location to Google.</li>
+    <li><strong>Google Maps link</strong> — Emergency messages contain a plain Google Maps URL with your coordinates so contacts can view your location. The link is included in the message text; SafePulse itself does not contact Google with this data.</li>
+</ul>
+
+<h2>5. Data Storage and Security</h2>
+<ul>
+    <li>All personal data is stored locally on your device using Android's private app storage and the Room database.</li>
+    <li>Your data never leaves your device unless <em>you</em> trigger an emergency alert, in which case the relevant message is sent directly via your phone's SMS or dialer apps to recipients you chose.</li>
+    <li>SafePulse operates no servers and has no ability to access, retrieve, or restore your data.</li>
+</ul>
+
+<h2>6. Data Retention</h2>
+<p>SafePulse retains your data <strong>only on your device</strong>, and only for as long as you keep the app installed and choose to keep the data. Specifically:</p>
+<ul>
+    <li><strong>Emergency contacts, preferences, and check-in settings</strong> are retained until you delete them inside the app, clear the app's storage, or uninstall SafePulse.</li>
+    <li><strong>Check-in history and audit logs</strong> are retained on your device until you clear them in app settings, clear the app's storage, or uninstall SafePulse.</li>
+    <li><strong>Mood and journal entries</strong> are retained until you delete the individual entries, clear the app's storage, or uninstall SafePulse.</li>
+    <li><strong>Location data</strong> is retained as the most recent stored coordinate only; each new check-in overwrites the previous location. It is removed when you clear the app's storage or uninstall SafePulse.</li>
+    <li><strong>SafePulse does not store or retain any of your data on external servers.</strong> Because we never receive your data, there is no server-side copy that could persist after you delete it locally.</li>
+</ul>
+
+<h2>7. How to Delete Your Data</h2>
+<p>You are always in full control of your data and can delete it at any time using any of the following methods:</p>
+<ol>
+    <li><strong>Delete individual items inside SafePulse</strong> — Open SafePulse, go to <em>Contacts</em>, <em>Journal</em>, or <em>Settings</em>, and delete the specific entries you no longer want.</li>
+    <li><strong>Reset all SafePulse data</strong> — Open Android Settings &rarr; Apps &rarr; SafePulse &rarr; Storage &rarr; <strong>Clear Storage</strong> (or <strong>Clear Data</strong>). This permanently removes the SafePulse database, preferences, contacts, history, and all other locally stored information.</li>
+    <li><strong>Uninstall SafePulse</strong> — Uninstalling the app removes all SafePulse data from your device.</li>
+</ol>
+<p>Because SafePulse stores data only on your device and not on any server, performing any of the steps above results in complete deletion of your SafePulse data. There is no separate request to make and nothing for us to delete on our end.</p>
+
+<h2>8. Children's Privacy</h2>
+<p>SafePulse is intended for users aged 18 and over. SafePulse is not directed to children under 13 and we do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided information through SafePulse, please contact us and we will assist with deletion.</p>
+
+<h2>9. Your Rights</h2>
+<p>Because all SafePulse data is stored locally on your device, you have direct, immediate access to it and full control over it:</p>
+<ul>
+    <li><strong>Access:</strong> View all of your data inside the app.</li>
+    <li><strong>Correct:</strong> Edit any contact, setting, or journal entry in the app.</li>
+    <li><strong>Delete:</strong> Use any of the methods listed in Section 7.</li>
+    <li><strong>Withdraw consent:</strong> Disable any permission at any time in Android Settings &rarr; Apps &rarr; SafePulse &rarr; Permissions.</li>
+</ul>
+
+<h2>10. Changes to This Policy</h2>
+<p>We may update this Privacy Policy from time to time. When we do, we will update the "Last Updated" date at the top of this page. Material changes will be communicated through the app where reasonably possible.</p>
+
+<h2>11. Contact</h2>
+<p>If you have any questions about this Privacy Policy or how SafePulse handles your information, please contact:</p>
+<p><strong>Email:</strong> <a href="mailto:frank.nowicki@gmail.com">frank.nowicki@gmail.com</a><br>
+<strong>Developer:</strong> Frank Nowicki</p>
+
+<p style="margin-top: 48px; text-align: center; color: #888; font-size: 13px;">&copy; 2026 Frank Nowicki. All rights reserved. SafePulse&trade; is a trademark of Frank Nowicki. &middot; <a href="/">checkinonme.app</a> &middot; <a href="/terms">Terms</a></p>
+
+</body>
+</html>

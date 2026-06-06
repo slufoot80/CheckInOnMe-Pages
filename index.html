@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Check In On Me &mdash; The SafePulse personal safety check-in app</title>
+    <meta name="description" content="Check In On Me is the home of SafePulse: a personal safety check-in app. Set a timer, and if you don't check in, it alerts your trusted contacts with your location. On Google Play, Apple App Store, Amazon Appstore, Huawei AppGallery, and Samsung Galaxy Store.">
+    <link rel="canonical" href="https://checkinonme.app/">
+    <meta property="og:title" content="Check In On Me &mdash; SafePulse personal safety check-in app">
+    <meta property="og:description" content="Set a check-in timer. If you don't respond, your trusted contacts are alerted with your last known location.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://checkinonme.app/">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1a1a2e;
+            line-height: 1.6;
+            background: #fff;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #2e7d32;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: #1a1a2e; }
+        nav .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        nav .nav-links a {
+            font-size: 0.95rem;
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        nav .nav-links a:hover { color: #2e7d32; }
+
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 45%, #4caf50 100%);
+            color: #fff;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.15;
+        }
+        .hero .tagline {
+            font-size: 1.25rem;
+            margin-bottom: 2.25rem;
+            opacity: 0.95;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero .cta {
+            display: inline-flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.25); }
+        .btn-primary { background: #fff; color: #1b5e20; }
+        .btn-ghost { background: rgba(255,255,255,0.15); color: #fff; border: 2px solid rgba(255,255,255,0.4); }
+
+        section { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
+        h2 { font-size: 2rem; margin-bottom: 1.25rem; color: #1a1a2e; text-align: center; }
+        .section-sub { text-align: center; color: #666; max-width: 620px; margin: 0 auto 2.5rem; }
+        h3 { font-size: 1.15rem; margin-bottom: 0.5rem; color: #2e7d32; }
+        p { margin-bottom: 1rem; color: #444; }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+        .feature {
+            padding: 1.5rem;
+            background: #f4f8f4;
+            border-radius: 12px;
+            border-left: 4px solid #4caf50;
+        }
+        .feature .ico { font-size: 1.6rem; display: block; margin-bottom: 0.6rem; }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .step { flex: 1; min-width: 220px; max-width: 280px; text-align: center; }
+        .step-num {
+            width: 54px; height: 54px; border-radius: 50%;
+            background: #2e7d32; color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; font-weight: 800; margin: 0 auto 1rem;
+        }
+
+        .download { background: #f8faf8; text-align: center; }
+        .stores {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .store-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.4rem;
+            background: #1a1a2e;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: transform 0.2s;
+            text-align: left;
+        }
+        .store-badge:hover { transform: translateY(-2px); }
+        .store-badge small { display: block; font-size: 0.65rem; opacity: 0.8; font-weight: 500; }
+        .store-badge .store-icon { font-size: 1.4rem; }
+        .store-badge.soon { opacity: 0.55; cursor: default; }
+        .store-badge.soon:hover { transform: none; }
+
+        .support-card {
+            background: #f4f8f4;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .support-card a { color: #2e7d32; font-weight: 600; text-decoration: none; }
+        .support-card a:hover { text-decoration: underline; }
+
+        .disclaimer {
+            background: #fff8e1;
+            border-left: 4px solid #f9a825;
+            padding: 1rem 1.25rem;
+            margin: 2rem auto 0;
+            max-width: 640px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        footer {
+            background: #1a1a2e;
+            color: #aaa;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer a { color: #81c784; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero .tagline { font-size: 1.05rem; }
+            section { padding: 3rem 1.25rem; }
+            nav { padding: 0.75rem 1rem; }
+            nav .nav-links { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo">Check In On Me</a>
+    <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#download">Get the app</a>
+        <a href="/privacy">Privacy</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Someone should always know you're okay.</h1>
+    <p class="tagline">Check In On Me is the home of <strong>SafePulse</strong> &mdash; a personal safety check-in app. Set a timer, and if you don't check in, SafePulse alerts your trusted contacts with your last known location.</p>
+    <div class="cta">
+        <a href="#download" class="btn btn-primary">Get SafePulse</a>
+        <a href="#how" class="btn btn-ghost">How it works</a>
+    </div>
+</section>
+
+<section id="features">
+    <h2>Built for the moments no one is watching</h2>
+    <p class="section-sub">Set a check-in before a run, a late drive, a solo hike, or a long day alone. If you don't tap &ldquo;I'm OK&rdquo; before the timer runs out, SafePulse reaches the people you chose.</p>
+    <div class="features">
+        <div class="feature">
+            <span class="ico">&#9203;</span>
+            <h3>Automatic Check-Ins</h3>
+            <p>Choose your interval. SafePulse runs quietly in the background until you need it.</p>
+        </div>
+        <div class="feature">
+            <span class="ico">&#128680;</span>
+            <h3>SOS Button</h3>
+            <p>One tap immediately alerts every emergency contact you've added, with your location.</p>
+        </div>
+        <div class="feature">
+            <span class="ico">&#128274;</span>
+            <h3>100% Private</h3>
+            <p>All your data stays on your device. No accounts, no servers, no analytics.</p>
+        </div>
+        <div class="feature">
+            <span class="ico">&#128267;</span>
+            <h3>Low-Battery Warning</h3>
+            <p>If your phone gets dangerously low, SafePulse warns your circle so they know you may go offline.</p>
+        </div>
+        <div class="feature">
+            <span class="ico">&#128222;</span>
+            <h3>Auto-Call on SOS</h3>
+            <p>SafePulse can automatically dial your first emergency contact when SOS is triggered.</p>
+        </div>
+        <div class="feature">
+            <span class="ico">&#128101;</span>
+            <h3>Trusted Circles</h3>
+            <p>Pick the family and friends who get your check-in status and alerts.</p>
+        </div>
+    </div>
+</section>
+
+<section id="how" style="background:#f8faf8; max-width:none;">
+    <div style="max-width:960px; margin:0 auto;">
+        <h2>How it works</h2>
+        <p class="section-sub">Simple setup, quiet protection. Get going in a couple of minutes.</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Set your schedule</h3>
+                <p>Choose how often you want to check in &mdash; every few hours, once a day, or a custom interval.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Add your contacts</h3>
+                <p>Pick the trusted people who'll be notified if you miss a check-in or trigger an alert.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Live your life</h3>
+                <p>Go about your day. SafePulse runs in the background, ready the moment you need it.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="download" id="download" style="max-width:none;">
+    <div style="max-width:960px; margin:0 auto;">
+        <h2>Get the app</h2>
+        <p class="section-sub">The app is published as <strong>SafePulse</strong> on Google Play and Huawei AppGallery, and as <strong>PulseGuard</strong> on the Apple App Store and Amazon Appstore. Coming soon to Samsung Galaxy Store.</p>
+        <div class="stores">
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=app.safepulse" target="_blank" rel="noopener">
+                <span class="store-icon">&#9654;</span>
+                <span><small>GET IT ON</small>Google Play</span>
+            </a>
+            <a class="store-badge" href="https://apps.apple.com/app/id6760568365" target="_blank" rel="noopener">
+                <span class="store-icon">&#63743;</span>
+                <span><small>DOWNLOAD ON</small>App Store</span>
+            </a>
+            <a class="store-badge" href="https://www.amazon.com/dp/B0F1YQ7FX1" target="_blank" rel="noopener">
+                <span class="store-icon">&#128293;</span>
+                <span><small>AVAILABLE ON</small>Amazon Appstore</span>
+            </a>
+            <a class="store-badge soon" aria-disabled="true">
+                <span class="store-icon">&#11088;</span>
+                <span><small>COMING SOON</small>Galaxy Store</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="support">
+    <h2>Support &amp; contact</h2>
+    <div class="support-card">
+        <p style="font-size: 1.1rem; margin-bottom: 1rem;"><strong>Need help?</strong></p>
+        <p>Email <a href="mailto:frank.nowicki@gmail.com">frank.nowicki@gmail.com</a> and we'll get back to you within a business day.</p>
+        <p style="margin-top: 1.5rem; font-size: 0.95rem;">Privacy practices: <a href="/privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; Legal terms: <a href="/terms">Terms of Service</a></p>
+    </div>
+    <div class="disclaimer">
+        <strong>Important:</strong> SafePulse is a personal safety check-in app &mdash; not a medical device, emergency service, or substitute for professional help. If you are in immediate danger, contact your local emergency number (911 in the US, 112 in Europe, etc.).
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Frank Nowicki. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">SafePulse&trade; and PulseGuard&trade; are brands of Frank Nowicki. &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></p>
+</footer>
+
+</body>
+</html>
