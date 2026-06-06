@@ -29,6 +29,6 @@ Cloudflare Pages serves `*.html` at clean extension-less URLs (`/privacy`, `/ter
    already on Cloudflare, the CNAME/record is added automatically. SSL provisions in a few minutes.
 4. After that, **every `git push` to `main` auto-deploys**.
 
-## TODO before relying on the Terms page
-- `terms.html` Section 14 (Governing Law) has `[STATE]` / `[COUNTY]` placeholders — fill in your
-  US state and county. The privacy policy needs no edits.
+## Status
+- Governing law (Terms §14): **Michigan, United States** — filled in.
+- Privacy policy: ready, no edits needed. Use `https://checkinonme.app/privacy` in store listings.
