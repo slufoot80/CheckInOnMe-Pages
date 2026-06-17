@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Confirm SafePulse Safety Alerts</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 32px 20px 60px;
+            line-height: 1.6;
+            color: #222;
+            background: #f5f7f5;
+        }
+        .card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 28px 24px;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+        }
+        h1 { color: #1a5d1a; font-size: 1.45rem; margin: 0 0 6px; }
+        .sub { color: #555; margin-top: 0; }
+        .consent {
+            background: #f1f8e9;
+            border-left: 4px solid #4caf50;
+            padding: 14px 16px;
+            border-radius: 6px;
+            margin: 22px 0;
+            font-size: 0.97rem;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+        .btn-yes { background: #2e7d32; color: #fff; }
+        .btn-no  { background: #fff; color: #777; border: 1px solid #ccc; }
+        .fine { font-size: 0.8rem; color: #888; margin-top: 22px; }
+        .fine a { color: #1a5d1a; }
+        .result { text-align: center; padding: 12px 0; }
+        .result h2 { color: #1a5d1a; }
+        .hidden { display: none; }
+        .spinner { text-align: center; color: #888; padding: 30px 0; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div id="loading" class="spinner">Loading your request&hellip;</div>
+
+    <div id="form" class="hidden">
+        <h1>Confirm Safety Alerts</h1>
+        <p class="sub"><strong id="sender">A SafePulse user</strong> wants to add you as an emergency safety contact on <strong>SafePulse</strong>.</p>
+
+        <div class="consent">
+            <strong>Do you agree to receive SMS text messages from SafePulse?</strong><br><br>
+            If you tap <strong>Yes</strong>, you consent to receive automated SMS text-message safety
+            alerts from SafePulse &mdash; sent only when <span id="sender2">this person</span> misses a
+            safety check-in or presses the SOS button. Each alert includes their name and last known
+            location so you can help. Message frequency varies (event-driven). Msg &amp; data rates may
+            apply. Reply <strong>STOP</strong> to any message to opt out, or <strong>HELP</strong> for help.
+        </div>
+
+        <button class="btn btn-yes" id="yes">Yes, I agree to receive these SMS alerts</button>
+        <button class="btn btn-no" id="no">No, do not add me</button>
+
+        <p class="fine">
+            This consent is only for SafePulse safety alerts and is separate from any other terms.
+            See our <a href="/privacy" target="_blank">Privacy Policy</a> and
+            <a href="/terms" target="_blank">Terms</a>. We never sell or share your number.
+        </p>
+    </div>
+
+    <div id="done" class="hidden result"></div>
+    <div id="error" class="hidden result"></div>
+</div>
+
+<script>
+    var GATEWAY = "https://safepulse-sms.frank-nowicki.workers.dev";
+    var token = new URLSearchParams(location.search).get("t");
+
+    function show(id) {
+        ["loading", "form", "done", "error"].forEach(function (x) {
+            document.getElementById(x).classList.add("hidden");
+        });
+        document.getElementById(id).classList.remove("hidden");
+    }
+
+    function fail(msg) {
+        document.getElementById("error").innerHTML = "<h2>Sorry</h2><p>" + msg + "</p>";
+        show("error");
+    }
+
+    if (!token) {
+        fail("This link is missing its code. Please use the link from your text message.");
+    } else {
+        fetch(GATEWAY + "/invite?t=" + encodeURIComponent(token))
+            .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+            .then(function (res) {
+                if (!res.ok) { fail(res.j.error || "This request could not be found. It may have expired."); return; }
+                if (res.j.status && res.j.status !== "pending") {
+                    document.getElementById("done").innerHTML =
+                        "<h2>All set</h2><p>You already responded to this request" +
+                        (res.j.status === "accepted" ? " and are confirmed to receive alerts." : ".") + "</p>";
+                    show("done");
+                    return;
+                }
+                var name = res.j.senderName || "A SafePulse user";
+                document.getElementById("sender").textContent = name;
+                document.getElementById("sender2").textContent = name;
+                show("form");
+            })
+            .catch(function () { fail("Could not reach the server. Please try again later."); });
+    }
+
+    function respond(decision) {
+        show("loading");
+        fetch(GATEWAY + "/invite/respond", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token: token, decision: decision })
+        })
+            .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+            .then(function (res) {
+                if (!res.ok) { fail(res.j.error || "Something went wrong. Please try again."); return; }
+                if (res.j.status === "accepted") {
+                    document.getElementById("done").innerHTML =
+                        "<h2>You're confirmed ✅</h2><p>Thank you. You'll receive SafePulse safety " +
+                        "alerts only during a genuine emergency. Reply STOP to any alert to opt out anytime.</p>";
+                } else {
+                    document.getElementById("done").innerHTML =
+                        "<h2>Got it</h2><p>You declined. You will not be added and will not receive alerts.</p>";
+                }
+                show("done");
+            })
+            .catch(function () { fail("Could not reach the server. Please try again later."); });
+    }
+
+    document.getElementById("yes") && document.getElementById("yes").addEventListener("click", function () { respond("accept"); });
+    document.getElementById("no") && document.getElementById("no").addEventListener("click", function () { respond("decline"); });
+</script>
+</body>
+</html>

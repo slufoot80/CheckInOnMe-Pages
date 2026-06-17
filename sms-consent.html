@@ -61,22 +61,18 @@
 <h2>5. Opting Out</h2>
 <p>You can opt out at any time by replying <code>STOP</code> to any message. After you reply <code>STOP</code>, you will receive no further SMS messages from SafePulse. A user may also remove you as an emergency contact at any time within the app.</p>
 
-<h2>6. How Consent Is Obtained</h2>
-<p>Recipients are the user's own emergency contacts &mdash; people the user personally knows who have agreed to be contacted in an emergency on the user's behalf.</p>
-<ul>
-    <li>During app setup, the user selects each contact from their phone or manually enters the contact's phone number. No numbers are auto-imported or purchased.</li>
-    <li>Before any contact is saved, the app displays an explicit consent notice stating: <em>"When you miss a check-in or trigger an SOS, the app will send an SMS safety alert (including your last known location) to the contacts you add here. By tapping Agree, you confirm that you have each contact's permission to send them these SMS alerts on your behalf. Standard message &amp; data rates may apply. Recipients can reply STOP at any time to opt out."</em></li>
-    <li>The user must tap <strong>"Agree &amp; Add"</strong> to confirm they have each contact's permission before the contact is saved. Contacts are not added unless the user accepts this notice.</li>
-    <li>Messages are sent only to numbers the user has manually entered or selected, and only during a genuine safety event.</li>
-</ul>
-
-<div class="script">
-<strong>Consent script (used by SafePulse users when adding a contact):</strong><br><br>
-"I use an app called SafePulse to keep me safe. I'd like to add you as an emergency contact. If I ever miss a safety check-in or press the SOS button, the app will text you a safety alert with my name and my location so you can help. You might get message-and-data-rate charges from your carrier, and you can reply STOP anytime to stop the texts or reply HELP for help. Do you agree to be my emergency contact and receive these alerts &mdash; yes or no?"
-</div>
+<h2>6. How Consent Is Obtained (Recipient Opt-In)</h2>
+<p>Consent is given by the <strong>recipient themselves</strong> &mdash; the emergency contact &mdash; before they ever receive a safety alert. SafePulse uses an explicit, verifiable double opt-in:</p>
+<ol>
+    <li>A SafePulse user selects a person from their phone (or types in a number) they would like as an emergency contact. No numbers are auto-imported or purchased.</li>
+    <li>SafePulse sends that person a single, one-time invitation text: <em>"[Name] wants to add you as their emergency safety contact on SafePulse. If you agree to receive automated SMS safety alerts with their name and location when they miss a check-in or press SOS, tap to give consent: https://checkinonme.app/approve?t=&hellip; Msg &amp; data rates may apply. Reply STOP to opt out."</em></li>
+    <li>The person taps the link and lands on our consent page, which clearly asks: <em>"Do you agree to receive SMS text messages from SafePulse?"</em> and explains exactly what messages they will get. They tap <strong>"Yes, I agree to receive these SMS alerts"</strong> or <strong>"No, do not add me."</strong></li>
+    <li>Only if the recipient taps <strong>Yes</strong> is their consent recorded and are they added as an active contact. Until then they receive no alerts. If they tap No (or never respond), they are not added and receive nothing further.</li>
+</ol>
+<p>This consent is solely for SafePulse safety-alert SMS and is kept separate from acceptance of our Privacy Policy or Terms of Service. The recipient may withdraw consent at any time by replying <code>STOP</code> to any message.</p>
 
 <div class="highlight">
-    Only contacts who agree are added. Upon being added, the contact is enrolled to receive SafePulse safety alerts for that user and may opt out at any time by replying STOP.
+    No safety alert is ever sent to a phone number until that recipient has personally tapped "Yes, I agree to receive these SMS alerts" on the consent page above. The opt-in is collected from the message recipient, on a dedicated web page, in plain language that names SMS/text messaging explicitly.
 </div>
 
 <h2>7. Privacy &amp; Terms</h2>
