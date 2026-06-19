@@ -36,16 +36,16 @@
 <a class="home-link" href="/">&larr; Check In On Me</a>
 
 <h1>SafePulse Privacy Policy</h1>
-<p class="effective-date"><strong>Effective Date:</strong> May 5, 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> May 5, 2026</p>
+<p class="effective-date"><strong>Effective Date:</strong> May 5, 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> June 19, 2026</p>
 
 <p>SafePulse ("we", "our", "the app") is a personal safety check-in and emergency alert application developed by Frank Nowicki, and is the app behind this website, <strong>checkinonme.app</strong>. (The same app is distributed as <strong>PulseGuard</strong> on the Apple App Store and Amazon Appstore.) This Privacy Policy explains what information SafePulse accesses, how it is used, where it is stored, how long it is retained, and how you can delete it. By using SafePulse you agree to the practices described below.</p>
 
 <div class="highlight">
-    <strong>Summary:</strong> SafePulse stores all of your data locally on your own device. We do not operate any servers, do not collect analytics, and do not share or sell your data. You can delete every piece of data SafePulse holds at any time by clearing the app's storage or uninstalling the app.
+    <strong>Summary:</strong> SafePulse stores your personal data locally on your own device. We do not collect analytics and we never sell your data. Two features require sending limited information to a secure messaging gateway: (1) confirming that an emergency contact agrees to receive alerts, and (2) on Huawei devices, delivering your emergency SMS. These flows are described in Sections 4 and 5. You can delete the data SafePulse stores on your device at any time by clearing the app's storage or uninstalling the app.
 </div>
 
 <h2>1. Information SafePulse Accesses</h2>
-<p>SafePulse only accesses information that is required to provide its safety check-in and emergency alert features. All of the following is stored <strong>locally on your device</strong> in the app's private database — none of it is transmitted to us or any third-party server controlled by us.</p>
+<p>SafePulse only accesses information that is required to provide its safety check-in and emergency alert features. Most of the following is stored <strong>locally on your device</strong> in the app's private database. The limited exceptions — when emergency-contact details are sent to our messaging gateway to confirm consent or to deliver an alert — are described in Sections 4 and 5.</p>
 <ul>
     <li><strong>Your name (optional)</strong> — Used to personalize emergency alert messages sent to your contacts.</li>
     <li><strong>Emergency contacts</strong> — Names and phone numbers you choose to add. You may import these from your phone's contacts (with your permission) or enter them manually.</li>
@@ -61,13 +61,14 @@
     <li>No analytics, crash reporting SDKs, or behavioral tracking.</li>
     <li>No advertising identifiers or third-party advertising SDKs.</li>
     <li>No background location tracking.</li>
-    <li>No cloud sync — SafePulse does not operate any servers that hold your data.</li>
+    <li>No cloud sync or backup of your personal database — SafePulse does not copy your contacts, journal, history, or settings to any server. (The limited contact information used for the opt-in and alert features is covered in Sections 4 and 5.)</li>
 </ul>
 
 <h2>2. How SafePulse Uses Your Information</h2>
 <ul>
-    <li><strong>Emergency alerts:</strong> If you miss a scheduled check-in or activate the SOS button, SafePulse uses your stored emergency contacts and last known location to send SMS alerts directly from your device.</li>
-    <li><strong>SMS messages:</strong> Sent directly from your device to the phone numbers you saved as emergency contacts, using Android's SMS APIs. SafePulse never sends SMS messages on its own and never sends marketing or promotional SMS.</li>
+    <li><strong>Emergency alerts:</strong> If you miss a scheduled check-in or activate the SOS button, SafePulse uses your stored emergency contacts and last known location to send SMS alerts. On Google Play and Samsung devices, these are sent directly from your device using Android's SMS system. On Huawei devices, which restrict background SMS, alerts are delivered through our secure messaging gateway (see Sections 4 and 5).</li>
+    <li><strong>SMS content:</strong> Alert messages contain your name, a short safety message, and — if location sharing is enabled — a map link to your last known location. SafePulse never sends marketing or promotional SMS.</li>
+    <li><strong>Contact opt-in confirmation:</strong> Before SafePulse will ever send alerts to an emergency contact, that person must agree to receive them. When you add a contact, SafePulse registers a one-time invitation with our gateway and you send the contact a link from your own phone. The contact confirms on a web page, and SafePulse checks the gateway when you open the app to learn whether they agreed. A contact who has not agreed never receives any message from our gateway.</li>
     <li><strong>Phone call on SOS:</strong> When you tap the SOS button, SafePulse auto-dials the first emergency contact you saved. No call is made without your explicit SOS action.</li>
     <li><strong>Local notifications:</strong> Used to remind you of upcoming check-ins.</li>
 </ul>
@@ -90,13 +91,15 @@
 <ul>
     <li><strong>Google Play Services (FusedLocationProvider)</strong> — Used to obtain your device's location locally. SafePulse does not transmit your location to Google.</li>
     <li><strong>Google Maps link</strong> — Emergency messages contain a plain Google Maps URL with your coordinates so contacts can view your location. The link is included in the message text; SafePulse itself does not contact Google with this data.</li>
+    <li><strong>Messaging gateway (Cloudflare Workers + Twilio)</strong> — To confirm contact opt-in, and to deliver emergency SMS on Huawei devices, SafePulse uses a gateway hosted on Cloudflare Workers that sends SMS through Twilio. The following may be sent to the gateway over an encrypted (HTTPS) connection: your emergency contacts' names and phone numbers, your display name, an anonymous random device identifier (used only to rate-limit the gateway and to match opt-in responses to your app), and — when an alert is delivered through the gateway — the alert message text, including your location map link. No accounts, journal entries, mood data, or check-in history are ever sent to the gateway. See Twilio's privacy policy at <a href="https://www.twilio.com/legal/privacy">twilio.com/legal/privacy</a> and Cloudflare's at <a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a>.</li>
 </ul>
 
 <h2>5. Data Storage and Security</h2>
 <ul>
-    <li>All personal data is stored locally on your device using Android's private app storage and the Room database.</li>
-    <li>Your data never leaves your device unless <em>you</em> trigger an emergency alert, in which case the relevant message is sent directly via your phone's SMS or dialer apps to recipients you chose.</li>
-    <li>SafePulse operates no servers and has no ability to access, retrieve, or restore your data.</li>
+    <li>All personal data you create in the app — contacts, settings, check-in history, journal and mood entries — is stored locally on your device in the app's private storage and database.</li>
+    <li>This local data is never copied to a server. SafePulse cannot access, retrieve, or restore the data held on your device.</li>
+    <li>The only information that leaves your device is what is needed for the contact opt-in and emergency-alert features, sent to our messaging gateway over an encrypted (HTTPS) connection as described in Section 4.</li>
+    <li>Information held by the gateway is transient: opt-in invitation records expire automatically after 30 days, and alert message content is not retained by SafePulse after it is handed to Twilio for delivery (see Section 6).</li>
 </ul>
 
 <h2>6. Data Retention</h2>
@@ -106,7 +109,7 @@
     <li><strong>Check-in history and audit logs</strong> are retained on your device until you clear them in app settings, clear the app's storage, or uninstall SafePulse.</li>
     <li><strong>Mood and journal entries</strong> are retained until you delete the individual entries, clear the app's storage, or uninstall SafePulse.</li>
     <li><strong>Location data</strong> is retained as the most recent stored coordinate only; each new check-in overwrites the previous location. It is removed when you clear the app's storage or uninstall SafePulse.</li>
-    <li><strong>SafePulse does not store or retain any of your data on external servers.</strong> Because we never receive your data, there is no server-side copy that could persist after you delete it locally.</li>
+    <li><strong>Information sent to our messaging gateway is the only data held off your device, and it is transient.</strong> Opt-in invitation records — a contact's name and number, your display name, and an anonymous device ID — are stored only to coordinate the contact's consent and expire automatically after 30 days. Emergency-alert message content is passed to Twilio for delivery and is not stored by SafePulse. No other data (journal, mood, history, settings) is ever sent off your device.</li>
 </ul>
 
 <h2>7. How to Delete Your Data</h2>
