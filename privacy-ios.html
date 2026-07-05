@@ -36,12 +36,12 @@
 <a class="home-link" href="/">&larr; Check In On Me</a>
 
 <h1>PulseGuard Privacy Policy (iOS)</h1>
-<p class="effective-date"><strong>Effective Date:</strong> May 7, 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> June 22, 2026</p>
+<p class="effective-date"><strong>Effective Date:</strong> May 7, 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> July 5, 2026</p>
 
 <p><strong>PulseGuard</strong> is the name of the personal safety check-in and emergency alert app, developed by Frank Nowicki, on the Apple App Store. (The same product is distributed as <strong>SafePulse</strong> on Google Play.) This policy describes the privacy practices of the <strong>iOS (iPhone)</strong> version of the app. By using PulseGuard you agree to the practices described below.</p>
 
 <div class="highlight">
-    <strong>Summary:</strong> PulseGuard stores your personal data locally on your iPhone. We do not collect analytics, show ads, or sell your data. Two safety features require sending limited information to a secure messaging gateway: (1) confirming that an emergency contact agrees to receive alerts, and (2) delivering your emergency SMS, because iOS does not allow apps to send text messages silently. These flows are described in Sections 2 and 4. You can delete the data stored on your device at any time by deleting it in the app or uninstalling PulseGuard.
+    <strong>Summary:</strong> PulseGuard stores your personal data locally on your iPhone. We do not collect analytics, show ads, or sell your data. Three safety features require sending limited information to a secure messaging gateway: (1) confirming that an emergency contact agrees to receive alerts, (2) delivering your emergency SMS, because iOS does not allow apps to send text messages silently, and (3) a server-side missed-check-in safeguard that can alert your confirmed contacts even if your iPhone is locked, closed, or offline when a check-in is missed. These flows are described in Sections 2 and 4. You can delete the data stored on your device at any time by deleting it in the app or uninstalling PulseGuard.
 </div>
 
 <h2>1. Information PulseGuard Accesses</h2>
@@ -68,6 +68,7 @@
 <ul>
     <li><strong>Contact opt-in confirmation:</strong> Before PulseGuard will ever send alerts to an emergency contact, that person must agree to receive them. When you add a contact, PulseGuard registers a one-time invitation with our gateway and you send the contact a confirmation link from your own phone. The contact agrees on a web page, and PulseGuard checks the gateway when you open the app to learn whether they consented. <strong>A contact who has not agreed never receives any alert.</strong></li>
     <li><strong>Emergency alerts:</strong> If you miss a scheduled check-in or activate the SOS button, PulseGuard sends an SMS alert to your confirmed emergency contacts. Because iOS does not permit apps to send SMS silently in the background, these alerts are delivered through our secure messaging gateway (see Section 4).</li>
+    <li><strong>Server-side missed-check-in safeguard:</strong> iOS cannot reliably run an app in the background at an exact time, so to make sure a genuinely missed check-in still reaches your contacts, each time you check in PulseGuard sends the gateway your <em>next</em> check-in deadline together with your confirmed contacts and the alert message. If that deadline passes without a newer check-in, the gateway sends the alert on your behalf &mdash; even if your iPhone is locked, closed, out of battery, or offline. Checking in again (or disabling the timer, snoozing, or changing your interval) updates or cancels this pending safeguard. Only contacts who have opted in are ever included.</li>
     <li><strong>SMS content:</strong> Alert messages contain your name, a short safety message, and — if location sharing is enabled — a map link to your last known location. PulseGuard never sends marketing or promotional messages.</li>
     <li><strong>Phone call on SOS:</strong> When you tap the SOS button, PulseGuard can auto-dial the first emergency contact you saved. No call is made without your explicit SOS action.</li>
     <li><strong>Local notifications:</strong> Used to remind you of upcoming check-ins.</li>
@@ -83,7 +84,7 @@
 
 <h2>4. Third-Party Services</h2>
 <ul>
-    <li><strong>Messaging gateway (Cloudflare Workers + Twilio)</strong> — To confirm contact opt-in and to deliver emergency SMS on iPhone, PulseGuard uses a gateway hosted on Cloudflare Workers that sends SMS through Twilio. The following may be sent to the gateway over an encrypted (HTTPS) connection: your emergency contacts' names and phone numbers, your display name, an anonymous random device identifier (used only to rate-limit the gateway and to match opt-in responses to your app), and — when an alert fires — the alert message text, including your location map link. No accounts, journal entries, mood data, or check-in history are ever sent to the gateway. See Twilio's privacy policy at <a href="https://www.twilio.com/legal/privacy">twilio.com/legal/privacy</a> and Cloudflare's at <a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a>.</li>
+    <li><strong>Messaging gateway (Cloudflare Workers + Twilio)</strong> — To confirm contact opt-in, to deliver emergency SMS on iPhone, and to run the server-side missed-check-in safeguard, PulseGuard uses a gateway hosted on Cloudflare Workers that sends SMS through Twilio. The following may be sent to the gateway over an encrypted (HTTPS) connection: your emergency contacts' names and phone numbers, your display name, an anonymous random device identifier (used only to rate-limit the gateway and to match opt-in responses to your app), your upcoming check-in deadline, and the alert message text, including your location map link. For the missed-check-in safeguard, the gateway briefly stores your next deadline together with your confirmed contacts' numbers and the alert message so it can send the alert if the deadline passes while your phone is offline; this record is automatically removed once you check in again or shortly after the deadline (see Sections 5 and 6). No accounts, journal entries, mood data, or check-in history are ever sent to the gateway. See Twilio's privacy policy at <a href="https://www.twilio.com/legal/privacy">twilio.com/legal/privacy</a> and Cloudflare's at <a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a>.</li>
     <li><strong>Apple location services</strong> — Used to obtain your device's location locally on your iPhone. PulseGuard does not transmit your location to Apple.</li>
     <li><strong>Google Maps link</strong> — Emergency messages contain a plain Google Maps URL with your coordinates so contacts can view your location. The link is only text inside the message.</li>
 </ul>
@@ -93,20 +94,20 @@
     <li>All personal data you create in the app — contacts, settings, check-in history, journal and mood entries — is stored locally on your iPhone in the app's private storage.</li>
     <li>This local data is never copied to a server. PulseGuard cannot access, retrieve, or restore the data held on your device.</li>
     <li>The only information that leaves your device is what is needed for the contact opt-in and emergency-alert features, sent to our messaging gateway over an encrypted (HTTPS) connection as described in Section 4.</li>
-    <li>Information held by the gateway is transient: opt-in invitation records expire automatically after 30 days, and alert message content is not retained by PulseGuard after it is handed to Twilio for delivery.</li>
+    <li>Information held by the gateway is transient: opt-in invitation records expire automatically after 30 days; a pending missed-check-in safeguard record (your next deadline, confirmed contacts, and alert message) is held only until you check in again or shortly after the deadline passes, then automatically deleted; and alert message content is not otherwise retained after it is handed to Twilio for delivery.</li>
 </ul>
 
 <h2>6. Data Retention</h2>
 <ul>
     <li><strong>On your device:</strong> Emergency contacts, preferences, check-in settings, history, audit logs, and journal/mood entries are retained until you delete them in the app or uninstall PulseGuard. Location is kept only as the single most recent coordinate, overwritten on each new check-in.</li>
-    <li><strong>On the gateway (the only data held off your device):</strong> Opt-in invitation records — a contact's name and number, your display name, and an anonymous device ID — are stored only to coordinate the contact's consent and expire automatically after 30 days. Emergency-alert message content is passed to Twilio for delivery and is not stored by PulseGuard. No other data is ever sent off your device.</li>
+    <li><strong>On the gateway (the only data held off your device):</strong> Opt-in invitation records — a contact's name and number, your display name, and an anonymous device ID — are stored only to coordinate the contact's consent and expire automatically after 30 days. A missed-check-in safeguard record — your next check-in deadline, your confirmed contacts' numbers, your display name, and the alert message (including any location link) — is stored only while a check-in is pending: it is deleted as soon as you check in again, and otherwise expires automatically within about two days of the deadline. Emergency-alert message content is otherwise passed to Twilio for delivery and is not stored by PulseGuard. No other data is ever sent off your device.</li>
 </ul>
 
 <h2>7. How to Delete Your Data</h2>
 <ol>
     <li><strong>Delete individual items inside PulseGuard</strong> — Open the app, go to <em>Contacts</em>, <em>Journal</em>, or <em>Settings</em>, and delete the specific entries you no longer want.</li>
     <li><strong>Uninstall PulseGuard</strong> — Deleting the app from your iPhone removes all locally stored PulseGuard data.</li>
-    <li><strong>Opt-in records</strong> held by the gateway expire automatically after 30 days; a contact can also reply STOP to opt out at any time.</li>
+    <li><strong>Opt-in records</strong> held by the gateway expire automatically after 30 days; a contact can also reply STOP to opt out at any time. <strong>The pending missed-check-in safeguard record</strong> is cleared as soon as you check in, disable the timer, or delete the contact, and otherwise expires on its own shortly after the deadline.</li>
 </ol>
 
 <h2>8. Children's Privacy</h2>
