@@ -384,33 +384,57 @@
     var b = document.getElementById('soundToggle');
     if (!v || !b) return;
 
+    var gestures = ['pointerdown', 'touchstart', 'keydown', 'scroll'];
+    var audiblePassStarted = false;
+
     function sync() {
         b.innerHTML = v.muted ? '&#128263;' : '&#128266;';
         b.setAttribute('aria-label', v.muted ? 'Unmute video' : 'Mute video');
     }
-    function unmute() {
+
+    // Play the hook once with sound from the start, then fall back to a silent loop.
+    function playAudibleOnce() {
+        audiblePassStarted = true;
+        v.loop = false;
         v.muted = false;
+        try { v.currentTime = 0; } catch (e) {}
         v.play().catch(function () {});
         sync();
     }
+
+    // When that single audible pass finishes, re-mute and resume looping silently.
+    v.addEventListener('ended', function () {
+        v.muted = true;
+        v.loop = true;
+        v.play().catch(function () {});
+        sync();
+    });
+
+    // Manual speaker button / video click: straightforward mute toggle (keeps looping).
     function toggle(e) {
         if (e) e.stopPropagation();
         v.muted = !v.muted;
+        v.loop = true;
         if (!v.muted) { v.play().catch(function () {}); }
         sync();
     }
-
     b.addEventListener('click', toggle);
     v.addEventListener('click', toggle);
 
-    // Browsers block sound-on autoplay until the visitor interacts. Unmute on
-    // the first gesture anywhere on the page so sound starts as early as allowed.
-    var gestures = ['pointerdown', 'touchstart', 'keydown', 'scroll'];
-    function onFirstGesture() {
+    // Browsers block sound-on autoplay until the visitor interacts. On their first
+    // gesture anywhere on the page, play the hook once with sound (skip if the
+    // gesture targeted the video/button, which have their own toggle).
+    function removeGestureListeners() {
         gestures.forEach(function (ev) {
             window.removeEventListener(ev, onFirstGesture, true);
         });
-        if (v.muted) unmute();
+    }
+    function onFirstGesture(e) {
+        removeGestureListeners();
+        if (audiblePassStarted) return;
+        var t = e && e.target;
+        if (t === v || t === b || (t && t.closest && t.closest('#soundToggle'))) return;
+        if (v.muted) playAudibleOnce();
     }
     gestures.forEach(function (ev) {
         window.addEventListener(ev, onFirstGesture, { capture: true, passive: true });
