@@ -383,9 +383,15 @@
     var v = document.getElementById('hookVideo');
     var b = document.getElementById('soundToggle');
     if (!v || !b) return;
+
     function sync() {
         b.innerHTML = v.muted ? '&#128263;' : '&#128266;';
         b.setAttribute('aria-label', v.muted ? 'Unmute video' : 'Mute video');
+    }
+    function unmute() {
+        v.muted = false;
+        v.play().catch(function () {});
+        sync();
     }
     function toggle(e) {
         if (e) e.stopPropagation();
@@ -393,8 +399,23 @@
         if (!v.muted) { v.play().catch(function () {}); }
         sync();
     }
+
     b.addEventListener('click', toggle);
     v.addEventListener('click', toggle);
+
+    // Browsers block sound-on autoplay until the visitor interacts. Unmute on
+    // the first gesture anywhere on the page so sound starts as early as allowed.
+    var gestures = ['pointerdown', 'touchstart', 'keydown', 'scroll'];
+    function onFirstGesture() {
+        gestures.forEach(function (ev) {
+            window.removeEventListener(ev, onFirstGesture, true);
+        });
+        if (v.muted) unmute();
+    }
+    gestures.forEach(function (ev) {
+        window.addEventListener(ev, onFirstGesture, { capture: true, passive: true });
+    });
+
     sync();
 })();
 </script>
