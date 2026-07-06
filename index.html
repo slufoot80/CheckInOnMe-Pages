@@ -49,11 +49,32 @@
         nav .nav-links a:hover { color: #2e7d32; }
 
         .hero {
-            text-align: center;
             padding: 5rem 2rem 4rem;
             background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 45%, #4caf50 100%);
             color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
         }
+        .hero-content { text-align: center; max-width: 560px; min-width: 0; }
+
+        /* Phone-framed vertical video (reels are 9:16) */
+        .phone {
+            flex-shrink: 0;
+            width: 250px;
+            border-radius: 34px;
+            overflow: hidden;
+            border: 8px solid #10241a;
+            box-shadow: 0 22px 55px rgba(0,0,0,0.35);
+            background: #000;
+            line-height: 0;
+        }
+        .phone video { width: 100%; height: auto; display: block; aspect-ratio: 9 / 16; object-fit: cover; background: #000; }
+
+        .video-section { text-align: center; }
+        .video-section .phone { margin: 1.5rem auto 0; box-shadow: 0 22px 55px rgba(0,0,0,0.18); border-color: #1a1a2e; }
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
@@ -181,12 +202,14 @@
         footer a:hover { text-decoration: underline; }
 
         @media (max-width: 600px) {
+            .hero { padding: 3.5rem 1.25rem; gap: 2rem; }
+            .hero-content { max-width: 100%; }
             .hero h1 { font-size: 2.2rem; }
             .hero .tagline { font-size: 1.05rem; }
             section { padding: 3rem 1.25rem; }
             nav { flex-direction: column; gap: 0.5rem; padding: 0.6rem 1rem; }
             nav .logo { font-size: 1.25rem; }
-            nav .nav-links { gap: 1.5rem; font-size: 0.9rem; }
+            nav .nav-links { gap: 1.1rem; font-size: 0.9rem; flex-wrap: wrap; justify-content: center; max-width: 100%; }
         }
     </style>
 </head>
@@ -203,11 +226,16 @@
 </nav>
 
 <section class="hero">
-    <h1>Someone should always know you're okay.</h1>
-    <p class="tagline">Check In On Me is the home of <strong>SafePulse</strong> &mdash; a personal safety check-in app. Set a timer, and if you don't check in, SafePulse alerts your trusted contacts with your last known location.</p>
-    <div class="cta">
-        <a href="#download" class="btn btn-primary">Get SafePulse</a>
-        <a href="#how" class="btn btn-ghost">How it works</a>
+    <div class="hero-content">
+        <h1>Someone should always know you're okay.</h1>
+        <p class="tagline">Check In On Me is the home of <strong>SafePulse</strong> &mdash; a personal safety check-in app. Set a timer, and if you don't check in, SafePulse alerts your trusted contacts with your last known location.</p>
+        <div class="cta">
+            <a href="#download" class="btn btn-primary">Get SafePulse</a>
+            <a href="#watch" class="btn btn-ghost">How it works</a>
+        </div>
+    </div>
+    <div class="phone">
+        <video src="/video/safepulse-hook.mp4" autoplay muted loop playsinline aria-label="SafePulse app preview"></video>
     </div>
 </section>
 
@@ -274,6 +302,14 @@
                 <p>SafePulse warns you first &mdash; it vibrates and opens the app so you can tap &ldquo;I'm OK.&rdquo; If you still don't respond, your trusted contacts get a text (and an optional call) with your last known location &mdash; repeating about every 30 minutes until you check in.</p>
             </div>
         </div>
+    </div>
+</section>
+
+<section class="video-section" id="watch">
+    <h2>See SafePulse in action</h2>
+    <p class="section-sub">A quick walkthrough of setting a check-in, adding trusted contacts, and what happens if you don't respond.</p>
+    <div class="phone">
+        <video src="/video/safepulse-demo.mp4" controls preload="none" playsinline poster="/video/safepulse-demo-poster.jpg" aria-label="SafePulse full demo video"></video>
     </div>
 </section>
 
