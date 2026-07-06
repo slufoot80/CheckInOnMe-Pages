@@ -70,8 +70,30 @@
             box-shadow: 0 22px 55px rgba(0,0,0,0.35);
             background: #000;
             line-height: 0;
+            position: relative;
         }
-        .phone video { width: 100%; height: auto; display: block; aspect-ratio: 9 / 16; object-fit: cover; background: #000; }
+        .phone video { width: 100%; height: auto; display: block; aspect-ratio: 9 / 16; object-fit: cover; background: #000; cursor: pointer; }
+        .sound-toggle {
+            position: absolute;
+            bottom: 14px;
+            right: 14px;
+            z-index: 2;
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.55);
+            color: #fff;
+            font-size: 1.15rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .sound-toggle:hover { background: rgba(0,0,0,0.78); transform: scale(1.08); }
 
         .video-section { text-align: center; }
         .video-section .phone { margin: 1.5rem auto 0; box-shadow: 0 22px 55px rgba(0,0,0,0.18); border-color: #1a1a2e; }
@@ -235,7 +257,8 @@
         </div>
     </div>
     <div class="phone">
-        <video src="/video/safepulse-hook.mp4" autoplay muted loop playsinline aria-label="SafePulse app preview"></video>
+        <video id="hookVideo" src="/video/safepulse-hook.mp4" autoplay muted loop playsinline aria-label="SafePulse app preview"></video>
+        <button class="sound-toggle" id="soundToggle" type="button" aria-label="Unmute video">&#128263;</button>
     </div>
 </section>
 
@@ -355,5 +378,25 @@
     <p style="margin-top: 0.5rem;">SafePulse&trade; and PulseGuard&trade; are brands of Frank Nowicki. &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></p>
 </footer>
 
+<script>
+(function () {
+    var v = document.getElementById('hookVideo');
+    var b = document.getElementById('soundToggle');
+    if (!v || !b) return;
+    function sync() {
+        b.innerHTML = v.muted ? '&#128263;' : '&#128266;';
+        b.setAttribute('aria-label', v.muted ? 'Unmute video' : 'Mute video');
+    }
+    function toggle(e) {
+        if (e) e.stopPropagation();
+        v.muted = !v.muted;
+        if (!v.muted) { v.play().catch(function () {}); }
+        sync();
+    }
+    b.addEventListener('click', toggle);
+    v.addEventListener('click', toggle);
+    sync();
+})();
+</script>
 </body>
 </html>
