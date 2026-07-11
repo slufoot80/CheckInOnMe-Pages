@@ -7,20 +7,41 @@
     <title>SafePulse / PulseGuard Terms of Service &mdash; Check In On Me</title>
     <link rel="canonical" href="https://checkinonme.app/terms">
     <style>
+        html {
+            background-color: #ffffff;
+            background-image:
+                radial-gradient(1000px 440px at 50% -120px, rgba(76,175,80,0.12), transparent 68%),
+                linear-gradient(180deg, #ffffff 0%, #eef7f0 100%);
+            background-attachment: fixed;
+            min-height: 100%;
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            max-width: 820px;
-            margin: 0 auto;
-            padding: 24px 20px 60px;
+            max-width: 860px;
+            margin: 28px auto 48px;
+            padding: 40px 44px 52px;
             line-height: 1.65;
             color: #222;
-            background: #fff;
+            background:
+                linear-gradient(90deg, #2e7d32, #66bb6a) top left / 100% 5px no-repeat,
+                #ffffff;
+            border: 1px solid rgba(46,125,50,0.10);
+            border-radius: 16px;
+            box-shadow: 0 12px 44px rgba(27,94,32,0.10);
         }
         h1 { color: #1a1a2e; margin-bottom: 4px; }
         h2 { color: #16213e; margin-top: 36px; border-bottom: 1px solid #eee; padding-bottom: 6px; font-size: 1.35em; }
         h3 { color: #16213e; margin-top: 22px; font-size: 1.1em; }
         .effective-date { color: #666; font-style: italic; margin-bottom: 24px; }
-        .home-link { display: inline-block; margin-bottom: 18px; color: #1a5d1a; text-decoration: none; font-weight: 600; }
+        .home-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-bottom: 22px; padding: 7px 15px;
+            background: #e8f5e9; color: #1b5e20;
+            border-radius: 50px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .home-link:hover { background: #c8e6c9; }
         ul { padding-left: 22px; }
         li { margin-bottom: 8px; }
         .critical {
@@ -45,6 +66,9 @@
         code { background: #f4f6f8; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
         a { color: #1a5d1a; }
         .all-caps { text-transform: uppercase; font-weight: 600; }
+        @media (max-width: 600px) {
+            body { margin: 0; border-radius: 0; border-left: 0; border-right: 0; padding: 30px 20px 44px; }
+        }
     </style>
 </head>
 <body>
@@ -243,7 +267,7 @@
 Independent Software Developer<br>
 United States</p>
 
-<p style="margin-top: 48px; text-align: center; color: #888; font-size: 13px;">&copy; 2026 Frank Nowicki. All rights reserved. SafePulse&trade; and PulseGuard&trade; are brands of Frank Nowicki. &middot; <a href="/">checkinonme.app</a> &middot; <a href="/privacy">Privacy</a></p>
+<p style="margin-top: 48px; text-align: center; color: #888; font-size: 13px;">&copy; 2026 Frank Nowicki. All rights reserved. SafePulse&trade; and PulseGuard&trade; are brands of Frank Nowicki. &middot; <a href="/">checkinonme.app</a> &middot; <a href="/privacy">Privacy Policy</a></p>
 
 </body>
 </html>
