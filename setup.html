@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>SafePulse / PulseGuard Setup Guide &mdash; Check In On Me</title>
+    <meta name="description" content="Step-by-step setup guide for SafePulse / PulseGuard on iPhone: turn on check-ins, add your name, and invite your emergency contacts.">
+    <link rel="canonical" href="https://checkinonme.app/setup">
+    <style>
+        html {
+            background-color: #ffffff;
+            background-image:
+                radial-gradient(1000px 440px at 50% -120px, rgba(76,175,80,0.12), transparent 68%),
+                linear-gradient(180deg, #ffffff 0%, #eef7f0 100%);
+            background-attachment: fixed;
+            min-height: 100%;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            max-width: 760px;
+            margin: 28px auto 48px;
+            padding: 40px 44px 52px;
+            line-height: 1.65;
+            color: #222;
+            background:
+                linear-gradient(90deg, #2e7d32, #66bb6a) top left / 100% 5px no-repeat,
+                #ffffff;
+            border: 1px solid rgba(46,125,50,0.10);
+            border-radius: 16px;
+            box-shadow: 0 12px 44px rgba(27,94,32,0.10);
+        }
+        h1 { color: #1a1a2e; margin-bottom: 4px; }
+        .subtitle { color: #666; margin-bottom: 28px; font-size: 1.05em; }
+        h2 {
+            color: #16213e; margin-top: 40px; border-bottom: 1px solid #eee;
+            padding-bottom: 6px; font-size: 1.3em;
+        }
+        .home-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-bottom: 22px; padding: 7px 15px;
+            background: #e8f5e9; color: #1b5e20;
+            border-radius: 50px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .home-link:hover { background: #c8e6c9; }
+        ol.steps { padding-left: 0; list-style: none; counter-reset: step; }
+        ol.steps > li {
+            position: relative;
+            margin: 0 0 16px;
+            padding: 14px 18px 14px 58px;
+            background: #f6faf6;
+            border: 1px solid rgba(46,125,50,0.10);
+            border-radius: 12px;
+        }
+        ol.steps > li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute; left: 14px; top: 13px;
+            width: 30px; height: 30px;
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+            color: #fff; font-weight: 700;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.95em;
+        }
+        .btn { font-weight: 700; color: #1b5e20; }
+        .hint { color: #666; font-size: 0.92em; display: block; margin-top: 4px; }
+        .highlight {
+            background: #f1f8e9;
+            border-left: 4px solid #4caf50;
+            padding: 14px 18px;
+            margin: 22px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .critical {
+            background: #ffebee;
+            border-left: 4px solid #c62828;
+            padding: 14px 18px;
+            margin: 22px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        a { color: #1a5d1a; }
+        @media (max-width: 600px) {
+            body { margin: 0; border-radius: 0; border-left: 0; border-right: 0; padding: 30px 20px 44px; }
+        }
+    </style>
+</head>
+<body>
+
+<a class="home-link" href="/">&larr; Check In On Me</a>
+
+<h1>Setup Guide</h1>
+<p class="subtitle">Get SafePulse / PulseGuard up and running on your iPhone in a few minutes.</p>
+
+<div class="critical">
+    <strong>Important:</strong> SafePulse is a personal check-in tool &mdash; it is <strong>not</strong> an emergency service and does not contact 911. If you or someone else is in immediate danger, call your local emergency number right away.
+</div>
+
+<h2>After installing</h2>
+<ol class="steps">
+    <li>Tap <span class="btn">Allow</span> on the &ldquo;SafePulse Would Like to Send You Notifications&rdquo; popup.</li>
+    <li>Tap <span class="btn">Get Started</span>.</li>
+    <li>Choose <span class="btn">how often to check in</span> (30 minutes &ndash; 48 hours), then tap <span class="btn">Continue</span>.</li>
+    <li>Type in your <span class="btn">full name</span>, then tap <span class="btn">Continue</span>.
+        <span class="hint">Your name is shown to your contacts so they know who an alert is from &mdash; for example, &ldquo;Frank needs help.&rdquo;</span></li>
+    <li>Tap <span class="btn">Allow Access</span> (gold button), then tap <span class="btn">Continue</span>.</li>
+    <li>Toggle on <span class="btn">Include Location</span>.</li>
+    <li>Tap <span class="btn">Allow While Using App</span> for location.</li>
+    <li>Tap <span class="btn">Enable &amp; Start</span>.</li>
+</ol>
+
+<h2>Add your emergency contacts</h2>
+<ol class="steps">
+    <li>Go to the <span class="btn">Contacts</span> tab on the main screen.</li>
+    <li>Tap <span class="btn">PICK FROM CONTACTS</span>.
+        <span class="hint">Or tap <strong>ADD MANUALLY</strong> to type a name, phone number, and optional email.</span></li>
+    <li>Select the contact(s) you want, then tap <span class="btn">DONE</span>.</li>
+    <li>Tap the green <span class="btn">paper-airplane</span> button next to the contact.</li>
+    <li>Your <span class="btn">Messages</span> app opens with the request pre-filled &mdash; <span class="btn">tap Send</span>.
+        <span class="hint">The request comes from your own phone number, so your contact recognizes it.</span></li>
+    <li>Once your contact approves, they change from <span class="btn">Pending</span> to <span class="btn">Approved</span> automatically &mdash; and they'll now receive your safety alerts.</li>
+</ol>
+
+<div class="highlight">
+    <strong>Contacts outside the US or Canada?</strong> Add an <strong>email</strong> to that contact (tap the &#9998; pencil on the contact, enter their email, and Save). Alerts are then delivered by both text message and email, so they arrive even where the US text number can't reach.
+</div>
+
+<h2>Good to know</h2>
+<ul>
+    <li><strong>Change anything later</strong> from the <strong>Settings</strong> tab &mdash; your name, check-in interval, and alert methods.</li>
+    <li><strong>How alerts work:</strong> if you don't check in before your deadline, your approved contacts are alerted automatically by text (and email, if set) with your name and location.</li>
+    <li><strong>SOS:</strong> press the red <strong>SOS</strong> button any time to alert everyone instantly.</li>
+    <li><strong>Test it first:</strong> add yourself or a trusted contact and run a test so you know alerts arrive before you rely on it.</li>
+</ul>
+
+<p style="margin-top: 48px; text-align: center; color: #888; font-size: 13px;">&copy; 2026 Frank Nowicki. All rights reserved. SafePulse&trade; and PulseGuard&trade; are brands of Frank Nowicki. &middot; <a href="/">checkinonme.app</a> &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms</a></p>
+
+</body>
+</html>
