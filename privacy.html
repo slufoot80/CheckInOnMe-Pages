@@ -60,16 +60,22 @@
 <a class="home-link" href="/">&larr; Check In On Me</a>
 
 <h1>SafePulse Privacy Policy</h1>
-<p class="effective-date"><strong>Effective Date:</strong> May 5, 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> May 5, 2026</p>
+<p class="effective-date"><strong>Effective Date:</strong> May 5, 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> July 22, 2026</p>
 
 <p>SafePulse ("we", "our", "the app") is a personal safety check-in and emergency alert application developed by Frank Nowicki, and is the app behind this website, <strong>checkinonme.app</strong>. (The same app is distributed as <strong>PulseGuard</strong> on the Apple App Store and Amazon Appstore.) This Privacy Policy explains what information SafePulse accesses, how it is used, where it is stored, how long it is retained, and how you can delete it. By using SafePulse you agree to the practices described below.</p>
 
 <div class="highlight">
-    <strong>Summary:</strong> SafePulse stores all of your data locally on your own device. We do not operate any servers, do not collect analytics, and do not share or sell your data. You can delete every piece of data SafePulse holds at any time by clearing the app's storage or uninstalling the app.
+    <strong>Summary:</strong> SafePulse stores your data locally on your own device, collects no analytics, and never shares or sells your data. On the <strong>on-device editions</strong> (Google Play, Samsung Galaxy Store, Huawei AppGallery) nothing is transmitted to us at all. On the <strong>cloud-assisted editions</strong> (PulseGuard on Amazon Fire tablets, and the iOS app), the limited information needed to deliver your alerts is sent to our secure messaging gateway — and only for that purpose (see Section&nbsp;10). You can delete every piece of data SafePulse holds at any time.
 </div>
 
+<h2>Which edition do you have?</h2>
+<ul>
+    <li><strong>On-device editions — SafePulse on Google Play, Samsung Galaxy Store, and Huawei AppGallery.</strong> Alerts are sent directly from your own phone. Sections 1&ndash;9 below describe these editions completely: nothing is ever transmitted to us or any server we control.</li>
+    <li><strong>Cloud-assisted editions — PulseGuard on the Amazon Appstore (Fire tablets) and the iOS app.</strong> These devices cannot send SMS themselves, so alerts are delivered through our secure messaging gateway — which also lets alerts go out even when your device is dead or off. Sections 1&ndash;9 apply to these editions too, with the additional disclosures in <strong>Section&nbsp;10</strong> (see also the <a href="/privacy-ios">iOS-specific policy</a>).</li>
+</ul>
+
 <h2>1. Information SafePulse Accesses</h2>
-<p>SafePulse only accesses information that is required to provide its safety check-in and emergency alert features. All of the following is stored <strong>locally on your device</strong> in the app's private database — none of it is transmitted to us or any third-party server controlled by us.</p>
+<p>SafePulse only accesses information that is required to provide its safety check-in and emergency alert features. All of the following is stored <strong>locally on your device</strong> in the app's private database. On the on-device editions, none of it is transmitted to us or any third-party server controlled by us; on the cloud-assisted editions, only the limited items described in Section&nbsp;10 leave your device, solely to deliver your alerts.</p>
 <ul>
     <li><strong>Your name (optional)</strong> — Used to personalize emergency alert messages sent to your contacts.</li>
     <li><strong>Emergency contacts</strong> — Names and phone numbers you choose to add. You may import these from your phone's contacts (with your permission) or enter them manually.</li>
@@ -154,10 +160,19 @@
     <li><strong>Withdraw consent:</strong> Disable any permission at any time in Android Settings &rarr; Apps &rarr; SafePulse &rarr; Permissions.</li>
 </ul>
 
-<h2>10. Changes to This Policy</h2>
+<h2>10. Cloud-Assisted Editions (PulseGuard on Amazon Fire Tablets, and iOS)</h2>
+<p>Fire tablets and iPhones cannot send SMS messages from the device itself, so these editions deliver alerts through our secure messaging gateway. This is also what allows the missed-check-in safeguard to work <em>even when your device is dead, off, or offline</em>. For these editions only, the following limited information leaves your device, over an encrypted (HTTPS) connection, solely to operate the features below:</p>
+<ul>
+    <li><strong>Contact opt-in (consent) records</strong> — When you invite an emergency contact, their name and phone number, your display name, and a one-time token are registered with the gateway so the contact can view and answer the consent request. You deliver the invitation link personally; our toll-free number never texts anyone who has not opted in. Opt-in records expire automatically after 30 days, and a contact can reply STOP at any time to opt out.</li>
+    <li><strong>Alert delivery</strong> — When an alert is triggered, the alert text (your name, your callback number, and a Google&nbsp;Maps location link), your confirmed contacts' phone numbers, and any email addresses you added for them are sent to the gateway, which delivers the alert by SMS (via Twilio, from our toll-free number) and by email (via Cloudflare, from alerts@checkinonme.app). Alert content is not retained after it is handed off for delivery. Text delivery is available to US and Canadian numbers; email delivery is available worldwide.</li>
+    <li><strong>Missed-check-in safeguard</strong> — Your next check-in deadline, confirmed contacts, and the prepared alert message are held by the gateway only until you check in again (each check-in replaces the record) or shortly after the deadline passes, and are then automatically deleted.</li>
+    <li><strong>Service providers</strong> — Twilio, Inc. (SMS delivery) and Cloudflare, Inc. (gateway hosting and email delivery) process this information solely to deliver your alerts. We do not sell it, use it for advertising, or share it for any other purpose.</li>
+</ul>
+
+<h2>11. Changes to This Policy</h2>
 <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last Updated" date at the top of this page. Material changes will be communicated through the app where reasonably possible.</p>
 
-<h2>11. Contact</h2>
+<h2>12. Contact</h2>
 <p>If you have any questions about this Privacy Policy or how SafePulse handles your information, please contact:</p>
 <p><strong>Email:</strong> <a href="mailto:checkinonme@checkinonme.app">checkinonme@checkinonme.app</a><br>
 <strong>Developer:</strong> Frank Nowicki</p>
