@@ -48,6 +48,17 @@
         .fine a { color: #1a5d1a; }
         .result { text-align: center; padding: 12px 0; }
         .result h2 { color: #1a5d1a; }
+        .savenum {
+            background: #f1f8e9;
+            border-radius: 10px;
+            padding: 16px;
+            margin-top: 18px;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+        .savenum .num { color: #1a5d1a; font-weight: 700; text-decoration: none; }
+        .savenum .btn { text-decoration: none; text-align: center; box-sizing: border-box; margin-top: 14px; }
+        .savenum .fine { display: block; margin-top: 10px; }
         .hidden { display: none; }
         .spinner { text-align: center; color: #888; padding: 30px 0; }
     </style>
@@ -63,7 +74,8 @@
         <div class="consent">
             <strong>Do you agree to receive SMS text messages from SafePulse?</strong><br><br>
             If you tap <strong>Yes</strong>, you consent to receive automated SMS text-message safety
-            alerts from SafePulse &mdash; sent only when <span id="sender2">this person</span> misses a
+            alerts from SafePulse, sent from <strong>+1&nbsp;(888)&nbsp;423-5823</strong> &mdash; only when
+            <span id="sender2">this person</span> misses a
             safety check-in or presses the SOS button. Each alert includes their name and last known
             location so you can help. During an event these alerts repeat about every 30 minutes until
             they check in, so you may receive several messages. Message frequency varies (event-driven).
@@ -136,7 +148,12 @@
                 if (res.j.status === "accepted") {
                     document.getElementById("done").innerHTML =
                         "<h2>You're confirmed ✅</h2><p>Thank you. You'll receive SafePulse safety " +
-                        "alerts only during a genuine emergency. Reply STOP to any alert to opt out anytime.</p>";
+                        "alerts only during a genuine emergency. Reply STOP to any alert to opt out anytime.</p>" +
+                        "<div class='savenum'><strong>One more step — save our number:</strong><br>" +
+                        "Alerts come from <a href='tel:+18884235823' class='num'>+1 (888) 423-5823</a>.<br>" +
+                        "Save it to your contacts so an emergency alert is never blocked or sent to spam." +
+                        "<a class='btn btn-yes' href='/safepulse-alerts.vcf' download>Add SafePulse to my contacts</a>" +
+                        "<span class='fine'>We just texted you from that number too, so you can save it straight from the message.</span></div>";
                 } else {
                     document.getElementById("done").innerHTML =
                         "<h2>Got it</h2><p>You declined. You will not be added and will not receive alerts.</p>";
