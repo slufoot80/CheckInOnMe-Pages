@@ -65,13 +65,13 @@
 <p>SafePulse ("we", "our", "the app") is a personal safety check-in and emergency alert application developed by Frank Nowicki, and is the app behind this website, <strong>checkinonme.app</strong>. (The same app is distributed as <strong>PulseGuard</strong> on the Apple App Store and Amazon Appstore.) This Privacy Policy explains what information SafePulse accesses, how it is used, where it is stored, how long it is retained, and how you can delete it. By using SafePulse you agree to the practices described below.</p>
 
 <div class="highlight">
-    <strong>Summary:</strong> SafePulse stores your data locally on your own device, collects no analytics, and never shares or sells your data. On the <strong>on-device editions</strong> (Google Play, Samsung Galaxy Store, Huawei AppGallery) nothing is transmitted to us at all. On the <strong>cloud-assisted editions</strong> (PulseGuard on Amazon Fire tablets, and the iOS app), the limited information needed to deliver your alerts is sent to our secure messaging gateway — and only for that purpose (see Section&nbsp;10). You can delete every piece of data SafePulse holds at any time.
+    <strong>Summary:</strong> SafePulse stores your data locally on your own device, collects no analytics, and never shares or sells your data. On the <strong>on-device editions</strong> (Samsung Galaxy Store, Huawei AppGallery) nothing is transmitted to us at all. On the <strong>cloud-assisted editions</strong> (SafePulse on Google Play, PulseGuard on Amazon Fire tablets, and the iOS app), the limited information needed to deliver your alerts is sent to our secure messaging gateway — and only for that purpose (see Section&nbsp;10). You can delete every piece of data SafePulse holds at any time.
 </div>
 
 <h2>Which edition do you have?</h2>
 <ul>
-    <li><strong>On-device editions — SafePulse on Google Play, Samsung Galaxy Store, and Huawei AppGallery.</strong> Alerts are sent directly from your own phone. Sections 1&ndash;9 below describe these editions completely: nothing is ever transmitted to us or any server we control.</li>
-    <li><strong>Cloud-assisted editions — PulseGuard on the Amazon Appstore (Fire tablets) and the iOS app.</strong> These devices cannot send SMS themselves, so alerts are delivered through our secure messaging gateway — which also lets alerts go out even when your device is dead or off. Sections 1&ndash;9 apply to these editions too, with the additional disclosures in <strong>Section&nbsp;10</strong> (see also the <a href="/privacy-ios">iOS-specific policy</a>).</li>
+    <li><strong>On-device editions — SafePulse on Samsung Galaxy Store and Huawei AppGallery.</strong> Alerts are sent directly from your own phone. Sections 1&ndash;9 below describe these editions completely: nothing is ever transmitted to us or any server we control.</li>
+    <li><strong>Cloud-assisted editions — SafePulse on Google Play, PulseGuard on the Amazon Appstore (Fire tablets), and the iOS app.</strong> Alerts are delivered through our secure messaging gateway, which lets alerts go out even when your device is dead or off. (On Amazon Fire tablets and iPhones the gateway is also necessary because those devices cannot send SMS themselves.) Sections 1&ndash;9 apply to these editions too, with the additional disclosures in <strong>Section&nbsp;10</strong> (see also the <a href="/privacy-ios">iOS-specific policy</a>).</li>
 </ul>
 
 <h2>1. Information SafePulse Accesses</h2>
@@ -96,8 +96,8 @@
 
 <h2>2. How SafePulse Uses Your Information</h2>
 <ul>
-    <li><strong>Emergency alerts:</strong> If you miss a scheduled check-in or activate the SOS button, SafePulse uses your stored emergency contacts and last known location to send SMS alerts directly from your device.</li>
-    <li><strong>SMS messages:</strong> Sent directly from your device to the phone numbers you saved as emergency contacts, using Android's SMS APIs. SafePulse never sends SMS messages on its own and never sends marketing or promotional SMS.</li>
+    <li><strong>Emergency alerts:</strong> If you miss a scheduled check-in or activate the SOS button, SafePulse uses your stored emergency contacts and last known location to send SMS alerts. On the on-device editions these go directly from your device; on the cloud-assisted editions (see Section&nbsp;10) they are delivered through our secure messaging gateway.</li>
+    <li><strong>SMS messages:</strong> On the on-device editions, sent directly from your device to the phone numbers you saved as emergency contacts, using Android's SMS APIs; on the cloud-assisted editions, delivered through our secure messaging gateway (see Section&nbsp;10). SafePulse never sends SMS messages on its own and never sends marketing or promotional SMS.</li>
     <li><strong>Phone call on SOS:</strong> When you tap the SOS button, SafePulse auto-dials the first emergency contact you saved. No call is made without your explicit SOS action.</li>
     <li><strong>Local notifications:</strong> Used to remind you of upcoming check-ins.</li>
 </ul>
@@ -105,7 +105,7 @@
 <h2>3. Permissions SafePulse Requests</h2>
 <table>
     <tr><th>Permission</th><th>Purpose</th></tr>
-    <tr><td><code>SEND_SMS</code></td><td>To send emergency SMS alerts directly from your device to the contacts you saved.</td></tr>
+    <tr><td><code>SEND_SMS</code></td><td>To send emergency SMS alerts directly from your device to the contacts you saved. Requested only on the on-device silent-SMS editions (e.g. Samsung Galaxy Store); the Google Play edition delivers alerts through the gateway and does not request this permission.</td></tr>
     <tr><td><code>READ_CONTACTS</code></td><td>To let you import emergency contacts from your phone's contact list (optional).</td></tr>
     <tr><td><code>ACCESS_FINE_LOCATION</code> / <code>ACCESS_COARSE_LOCATION</code></td><td>To include your last known location in emergency alerts.</td></tr>
     <tr><td><code>CALL_PHONE</code></td><td>To auto-dial your first emergency contact when you tap the SOS button.</td></tr>
@@ -160,8 +160,8 @@
     <li><strong>Withdraw consent:</strong> Disable any permission at any time in Android Settings &rarr; Apps &rarr; SafePulse &rarr; Permissions.</li>
 </ul>
 
-<h2>10. Cloud-Assisted Editions (PulseGuard on Amazon Fire Tablets, and iOS)</h2>
-<p>Fire tablets and iPhones cannot send SMS messages from the device itself, so these editions deliver alerts through our secure messaging gateway. This is also what allows the missed-check-in safeguard to work <em>even when your device is dead, off, or offline</em>. For these editions only, the following limited information leaves your device, over an encrypted (HTTPS) connection, solely to operate the features below:</p>
+<h2>10. Cloud-Assisted Editions (SafePulse on Google Play, PulseGuard on Amazon Fire Tablets, and iOS)</h2>
+<p>These editions deliver alerts through our secure messaging gateway, which allows the missed-check-in safeguard to work <em>even when your device is dead, off, or offline</em>. On Amazon Fire tablets and iPhones the gateway is also necessary because those devices cannot send SMS from the device itself; on Google Play it is used so that alerts can still reach your contacts when your phone is off. For these editions only, the following limited information leaves your device, over an encrypted (HTTPS) connection, solely to operate the features below:</p>
 <ul>
     <li><strong>Contact opt-in (consent) records</strong> — When you invite an emergency contact, their name and phone number, your display name, and a one-time token are registered with the gateway so the contact can view and answer the consent request. You deliver the invitation link personally; our toll-free number never texts anyone who has not opted in. Opt-in records expire automatically after 30 days, and a contact can reply STOP at any time to opt out.</li>
     <li><strong>Alert delivery</strong> — When an alert is triggered, the alert text (your name, your callback number, and a Google&nbsp;Maps location link), your confirmed contacts' phone numbers, and any email addresses you added for them are sent to the gateway, which delivers the alert by SMS (via Twilio, from our toll-free number) and by email (via Cloudflare, from alerts@checkinonme.app). Alert content is not retained after it is handed off for delivery. Text delivery is available to US and Canadian numbers; email delivery is available worldwide.</li>
