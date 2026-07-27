@@ -96,13 +96,30 @@
         }
     }
 
+    /* Tuned to land on two pages. */
     @media print {
-        body { font-size: 10.5pt; background: #fff; color: #000; }
-        .page { max-width: none; padding: 0.4in 0.5in; }
-        h1 { font-size: 20pt; }
-        h2 { margin-top: 14pt; }
+        @page { margin: 0.45in 0.5in; }
+        body { font-size: 9.6pt; line-height: 1.38; background: #fff; color: #000; }
+        .page { max-width: none; padding: 0; }
+        header { padding-bottom: 0.45rem; margin-bottom: 0.75rem; border-bottom-width: 2px; }
+        h1 { font-size: 17pt; letter-spacing: -0.4px; }
+        .title { font-size: 10pt; margin-top: 0.15rem; }
+        .contact { font-size: 8.6pt; margin-top: 0.35rem; }
+        .contact .sep { margin: 0 0.3rem; }
+        h2 { font-size: 8pt; margin: 10pt 0 4pt; padding-bottom: 2pt; letter-spacing: 1.2px; }
+        .summary { font-size: 9.4pt; margin-bottom: 0; }
+        .skills { gap: 0.18rem; }
+        .skill-row { font-size: 9pt; grid-template-columns: 148px 1fr; gap: 0.6rem; }
+        .job { margin-bottom: 0.62rem; }
+        .job-title { font-size: 10pt; }
+        .job-meta { font-size: 8.4pt; }
+        .job ul { margin-top: 0.18rem; margin-left: 1rem; }
+        .job li { font-size: 9.2pt; margin-bottom: 0.1rem; }
+        .quote { background: #f4f4f4; padding: 0.5rem 0.7rem; margin-bottom: 0.4rem; border-left-width: 2px; }
+        .quote p { font-size: 9pt; margin-bottom: 0.22rem; }
+        .quote cite { font-size: 8pt; }
+        .certs li { font-size: 9.2pt; margin-bottom: 0.12rem; }
         a { color: #000; text-decoration: none; }
-        .quote { background: #f4f4f4; }
         footer { display: none; }
         .job, .quote { page-break-inside: avoid; }
     }
@@ -119,24 +136,22 @@
         <span class="sep">&middot;</span>
         <a href="mailto:frank.nowicki@gmail.com">frank.nowicki@gmail.com</a>
         <span class="sep">&middot;</span>
-        <a href="https://www.linkedin.com/in/frank-nowickilinux" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/frank-nowickilinux" target="_blank" rel="noopener">linkedin.com/in/frank-nowickilinux</a>
         <span class="sep">&middot;</span>
         <a href="https://checkinonme.app/" target="_blank" rel="noopener">checkinonme.app</a>
     </div>
 </header>
 
 <h2>Summary</h2>
-<p class="summary">Systems engineer with 20+ years administering Unix and Linux across development, staging, and production environments &mdash; and, most recently, building and shipping cloud-backed applications end to end. Deep experience in automation, configuration management, scripting, monitoring, and large-scale migrations, backed by AWS Solutions Architect and SysOps Administrator certifications and Red Hat administration training. Comfortable owning infrastructure and release automation from design through production, and explaining complex systems clearly to people who don't share the same background.</p>
+<p class="summary">Systems engineer with 20+ years administering Unix and Linux across development, staging, and production &mdash; and, most recently, building and shipping cloud-backed applications end to end. Deep experience in automation, configuration management, monitoring, and large-scale migrations, backed by AWS Solutions Architect and SysOps Administrator certifications and Red Hat administration training.</p>
 
 <h2>Core Skills</h2>
 <dl class="skills">
     <div class="skill-row"><dt>Linux &amp; Unix</dt><dd>RHEL, CentOS, Ubuntu, SUSE, Solaris 8&ndash;11; patching and lifecycle management, kernel tuning, SELinux policy, firewall configuration, performance tuning</dd></div>
-    <div class="skill-row"><dt>Cloud</dt><dd>AWS (EC2, S3, RDS, Lambda, IAM, Backup) &mdash; Solutions Architect &amp; SysOps Associate; Cloudflare Workers &amp; Pages; Azure, OpenStack</dd></div>
-    <div class="skill-row"><dt>Automation &amp; Config</dt><dd>Ansible, Puppet, Chef; standardized server builds; monitoring and alerting scripts; infrastructure-as-code practice</dd></div>
-    <div class="skill-row"><dt>Containers &amp; CI/CD</dt><dd>Docker, Kubernetes, Jenkins; build, signing, and release automation pipelines</dd></div>
-    <div class="skill-row"><dt>Scripting &amp; Dev</dt><dd>Python (Django, Flask, Pandas, asyncio), Bash, Perl, PowerShell, C/C++, SQL; Kotlin and Swift for mobile</dd></div>
-    <div class="skill-row"><dt>Storage &amp; Network</dt><dd>NetApp, EMC Celerra and Isilon, Sun, HP; NFS, DNS, FTP/SFTP; Cisco routing and switching (OSPF, EIGRP, STP, EtherChannel)</dd></div>
-    <div class="skill-row"><dt>Databases</dt><dd>Oracle 12c (certified DBA), PostgreSQL, SQL; database design, backup and recovery, performance monitoring</dd></div>
+    <div class="skill-row"><dt>Cloud &amp; Containers</dt><dd>AWS (EC2, S3, RDS, Lambda, IAM, Backup) &mdash; Solutions Architect &amp; SysOps Associate; Cloudflare Workers &amp; Pages; Docker, Kubernetes, Azure, OpenStack</dd></div>
+    <div class="skill-row"><dt>Automation &amp; CI/CD</dt><dd>Ansible, Puppet, Chef, Jenkins; standardized server builds, monitoring and alerting scripts, build/signing/release pipelines</dd></div>
+    <div class="skill-row"><dt>Scripting &amp; Dev</dt><dd>Python (Django, Flask, Pandas, asyncio), Bash, Perl, PowerShell, C/C++, SQL; Kotlin and Swift</dd></div>
+    <div class="skill-row"><dt>Storage, Net &amp; DB</dt><dd>NetApp, EMC Celerra and Isilon; NFS, DNS, FTP/SFTP; Cisco routing and switching (OSPF, EIGRP, STP); Oracle 12c (certified DBA), PostgreSQL</dd></div>
 </dl>
 
 <h2>Experience</h2>
@@ -147,13 +162,11 @@
         <div class="job-meta">2024 &ndash; Present &middot; Remote</div>
     </div>
     <ul>
-        <li>Designed, built, and published <a href="https://checkinonme.app/" target="_blank" rel="noopener">SafePulse</a>, a cross-platform personal-safety application (Kotlin, Jetpack Compose, Room, MVVM; SwiftUI port), from first commit through production release &mdash; live on <a href="https://play.google.com/store/apps/details?id=app.safepulse" target="_blank" rel="noopener">Google Play</a> and the <a href="https://www.amazon.com/dp/B0F1YQ7FX1" target="_blank" rel="noopener">Amazon Appstore</a>, with additional store submissions in progress.</li>
+        <li>Designed, built, and published <a href="https://checkinonme.app/" target="_blank" rel="noopener">SafePulse</a>, a cross-platform personal-safety application (Kotlin, Jetpack Compose, Room, MVVM; SwiftUI port), from first commit through production release &mdash; live on <a href="https://play.google.com/store/apps/details?id=app.safepulse" target="_blank" rel="noopener">Google Play</a> and the <a href="https://www.amazon.com/dp/B0F1YQ7FX1" target="_blank" rel="noopener">Amazon Appstore</a>, with further store submissions in progress.</li>
         <li>Engineered a serverless backend on Cloudflare Workers with authenticated endpoints, scheduled jobs, and KV storage &mdash; including a server-side dead-man's-switch that delivers alerts when the user's device is powered off, verified end to end in unattended testing.</li>
         <li>Integrated Twilio for carrier-grade SMS and Cloudflare Email Sending for international delivery, replacing a device-dependent notification path with a redundant server-side one.</li>
         <li>Automated Play Store release uploads via the Google Play Developer API and Gradle Play Publisher, using Workload Identity Federation to satisfy organizational policies prohibiting service-account keys.</li>
-        <li>Stood up a remote iOS build pipeline (MacinCloud with VS Code Remote-SSH) to compile and sign iOS builds from a Windows/WSL workstation.</li>
-        <li>Managed Android build flavors, release keystores, versioning, and store compliance across five app-store submission pipelines &mdash; Google Play, Apple App Store, Amazon Appstore, Huawei AppGallery, and Samsung Galaxy Store &mdash; each with its own review, signing, and policy requirements.</li>
-        <li>Built Python data pipelines for financial-market screening using async aiohttp and threaded batch collection, with a multi-signal scoring engine and CSV export.</li>
+        <li>Managed build flavors, release keystores, and versioning across five app-store submission pipelines, each with its own review, signing, and policy requirements; stood up a remote iOS build pipeline (MacinCloud with VS Code Remote-SSH) to compile and sign from a Windows/WSL workstation.</li>
     </ul>
 </div>
 
@@ -164,10 +177,8 @@
     </div>
     <ul>
         <li>Full-time caregiver for a family member while maintaining and deepening technical skills through structured certification study.</li>
-        <li>Earned <strong>AWS Certified Solutions Architect &ndash; Associate</strong> and <strong>AWS Certified SysOps Administrator &ndash; Associate</strong> (2018).</li>
-        <li>Completed <strong>Oracle Database 12c Administrator Certified Professional</strong> (2019&ndash;2020, 4.0 GPA), covering data modeling, backup and recovery, and performance monitoring.</li>
-        <li>Completed Red Hat Enterprise Linux administration and security training: SELinux policy management, firewall configuration, monitoring, and performance tuning.</li>
-        <li>Built working proficiency in Docker, Kubernetes, Puppet, and Python for automation and data analysis.</li>
+        <li>Earned <strong>AWS Certified Solutions Architect &ndash; Associate</strong> and <strong>AWS Certified SysOps Administrator &ndash; Associate</strong> (2018), and <strong>Oracle Database 12c Administrator Certified Professional</strong> (2019&ndash;2020, 4.0 GPA).</li>
+        <li>Completed Red Hat Enterprise Linux administration and security training &mdash; SELinux policy, firewall configuration, monitoring, performance tuning &mdash; plus Docker, Kubernetes, Puppet, and Python for automation.</li>
     </ul>
 </div>
 
@@ -190,8 +201,7 @@
         <div class="job-meta">May 2007 &ndash; Jan 2008 &middot; Warren, MI</div>
     </div>
     <ul>
-        <li>Built and maintained a test environment mirroring the production build profile, covering patches, security, telecom access, and kernel configuration.</li>
-        <li>Established prioritization and governance for customer resource requests; coordinated across test leads, project managers, and supplier resources.</li>
+        <li>Built and maintained a production-parity test environment covering patches, security, telecom access, and kernel configuration; coordinated releases across test leads, project managers, and supplier resources.</li>
     </ul>
 </div>
 
@@ -201,8 +211,7 @@
         <div class="job-meta">Apr 2005 &ndash; Nov 2006 &middot; Sterling Heights, MI</div>
     </div>
     <ul>
-        <li>Deployed network-attached storage appliances used to back up plant servers across Chrysler facilities.</li>
-        <li>Installed and administered Linux-based GuardianOS, DNS, and NFS; troubleshot backend network, server, and client issues.</li>
+        <li>Deployed network-attached storage appliances backing up plant servers across Chrysler facilities; administered Linux-based GuardianOS, DNS, and NFS.</li>
         <li>Led migration of UNIX and Windows clients from NetBackup to NetVault across Solaris 2.6&ndash;9 environments.</li>
     </ul>
 </div>
@@ -213,8 +222,7 @@
         <div class="job-meta">Jun 2004 &ndash; Jan 2005 &middot; Troy, MI</div>
     </div>
     <ul>
-        <li>Wrote Bash scripts for volume creation on EMC Celerra using rsync; built mirrored volumes with Solstice DiskSuite.</li>
-        <li>Performed Solaris 8 post-installation procedures and identified and labeled servers for JumpStart imaging.</li>
+        <li>Wrote Bash scripts for EMC Celerra volume creation using rsync; built mirrored volumes with Solstice DiskSuite and handled Solaris 8 post-installation and JumpStart imaging.</li>
     </ul>
 </div>
 
@@ -224,9 +232,7 @@
         <div class="job-meta">Jun 1997 &ndash; Jun 2003 &middot; Troy, MI</div>
     </div>
     <ul>
-        <li>Led technical presentations, product demonstrations, and proofs of concept for prospective clients alongside sales teams.</li>
-        <li>Supported client product integration and setup; trained customers on best practices and gathered post-implementation feedback.</li>
-        <li>Provided Level 2/3 post-sales support.</li>
+        <li>Pre- and post-sales engineering: technical presentations, proofs of concept, client product integration, and Level 2/3 support.</li>
     </ul>
 </div>
 
@@ -242,13 +248,11 @@
 
 <h2>Certifications &amp; Education</h2>
 <ul class="certs">
-    <li><strong>AWS Certified Solutions Architect &ndash; Associate</strong> (2018)</li>
-    <li><strong>AWS Certified SysOps Administrator &ndash; Associate</strong> (2018)</li>
+    <li><strong>AWS Certified Solutions Architect &ndash; Associate</strong> (2018) &middot; <strong>AWS Certified SysOps Administrator &ndash; Associate</strong> (2018)</li>
     <li><strong>Oracle Database 12c Administrator Certified Professional</strong> (2019&ndash;2020, 4.0 GPA) &mdash; Global Institute of Information Technology</li>
     <li><strong>Cisco Certified Entry Networking Technician (CCENT)</strong> &mdash; Cisco Networking Academy</li>
     <li><strong>Associate of Applied Science, Information Technology</strong> &mdash; Macomb Community College</li>
     <li><strong>Unix/C Certificate Program</strong> &mdash; Marygrove College: Unix system and network administration, shell scripting, C programming</li>
-    <li>Additional study: Kubernetes, Docker, Jenkins, Ansible, Puppet, Chef, OpenStack, PostgreSQL administration, VMware ESXi, Azure, Python scripting for system administrators</li>
 </ul>
 
 <footer>
