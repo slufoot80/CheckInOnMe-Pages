@@ -105,6 +105,108 @@
             "name": "Check In On Me",
             "url": "https://checkinonme.app/"
           }
+        },
+        {
+          "@type": "FAQPage",
+          "url": "https://checkinonme.app/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What happens if my phone dies or is turned off?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "On iOS and Amazon Fire tablets, the SafePulse cloud watches your check-in deadline for you. If your device is dead, switched off, or has no signal when the deadline passes, your trusted contacts are still alerted by text and email with your last known location. On the Google Play edition, everything runs on your device, so the alert is sent from the phone itself."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a personal safety check-in app?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A personal safety check-in app asks you to confirm you're okay at a set interval, and notifies people you chose if you don't. SafePulse works exactly this way: you set a timer, you tap \"I'm OK\" before it runs out, and if you don't, your trusted contacts get a text and email with your last known location and your callback number."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is SafePulse a dead man's switch app?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, in the personal safety sense — a dead man's switch triggers an action when you stop responding. SafePulse sends an alert to your trusted contacts if you miss your check-in. That's why people use it for living alone, solo hiking, night shifts, rideshare driving, and long drives."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do my emergency contacts need to install the app?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Your contacts get an ordinary text message and email, so any phone or inbox works — they never install anything or create an account. Each contact does have to tap \"yes\" to consent before SafePulse will send them a single alert."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does SafePulse work outside the United States?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Email alerts reach your contacts anywhere in the world, so email is the channel to use for international contacts. Text alerts are sent from a United States number. You can add both an email address and a phone number for each contact, and SafePulse will use both."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does SafePulse track my location all the time?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. SafePulse doesn't share your location with anyone unless an alert actually goes out. On iOS and Fire tablets, where the cloud backstop can alert your contacts while your device is off, your last known location is stored securely so it can be included in that alert. On Google Play, your location never leaves your phone. There are no accounts, no ads, and no analytics."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if I miss a check-in by accident?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SafePulse warns you first. When your deadline passes it vibrates and opens the app so you can tap \"I'm OK.\" Only if you still don't respond does it alert your contacts — so forgetting a check-in for a minute doesn't turn into a false alarm."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is SafePulse free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. SafePulse is free to download and use on Google Play, and free as PulseGuard on the Amazon Appstore for Fire tablets. There are no ads."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What's the difference between SafePulse and PulseGuard?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "They're the same app under two names. It's published as SafePulse on Google Play and Huawei AppGallery, and as PulseGuard on the Amazon Appstore. Only the store name differs."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which devices does SafePulse run on?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SafePulse is on Google Play for Android phones and tablets, and on Huawei AppGallery. On the Amazon Appstore it's PulseGuard for Fire tablets — a Fire tablet on the nightstand makes a good check-in device for an older relative. Apple App Store and Samsung Galaxy Store versions are coming soon."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who uses a check-in app like this?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "People who live alone, seniors who want to stay independent without wearing a pendant, night-shift and lone workers, rideshare and delivery drivers, solo hikers and runners, and family members who want to know a loved one is okay without having to call every day."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can SafePulse call for help in an emergency?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SafePulse has an SOS button that immediately alerts every emergency contact you've added, with your location, and it can automatically dial your first emergency contact. It is not an emergency service — if you're in immediate danger, call your local emergency number."
+              }
+            }
+          ]
         }
       ]
     }
@@ -356,6 +458,26 @@
         .store-badge.soon { opacity: 0.55; cursor: default; }
         .store-badge.soon:hover { transform: none; }
 
+        .faq {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+        .faq-item {
+            padding: 1.6rem 1.5rem;
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid rgba(46,125,50,0.10);
+            box-shadow: 0 6px 20px rgba(27,94,32,0.06);
+        }
+        .faq-item h3 {
+            font-size: 1.05rem;
+            color: #1a1a2e;
+            margin-bottom: 0.55rem;
+            line-height: 1.35;
+        }
+        .faq-item p { font-size: 0.97rem; margin-bottom: 0; }
+
         .support-card {
             background: linear-gradient(135deg, #ffffff, #f1f8f2);
             padding: 2.25rem 2rem;
@@ -408,6 +530,7 @@
     <div class="nav-links">
         <a href="#features">Features</a>
         <a href="/compare">Compare</a>
+        <a href="#faq">FAQ</a>
         <a href="#download">Get the app</a>
     </div>
 </nav>
@@ -508,6 +631,61 @@
     <p class="section-sub">A quick walkthrough of setting a check-in, adding trusted contacts, and what happens if you don't respond.</p>
     <div class="phone">
         <video src="/video/safepulse-demo.mp4" controls preload="none" playsinline poster="/video/safepulse-demo-poster.jpg" aria-label="SafePulse full demo video"></video>
+    </div>
+</section>
+
+<section id="faq">
+    <h2>Frequently asked questions</h2>
+    <p class="section-sub">What people ask most before they set up their first check-in.</p>
+    <div class="faq">
+        <div class="faq-item">
+            <h3>What happens if my phone dies or is turned off?</h3>
+            <p>On iOS and Amazon Fire tablets, the SafePulse cloud watches your check-in deadline for you. If your device is dead, switched off, or has no signal when the deadline passes, your trusted contacts are still alerted by text and email with your last known location. On the Google Play edition, everything runs on your device, so the alert is sent from the phone itself.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What is a personal safety check-in app?</h3>
+            <p>A personal safety check-in app asks you to confirm you're okay at a set interval, and notifies people you chose if you don't. SafePulse works exactly this way: you set a timer, you tap &ldquo;I'm OK&rdquo; before it runs out, and if you don't, your trusted contacts get a text and email with your last known location and your callback number.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is SafePulse a dead man's switch app?</h3>
+            <p>Yes, in the personal safety sense &mdash; a dead man's switch triggers an action when you stop responding. SafePulse sends an alert to your trusted contacts if you miss your check-in. That's why people use it for living alone, solo hiking, night shifts, rideshare driving, and long drives.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Do my emergency contacts need to install the app?</h3>
+            <p>No. Your contacts get an ordinary text message and email, so any phone or inbox works &mdash; they never install anything or create an account. Each contact does have to tap &ldquo;yes&rdquo; to consent before SafePulse will send them a single alert.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does SafePulse work outside the United States?</h3>
+            <p>Email alerts reach your contacts anywhere in the world, so email is the channel to use for international contacts. Text alerts are sent from a United States number. You can add both an email address and a phone number for each contact, and SafePulse will use both.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does SafePulse track my location all the time?</h3>
+            <p>No. SafePulse doesn't share your location with anyone unless an alert actually goes out. On iOS and Fire tablets, where the cloud backstop can alert your contacts while your device is off, your last known location is stored securely so it can be included in that alert. On Google Play, your location never leaves your phone. There are no accounts, no ads, and no analytics.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What if I miss a check-in by accident?</h3>
+            <p>SafePulse warns you first. When your deadline passes it vibrates and opens the app so you can tap &ldquo;I'm OK.&rdquo; Only if you still don't respond does it alert your contacts &mdash; so forgetting a check-in for a minute doesn't turn into a false alarm.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is SafePulse free?</h3>
+            <p>Yes. SafePulse is free to download and use on Google Play, and free as PulseGuard on the Amazon Appstore for Fire tablets. There are no ads.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What's the difference between SafePulse and PulseGuard?</h3>
+            <p>They're the same app under two names. It's published as SafePulse on Google Play and Huawei AppGallery, and as PulseGuard on the Amazon Appstore. Only the store name differs.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Which devices does SafePulse run on?</h3>
+            <p>SafePulse is on Google Play for Android phones and tablets, and on Huawei AppGallery. On the Amazon Appstore it's PulseGuard for Fire tablets &mdash; a Fire tablet on the nightstand makes a good check-in device for an older relative. Apple App Store and Samsung Galaxy Store versions are coming soon.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Who uses a check-in app like this?</h3>
+            <p>People who live alone, seniors who want to stay independent without wearing a pendant, night-shift and lone workers, rideshare and delivery drivers, solo hikers and runners, and family members who want to know a loved one is okay without having to call every day.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can SafePulse call for help in an emergency?</h3>
+            <p>SafePulse has an SOS button that immediately alerts every emergency contact you've added, with your location, and it can automatically dial your first emergency contact. It is not an emergency service &mdash; if you're in immediate danger, call your local emergency number.</p>
+        </div>
     </div>
 </section>
 
