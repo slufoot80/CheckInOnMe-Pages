@@ -1,0 +1,4 @@
+# Résumé PDFs can't carry a <meta robots> tag, so keep them out of search
+# via header instead. The HTML résumé pages use meta noindex directly.
+/*.pdf
+  X-Robots-Tag: noindex, nofollow

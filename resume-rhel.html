@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frank Nowicki &mdash; RHEL Architect &amp; Enterprise Linux Consultant</title>
+<meta name="description" content="Frank Nowicki — enterprise Linux architect with 20+ years across RHEL/CentOS, Solaris and SUSE, platform modernization and migration, automation (Ansible/Puppet/Chef), containers, and customer-facing consulting. AWS Certified Solutions Architect.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Frank Nowicki — RHEL Architect & Enterprise Linux Consultant">
+<meta property="og:description" content="20+ years of enterprise Linux/Unix administration, platform modernization, automation, and customer-facing technical advisory.">
+<meta property="og:type" content="profile">
+<style>
+    :root {
+        --ink: #1c2230;
+        --muted: #5a6478;
+        --faint: #8a94a6;
+        --accent: #1f4e79;
+        --rule: #dfe4ec;
+        --bg: #ffffff;
+        --card: #f7f9fc;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        line-height: 1.55;
+        font-size: 16px;
+    }
+    .page { max-width: 820px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+
+    header { border-bottom: 3px solid var(--accent); padding-bottom: 1.25rem; margin-bottom: 2rem; }
+    h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.8px; line-height: 1.1; }
+    .title { color: var(--accent); font-weight: 600; font-size: 1.05rem; margin-top: 0.35rem; }
+    .contact { margin-top: 0.85rem; font-size: 0.93rem; color: var(--muted); }
+    .contact a { color: var(--accent); text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+    .contact .sep { color: var(--faint); margin: 0 0.5rem; }
+
+    h2 {
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        color: var(--accent);
+        font-weight: 700;
+        margin: 2.25rem 0 0.9rem;
+        padding-bottom: 0.35rem;
+        border-bottom: 1px solid var(--rule);
+    }
+    p { margin-bottom: 0.8rem; }
+    .summary { font-size: 1rem; color: #333c4d; }
+
+    .skills { display: grid; gap: 0.55rem; }
+    .skill-row { display: grid; grid-template-columns: 190px 1fr; gap: 0.9rem; font-size: 0.93rem; }
+    .skill-row dt { font-weight: 700; color: var(--ink); }
+    .skill-row dd { color: var(--muted); }
+
+    .job { margin-bottom: 1.6rem; break-inside: avoid; }
+    .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+    .job-title { font-size: 1.05rem; font-weight: 700; }
+    .job-org { color: var(--accent); font-weight: 600; }
+    .job-meta { color: var(--faint); font-size: 0.87rem; white-space: nowrap; }
+    .job ul { margin: 0.5rem 0 0 1.1rem; }
+    .job li { margin-bottom: 0.35rem; color: var(--muted); font-size: 0.94rem; }
+
+    .quote {
+        background: var(--card);
+        border-left: 3px solid var(--accent);
+        padding: 1.1rem 1.25rem;
+        margin-bottom: 1rem;
+        border-radius: 0 6px 6px 0;
+        break-inside: avoid;
+    }
+    .quote p { font-size: 0.94rem; color: #333c4d; font-style: italic; margin-bottom: 0.5rem; }
+    .quote cite { font-style: normal; font-size: 0.85rem; color: var(--faint); }
+
+    .certs li { margin-bottom: 0.45rem; color: var(--muted); font-size: 0.94rem; }
+    .certs { margin-left: 1.1rem; }
+    .certs strong { color: var(--ink); }
+
+    footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--faint); }
+
+    @media (max-width: 620px) {
+        .page { padding: 2rem 1.15rem 3rem; }
+        h1 { font-size: 1.85rem; }
+        .skill-row { grid-template-columns: 1fr; gap: 0.1rem; }
+        .skill-row dd { margin-bottom: 0.4rem; }
+        .job-meta { white-space: normal; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --ink: #e8ecf3; --muted: #a8b2c4; --faint: #7c869a;
+            --accent: #7cb3e8; --rule: #2b3240; --bg: #12161d; --card: #1a212b;
+        }
+    }
+
+    /* Tuned to land on two pages. */
+    @media print {
+        @page { margin: 0.45in 0.5in; }
+        body { font-size: 9.6pt; line-height: 1.38; background: #fff; color: #000; }
+        .page { max-width: none; padding: 0; }
+        header { padding-bottom: 0.45rem; margin-bottom: 0.75rem; border-bottom-width: 2px; }
+        h1 { font-size: 17pt; letter-spacing: -0.4px; }
+        .title { font-size: 10pt; margin-top: 0.15rem; }
+        .contact { font-size: 8.6pt; margin-top: 0.35rem; }
+        .contact .sep { margin: 0 0.3rem; }
+        h2 { font-size: 8pt; margin: 10pt 0 4pt; padding-bottom: 2pt; letter-spacing: 1.2px; }
+        .summary { font-size: 9.4pt; margin-bottom: 0; }
+        .skills { gap: 0.18rem; }
+        .skill-row { font-size: 9pt; grid-template-columns: 148px 1fr; gap: 0.6rem; }
+        .job { margin-bottom: 0.62rem; }
+        .job-title { font-size: 10pt; }
+        .job-meta { font-size: 8.4pt; }
+        .job ul { margin-top: 0.18rem; margin-left: 1rem; }
+        .job li { font-size: 9.2pt; margin-bottom: 0.1rem; }
+        .quote { background: #f4f4f4; padding: 0.5rem 0.7rem; margin-bottom: 0.4rem; border-left-width: 2px; }
+        .quote p { font-size: 9pt; margin-bottom: 0.22rem; }
+        .quote cite { font-size: 8pt; }
+        .certs li { font-size: 9.2pt; margin-bottom: 0.12rem; }
+        a { color: #000; text-decoration: none; }
+        footer { display: none; }
+        .job, .quote { page-break-inside: avoid; }
+    }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+    <h1>Frank Nowicki</h1>
+    <div class="title">RHEL / Enterprise Linux Architect &middot; Platform Modernization &middot; AWS Certified Solutions Architect</div>
+    <div class="contact">
+        Metro Detroit, MI &mdash; open to remote
+        <span class="sep">&middot;</span>
+        <a href="mailto:frank.nowicki@gmail.com">frank.nowicki@gmail.com</a>
+        <span class="sep">&middot;</span>
+        <a href="https://www.linkedin.com/in/frank-nowickilinux" target="_blank" rel="noopener">linkedin.com/in/frank-nowickilinux</a>
+        <span class="sep">&middot;</span>
+        <a href="https://checkinonme.app/" target="_blank" rel="noopener">checkinonme.app</a>
+    </div>
+</header>
+
+<h2>Summary</h2>
+<p class="summary">Enterprise Linux engineer with 20+ years administering Red Hat, CentOS, SUSE, and Solaris across development, test, and production for automotive, financial-services, and business-process-outsourcing customers. Repeatedly brought in to assess neglected or under-instrumented environments, identify operational risk, and turn them into stable, monitored, standardized platforms &mdash; then lead the migrations and upgrades that modernize them, with zero-data-loss cutovers as the track record. Consultative by background, from pre- and post-sales engineering and proof-of-concept work through Level 2/3 escalation and direct stakeholder communication. Red Hat administration and security training (SELinux, firewall, performance tuning), AWS Solutions Architect and SysOps Administrator certifications, and hands-on Docker/Kubernetes container-platform and serverless work.</p>
+
+<h2>Core Skills</h2>
+<dl class="skills">
+    <div class="skill-row"><dt>Red Hat &amp; Enterprise Linux</dt><dd>RHEL and CentOS administration &mdash; patching and lifecycle management, kernel tuning, SELinux policy, firewall configuration, LVM and filesystem management, systemd, performance tuning and capacity analysis; also SUSE, Ubuntu, and Solaris 8&ndash;11</dd></div>
+    <div class="skill-row"><dt>Containers &amp; Platform</dt><dd>Docker and Kubernetes &mdash; cluster architecture concepts, node management, persistent storage, cluster networking, platform operations; OpenStack; serverless platform operations on Cloudflare Workers</dd></div>
+    <div class="skill-row"><dt>Automation &amp; Config Mgmt</dt><dd>Ansible, Puppet, Chef, Jenkins; standardized golden builds, provisioning automation, monitoring and alerting frameworks, CI/CD and release pipelines</dd></div>
+    <div class="skill-row"><dt>Migration &amp; Modernization</dt><dd>OS and platform upgrades, storage and backup platform migrations, environment consolidation, JumpStart/kickstart-style imaging and repeatable builds, production cutover planning and rollback</dd></div>
+    <div class="skill-row"><dt>Cloud</dt><dd>AWS (EC2, S3, RDS, Lambda, IAM, Backup) &mdash; Solutions Architect &amp; SysOps Associate certified; Azure; Cloudflare Workers, KV, and Pages</dd></div>
+    <div class="skill-row"><dt>Scripting &amp; Automation Dev</dt><dd>Bash, Python (Django, Flask, Pandas, asyncio), Perl, PowerShell, C/C++, SQL</dd></div>
+    <div class="skill-row"><dt>Storage, Network &amp; DB</dt><dd>NetApp, EMC Celerra and Isilon; NFS, DNS, FTP/SFTP; Cisco routing and switching (OSPF, EIGRP, STP); Oracle 12c (certified DBA), PostgreSQL</dd></div>
+    <div class="skill-row"><dt>Consulting &amp; Advisory</dt><dd>Customer-facing technical advisory, environment assessment and risk reporting, technical presentations and proofs of concept, release coordination across test leads, project managers, and supplier resources</dd></div>
+</dl>
+
+<h2>Experience</h2>
+
+<div class="job">
+    <div class="job-head">
+        <div><span class="job-title">Independent Cloud &amp; Platform Developer</span> &mdash; <span class="job-org">Self-Employed</span></div>
+        <div class="job-meta">2024 &ndash; Present &middot; Remote</div>
+    </div>
+    <ul>
+        <li>Designed and operated a production serverless backend on Cloudflare Workers &mdash; authenticated endpoints, scheduled jobs, KV-backed state, and a server-side dead-man's-switch that delivers alerts when the user's device is powered off, verified end to end in unattended production testing.</li>
+        <li>Re-architected a device-dependent notification path into a redundant server-side one using Twilio (carrier-grade SMS) and Cloudflare Email Sending (international delivery), eliminating a single point of failure in the alerting chain.</li>
+        <li>Built and shipped <a href="https://checkinonme.app/" target="_blank" rel="noopener">SafePulse</a>, a cross-platform personal-safety application, from first commit through production release &mdash; live on <a href="https://play.google.com/store/apps/details?id=app.safepulse" target="_blank" rel="noopener">Google Play</a> and the <a href="https://www.amazon.com/dp/B0F1YQ7FX1" target="_blank" rel="noopener">Amazon Appstore</a>, with further store submissions in progress.</li>
+        <li>Automated release delivery through the Google Play Developer API and Gradle Play Publisher using Workload Identity Federation, satisfying an organizational security policy that prohibits long-lived service-account keys.</li>
+        <li>Managed build flavors, signing keys, and versioning across five independent release pipelines, each with its own review, signing, and compliance requirements; stood up a remote Linux/macOS build pipeline over SSH from a Windows/WSL workstation.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div><span class="job-title">Career Break</span> &mdash; <span class="job-org">Family Caregiving &amp; Professional Development</span></div>
+        <div class="job-meta">2017 &ndash; 2023</div>
+    </div>
+    <ul>
+        <li>Full-time caregiver for a family member while maintaining and deepening technical skills through structured certification study.</li>
+        <li>Completed <strong>Red Hat Enterprise Linux administration and security training</strong> &mdash; SELinux policy, firewall configuration, service hardening, monitoring, and performance tuning &mdash; alongside Docker, Kubernetes, Puppet, and Python automation coursework.</li>
+        <li>Earned <strong>AWS Certified Solutions Architect &ndash; Associate</strong> and <strong>AWS Certified SysOps Administrator &ndash; Associate</strong> (2018), and <strong>Oracle Database 12c Administrator Certified Professional</strong> (2019&ndash;2020, 4.0 GPA).</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div><span class="job-title">Senior Unix/Linux System Administrator</span> &mdash; <span class="job-org">SourceHOV</span></div>
+        <div class="job-meta">Oct 2011 &ndash; Jan 2017 &middot; Troy, MI</div>
+    </div>
+    <ul>
+        <li>Inherited a neglected, failure-prone enterprise Unix/Linux estate; assessed it end to end, set configuration and operational standards, and rebuilt it into a stable, predictable, monitored platform.</li>
+        <li>Reduced monthly incident volume from roughly 300 tickets to 80 through root-cause analysis, proactive remediation, and reprioritization of recurring failure classes.</li>
+        <li>Designed and implemented system-monitoring and alerting for mail, web, and FTP services, introducing process-threshold management where none existed.</li>
+        <li>Led a migration of 600+ users to a new secure FTP platform and relocated multiple file systems onto EMC Isilon &mdash; both cutovers completed with zero data loss.</li>
+        <li>Automated user-account provisioning, cutting a manual two-hour process to twenty minutes and removing a standing source of configuration drift.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div><span class="job-title">Unix System Administrator</span> &mdash; <span class="job-org">TEKsystems (Contract)</span></div>
+        <div class="job-meta">May 2007 &ndash; Jan 2008 &middot; Warren, MI</div>
+    </div>
+    <ul>
+        <li>Built and maintained a production-parity test environment covering patch levels, security configuration, telecom access, and kernel tuning &mdash; the validation gate for changes headed to production.</li>
+        <li>Coordinated release scheduling and readiness across test leads, project managers, and external supplier resources.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div><span class="job-title">Unix System Administrator</span> &mdash; <span class="job-org">Incentra Solutions / DaimlerChrysler (SHAP)</span></div>
+        <div class="job-meta">Apr 2005 &ndash; Nov 2006 &middot; Sterling Heights, MI</div>
+    </div>
+    <ul>
+        <li>Led migration of UNIX and Windows clients from NetBackup to NetVault across a Solaris 2.6&ndash;9 estate &mdash; a full backup-platform modernization executed against live plant operations.</li>
+        <li>Deployed network-attached storage appliances protecting plant servers across multiple Chrysler facilities; administered Linux-based GuardianOS, DNS, and NFS as the embedded on-site technical resource.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div><span class="job-title">Unix System Administrator</span> &mdash; <span class="job-org">LaSalle Bank (Contract)</span></div>
+        <div class="job-meta">Jun 2004 &ndash; Jan 2005 &middot; Troy, MI</div>
+    </div>
+    <ul>
+        <li>Automated EMC Celerra volume creation and replication with Bash and rsync; built mirrored volumes with Solstice DiskSuite in a regulated financial-services environment.</li>
+        <li>Standardized Solaris 8 provisioning through JumpStart imaging and scripted post-installation configuration &mdash; repeatable builds in place of hand-configured hosts.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div><span class="job-title">Systems Engineer &mdash; Pre/Post-Sales</span> &mdash; <span class="job-org">Technical Solutions, LLC</span></div>
+        <div class="job-meta">Jun 1997 &ndash; Jun 2003 &middot; Troy, MI</div>
+    </div>
+    <ul>
+        <li>Customer-facing technical advisor across the sales cycle: requirements discovery, technical presentations, proofs of concept, product integration into client environments, and Level 2/3 escalation support.</li>
+        <li>Translated business requirements into implementable technical designs and supported customers through deployment and ongoing operations.</li>
+    </ul>
+</div>
+
+<h2>What Colleagues Say</h2>
+<div class="quote">
+    <p>&ldquo;Frank was the senior Unix admin when I worked with him at SourceHOV. He expertly fixed a neglected Unix environment, proactively configured systems so they no longer failed, and added value by putting monitoring in place and setting standards. Under his leadership it became a stable, predictable platform. He is one of the very best Unix admins I have worked with and would be a benefit to any company that hires him.&rdquo;</p>
+    <cite>&mdash; Steve Allison, Backup and Recovery Engineer &middot; worked with Frank at SourceHOV</cite>
+</div>
+<div class="quote">
+    <p>&ldquo;Frank is an awesome System Administrator. Professional. Effective. Solution-oriented. Looking forward to working with Frank again soon.&rdquo;</p>
+    <cite>&mdash; Kuldip Bhatt, Senior Technology &amp; CRM Operations Leader</cite>
+</div>
+
+<h2>Certifications &amp; Education</h2>
+<ul class="certs">
+    <li><strong>Red Hat Enterprise Linux administration &amp; security training</strong> &mdash; SELinux, firewall configuration, monitoring, performance tuning</li>
+    <li><strong>AWS Certified Solutions Architect &ndash; Associate</strong> (2018) &middot; <strong>AWS Certified SysOps Administrator &ndash; Associate</strong> (2018)</li>
+    <li><strong>Oracle Database 12c Administrator Certified Professional</strong> (2019&ndash;2020, 4.0 GPA) &mdash; Global Institute of Information Technology</li>
+    <li><strong>Cisco Certified Entry Networking Technician (CCENT)</strong> &mdash; Cisco Networking Academy</li>
+    <li><strong>Associate of Applied Science, Information Technology</strong> &mdash; Macomb Community College</li>
+    <li><strong>Unix/C Certificate Program</strong> &mdash; Marygrove College: Unix system and network administration, shell scripting, C programming</li>
+</ul>
+
+<footer>
+    References available on request.
+</footer>
+
+</div>
+</body>
+</html>
