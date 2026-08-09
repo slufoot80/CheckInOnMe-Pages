@@ -100,7 +100,7 @@
     <li>No analytics, crash reporting SDKs, or behavioral tracking.</li>
     <li>No advertising identifiers or third-party advertising SDKs.</li>
     <li>No background location tracking.</li>
-    <li>No cloud sync — SafePulse does not operate any servers that hold your data.</li>
+    <li>No cloud sync — your check-ins, journal, settings and contact list are never uploaded or backed up to us. The only information that reaches our gateway is what is needed to deliver an alert, described in Section&nbsp;10.</li>
 </ul>
 
 <h2>2. How SafePulse Uses Your Information</h2>
@@ -145,7 +145,7 @@
     <li><strong>Check-in history and audit logs</strong> are retained on your device until you clear them in app settings, clear the app's storage, or uninstall SafePulse.</li>
     <li><strong>Mood and journal entries</strong> are retained until you delete the individual entries, clear the app's storage, or uninstall SafePulse.</li>
     <li><strong>Location data</strong> is retained as the most recent stored coordinate only; each new check-in overwrites the previous location. It is removed when you clear the app's storage or uninstall SafePulse.</li>
-    <li><strong>SafePulse does not store or retain any of your data on external servers.</strong> Because we never receive your data, there is no server-side copy that could persist after you delete it locally.</li>
+    <li><strong>On our gateway</strong>, two short-lived records exist so that alerts can still be sent while your device is off. A <em>pending-alert record</em> holds your check-in deadline, your contacts' phone numbers and email addresses, and the prepared alert text (which includes your name and a link to your last known location). It is replaced every time you check in, and is deleted automatically about two days after its deadline passes. A <em>consent record</em> holds an invited contact's name and number and expires after 30 days. Nothing else about you is stored, and neither record is used for any purpose other than delivering your alerts.</li>
 </ul>
 
 <h2>7. How to Delete Your Data</h2>
@@ -155,7 +155,7 @@
     <li><strong>Reset all SafePulse data</strong> — Open Android Settings &rarr; Apps &rarr; SafePulse &rarr; Storage &rarr; <strong>Clear Storage</strong> (or <strong>Clear Data</strong>). This permanently removes the SafePulse database, preferences, contacts, history, and all other locally stored information.</li>
     <li><strong>Uninstall SafePulse</strong> — Uninstalling the app removes all SafePulse data from your device.</li>
 </ol>
-<p>Because SafePulse stores data only on your device and not on any server, performing any of the steps above results in complete deletion of your SafePulse data. There is no separate request to make and nothing for us to delete on our end.</p>
+<p>Any of the steps above removes everything SafePulse holds on your device. The short-lived gateway records described in Section&nbsp;6 are not tied to an account and cannot be browsed by us, and they delete themselves automatically — the pending-alert record about two days after its deadline, and consent records after 30 days. Turning off your check-in timer, deleting your contacts, or uninstalling the app cancels the pending-alert record immediately. If you would still like us to remove something sooner, email <a href="mailto:checkinonme@checkinonme.app">checkinonme@checkinonme.app</a> and we will do it.</p>
 
 <h2>8. Children's Privacy</h2>
 <p>SafePulse is intended for users aged 18 and over. SafePulse is not directed to children under 13 and we do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided information through SafePulse, please contact us and we will assist with deletion.</p>
@@ -175,7 +175,7 @@
     <li><strong>Contact opt-in (consent) records</strong> — When you invite an emergency contact, their name and phone number, your display name, and a one-time token are registered with the gateway so the contact can view and answer the consent request. You deliver the invitation link personally; our toll-free number never texts anyone who has not opted in. Opt-in records expire automatically after 30 days, and a contact can reply STOP at any time to opt out.</li>
     <li><strong>Alert delivery</strong> — When an alert is triggered, the alert text (your name, your callback number, and a location link), your confirmed contacts' phone numbers, and any email addresses you added for them are sent to the gateway, which delivers the alert by text message (via Twilio, from our toll-free number), by WhatsApp (via Twilio and Meta) for contacts outside the United States and Canada, and by email (via Cloudflare, from alerts@checkinonme.app). Alert content is not retained by us after it is handed off for delivery, though our delivery providers keep their own message logs under their retention policies. Text delivery is available to US and Canadian numbers; WhatsApp and email delivery are available worldwide.</li>
     <li><strong>Missed-check-in safeguard</strong> — Your next check-in deadline, confirmed contacts, and the prepared alert message are held by the gateway only until you check in again (each check-in replaces the record) or shortly after the deadline passes, and are then automatically deleted.</li>
-    <li><strong>Service providers</strong> — Twilio, Inc. (text message and WhatsApp delivery), Cloudflare, Inc. (gateway hosting and email delivery), and Meta Platforms, Inc. (delivery of WhatsApp alerts to contacts outside the United States and Canada) process this information solely to deliver your alerts. We do not sell it, use it for advertising, or share it for any other purpose. Your location is not stored on our servers — location links are self-contained and are decoded when opened, not looked up in a database.</li>
+    <li><strong>Service providers</strong> — Twilio, Inc. (text message and WhatsApp delivery), Cloudflare, Inc. (gateway hosting and email delivery), and Meta Platforms, Inc. (delivery of WhatsApp alerts to contacts outside the United States and Canada) process this information solely to deliver your alerts. We do not sell it, use it for advertising, or share it for any other purpose. Location links are self-contained and are decoded when opened, not looked up in a database. Your location is not kept in any searchable store; it exists on our gateway only inside the short-lived pending-alert record described in Section&nbsp;6, and only until that record expires.</li>
 </ul>
 
 <h2>11. Changes to This Policy</h2>
