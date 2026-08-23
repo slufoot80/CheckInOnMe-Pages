@@ -614,10 +614,14 @@
             .promobar { font-size: 0.82rem; padding: 0.55rem 1rem; gap: 0.45rem; }
             .promobar .pb-text { flex: 1 1 100%; }
         }
+    
+        .topstack { position: sticky; top: 0; z-index: 150; }
+        nav { position: static; }
     </style>
 </head>
 <body>
 
+<div class="topstack">
 <a class="promobar" href="https://paulgeise.com" target="_blank" rel="noopener">
     <span class="pb-label">Also from the maker of SafePulse</span>
     <span class="pb-text">The books of Paul Geise &mdash; on overcoming labels, faith, and changing your life ten pages at a time</span>
@@ -639,6 +643,7 @@
         </a>
     </div>
 </nav>
+</div>
 
 <section class="hero">
     <div class="hero-content">

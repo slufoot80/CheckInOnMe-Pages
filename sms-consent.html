@@ -39,9 +39,51 @@
         .script { background: #f4f6f8; border-left: 4px solid #1a5d1a; padding: 14px 18px; margin: 20px 0; font-style: italic; }
         .brand-note { background: #fff8e1; border-left: 4px solid #f9a825; padding: 12px 16px; margin: 16px 0; font-size: 0.95em; }
         a { color: #1a5d1a; }
+    
+        .topstack { position: sticky; top: 0; z-index: 150; }
+        nav { position: static; }
+        .promobar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            flex-wrap: wrap;
+            background: linear-gradient(90deg, #1b5e20, #2e7d32);
+            color: #e8f5e9;
+            text-decoration: none;
+            padding: 0.6rem 1.25rem;
+            font-size: 0.9rem;
+            line-height: 1.45;
+            text-align: center;
+        }
+        .promobar:hover { background: linear-gradient(90deg, #2e7d32, #388e3c); }
+        .promobar .pb-label {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 0.7rem;
+            background: rgba(255,255,255,0.18);
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+        .promobar .pb-text { color: #fff; }
+        .promobar .pb-go { font-weight: 800; }
+        @media (max-width: 600px) {
+            .promobar { font-size: 0.82rem; padding: 0.55rem 1rem; gap: 0.45rem; }
+            .promobar .pb-text { flex: 1 1 100%; }
+        }
     </style>
 </head>
 <body>
+
+<div class="topstack">
+<a class="promobar" href="https://paulgeise.com" target="_blank" rel="noopener">
+    <span class="pb-label">Also from the maker of SafePulse</span>
+    <span class="pb-text">The books of Paul Geise &mdash; on overcoming labels, faith, and changing your life ten pages at a time</span>
+    <span class="pb-go" aria-hidden="true">&rarr;</span>
+</a>
+</div>
 
 <a class="home-link" href="/">&larr; Check In On Me</a>
 
