@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Realtor Safety App for Showings &mdash; SafePulse | Check In On Me</title>
+    <meta name="description" content="A check-in app for real estate agents showing property alone. Set a timer before you walk in. If you don't check in, your contacts are alerted with your location — even if your phone is off or dead. Android, $4.99, no subscription.">
+    <link rel="canonical" href="https://checkinonme.app/realtor-safety">
+    <meta property="og:title" content="Realtor Safety App for Showings &mdash; SafePulse">
+    <meta property="og:description" content="Set a timer before you walk into a showing. If you don't check in, your contacts get an alert with your last known location — even if your phone is off or dead.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://checkinonme.app/realtor-safety">
+    <meta property="og:site_name" content="Check In On Me">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://checkinonme.app/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="SafePulse &mdash; check-in app for real estate agents">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Realtor Safety App for Showings &mdash; SafePulse">
+    <meta name="twitter:description" content="Set a timer before you walk into a showing. If you don't check in, your contacts get an alert with your last known location.">
+    <meta name="twitter:image" content="https://checkinonme.app/img/og-image.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "SafePulse",
+          "applicationCategory": "HealthApplication",
+          "applicationSubCategory": "Personal Safety",
+          "operatingSystem": "Android",
+          "description": "A personal safety check-in app for real estate agents and other lone workers. Set a timer before entering a property, and if you don't check in, SafePulse alerts your trusted contacts with your last known location by text and email — even if your phone is dead, off, or has no signal.",
+          "url": "https://checkinonme.app/realtor-safety",
+          "downloadUrl": "https://play.google.com/store/apps/details?id=app.safepulse",
+          "offers": { "@type": "Offer", "price": "4.99", "priceCurrency": "USD" },
+          "author": { "@type": "Person", "name": "Frank Nowicki" }
+        },
+        {
+          "@type": "FAQPage",
+          "url": "https://checkinonme.app/realtor-safety#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Does it track my location all day?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. SafePulse reads your location only when a check-in is running, and it is shared only if you miss the check-in. Nobody can look up where you are while everything is fine." }
+            },
+            {
+              "@type": "Question",
+              "name": "What if my phone is taken, turned off, or the battery dies?",
+              "acceptedAnswer": { "@type": "Answer", "text": "The alert still goes out. The countdown is mirrored on a server, so if your phone never checks in, the server sends the alert on its own. This is the difference between a check-in app and a panic button — a panic button needs you to be able to press it." }
+            },
+            {
+              "@type": "Question",
+              "name": "Who gets the alert?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Trusted contacts you choose — a spouse, your broker, an office manager, a fellow agent. They receive a text message and an email containing your last known location. They do not need the app installed." }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this a replacement for calling 911?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. SafePulse is not an emergency service and does not contact police, fire, or EMS. It notifies the people you chose. If you are in danger and able to call, call 911." }
+            },
+            {
+              "@type": "Question",
+              "name": "Is there a subscription?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. SafePulse is $4.99 once on Google Play. No subscription, no in-app purchases, no ads, and no selling of personal data." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1a1a2e;
+            line-height: 1.6;
+            background-color: #ffffff;
+            background-image:
+                radial-gradient(1100px 480px at 50% -140px, rgba(76,175,80,0.12), transparent 68%),
+                linear-gradient(180deg, #ffffff 0%, #f3f9f4 100%);
+            background-attachment: fixed;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            z-index: 100;
+        }
+        .logo { font-size: 1.4rem; font-weight: 800; color: #2e7d32; text-decoration: none; letter-spacing: -0.5px; }
+        nav .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        nav .nav-links a { font-size: 0.95rem; color: #555; text-decoration: none; font-weight: 500; }
+        nav .nav-links a:hover { color: #2e7d32; }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 5rem 2rem 5.5rem;
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 45%, #4caf50 100%);
+            color: #fff;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 34px), 0 100%);
+        }
+        .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
+        .hero::before { width: 460px; height: 460px; top: -160px; left: -120px; background: radial-gradient(circle, rgba(255,255,255,0.22), transparent 62%); }
+        .hero::after { width: 520px; height: 520px; bottom: -220px; right: -140px; background: radial-gradient(circle, rgba(129,199,132,0.35), transparent 60%); }
+        .hero > * { position: relative; z-index: 1; }
+        .hero h1 { font-size: 2.9rem; margin-bottom: 1rem; font-weight: 800; line-height: 1.15; max-width: 780px; margin-left: auto; margin-right: auto; }
+        .hero .tagline { font-size: 1.2rem; opacity: 0.95; max-width: 660px; margin: 0 auto 2.25rem; }
+        .hero .cta { display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.9rem 1.75rem; border-radius: 50px; text-decoration: none;
+            font-weight: 600; font-size: 1.05rem; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.25); }
+        .btn-primary { background: #fff; color: #1b5e20; }
+        .btn-ghost { background: rgba(255,255,255,0.15); color: #fff; border: 2px solid rgba(255,255,255,0.4); }
+
+        section { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
+        h2 { font-size: 2rem; margin-bottom: 1.25rem; color: #1a1a2e; text-align: center; }
+        .section-sub { text-align: center; color: #666; max-width: 660px; margin: 0 auto 2.5rem; }
+        h3 { font-size: 1.15rem; margin-bottom: 0.5rem; color: #2e7d32; }
+        p { margin-bottom: 1rem; color: #444; }
+        .prose { max-width: 700px; margin: 0 auto; }
+        .prose p:last-child { margin-bottom: 0; }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .feature {
+            position: relative; overflow: hidden; padding: 1.75rem 1.6rem;
+            background: #ffffff; border-radius: 16px; border: 1px solid rgba(46,125,50,0.10);
+            box-shadow: 0 6px 20px rgba(27,94,32,0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .feature::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #2e7d32, #66bb6a); }
+        .feature:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(27,94,32,0.15); }
+        .feature .ico {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 50px; height: 50px; border-radius: 14px;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            font-size: 1.55rem; margin-bottom: 0.9rem;
+            box-shadow: inset 0 0 0 1px rgba(46,125,50,0.08);
+        }
+        .feature p:last-child { margin-bottom: 0; }
+
+        .steps { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+        .step { flex: 1; min-width: 220px; max-width: 280px; text-align: center; }
+        .step p:last-child { margin-bottom: 0; }
+        .step-num {
+            width: 58px; height: 58px; border-radius: 50%;
+            background: linear-gradient(135deg, #2e7d32, #66bb6a); color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.45rem; font-weight: 800; margin: 0 auto 1rem;
+            box-shadow: 0 10px 22px rgba(46,125,50,0.32);
+        }
+
+        .limits { background: #fff; border-radius: 16px; border: 1px solid rgba(46,125,50,0.10); box-shadow: 0 6px 20px rgba(27,94,32,0.06); padding: 2rem 2rem 1.5rem; max-width: 720px; margin: 0 auto; }
+        .limits ul { list-style: none; }
+        .limits li { position: relative; padding-left: 1.9rem; margin-bottom: 0.9rem; color: #444; }
+        .limits li:last-child { margin-bottom: 0; }
+        .limits li::before { content: "\2716"; position: absolute; left: 0; top: 0; color: #c62828; font-weight: 700; }
+        .limits strong { color: #1a1a2e; }
+
+        .brokers { background: linear-gradient(180deg, #f1f8f2, #e8f3ea); border-top: 1px solid rgba(46,125,50,0.08); border-bottom: 1px solid rgba(46,125,50,0.08); }
+        .broker-card {
+            background: #fff; padding: 2.25rem 2rem; border-radius: 16px;
+            border: 1px solid rgba(46,125,50,0.10); box-shadow: 0 8px 26px rgba(27,94,32,0.07);
+            max-width: 700px; margin: 0 auto;
+        }
+        .broker-card a { color: #2e7d32; font-weight: 600; text-decoration: none; }
+        .broker-card a:hover { text-decoration: underline; }
+        .broker-card p:last-child { margin-bottom: 0; }
+
+        .faq { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+        .faq-item { padding: 1.6rem 1.5rem; background: #ffffff; border-radius: 16px; border: 1px solid rgba(46,125,50,0.10); box-shadow: 0 6px 20px rgba(27,94,32,0.06); }
+        .faq-item h3 { font-size: 1.05rem; color: #1a1a2e; margin-bottom: 0.55rem; line-height: 1.35; }
+        .faq-item p { font-size: 0.97rem; margin-bottom: 0; }
+
+        .download { background: linear-gradient(180deg, #f1f8f2, #e8f3ea); text-align: center; border-top: 1px solid rgba(46,125,50,0.08); }
+        .stores { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .store-badge {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            padding: 0.85rem 1.4rem; background: #1a1a2e; color: #fff;
+            text-decoration: none; border-radius: 12px; font-weight: 600;
+            box-shadow: 0 6px 18px rgba(26,26,46,0.18);
+            transition: transform 0.2s, box-shadow 0.2s; text-align: left;
+        }
+        .store-badge:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(26,26,46,0.28); }
+        .store-badge small { display: block; font-size: 0.65rem; opacity: 0.8; font-weight: 500; }
+        .store-badge .store-icon { font-size: 1.4rem; }
+        .price-note { margin-top: 1.25rem; font-size: 0.95rem; color: #555; }
+
+        .disclaimer {
+            background: #fff8e1; border-left: 4px solid #f9a825;
+            padding: 1rem 1.25rem; margin: 2rem auto 0; max-width: 700px;
+            font-size: 0.95rem; color: #555; border-radius: 0 8px 8px 0;
+        }
+        .disclaimer p:last-child { margin-bottom: 0; }
+        .platform-note {
+            background: #e8f3ea; border-left: 4px solid #2e7d32;
+            padding: 1rem 1.25rem; margin: 2rem auto 0; max-width: 700px;
+            font-size: 0.95rem; color: #33502f; border-radius: 0 8px 8px 0;
+        }
+        .platform-note p:last-child { margin-bottom: 0; }
+
+        footer { background: #1a1a2e; color: #aaa; padding: 2rem; text-align: center; font-size: 0.9rem; }
+        footer a { color: #81c784; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        footer .affil { max-width: 640px; margin: 1.25rem auto 0; font-size: 0.82rem; color: #888; line-height: 1.6; }
+
+        @media (max-width: 600px) {
+            .hero { padding: 3.5rem 1.25rem; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero .tagline { font-size: 1.02rem; }
+            section { padding: 3rem 1.25rem; }
+            nav { flex-direction: column; gap: 0.5rem; padding: 0.6rem 1rem; }
+            nav .logo { font-size: 1.25rem; }
+            nav .nav-links { gap: 1.1rem; font-size: 0.9rem; flex-wrap: wrap; justify-content: center; }
+            .limits, .broker-card { padding: 1.5rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo">Check In On Me</a>
+    <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#limits">Honest limits</a>
+        <a href="#brokers">For brokers</a>
+        <a href="#faq">FAQ</a>
+        <a href="#download">Get the app</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>You're meeting a stranger at an empty house.</h1>
+    <p class="tagline">Set a timer before you walk in. If you don't check in when it expires, SafePulse alerts the people you chose &mdash; with your last known location. It works even if your phone is off, dead, or out of signal.</p>
+    <div class="cta">
+        <a href="#download" class="btn btn-primary">Get SafePulse</a>
+        <a href="#how" class="btn btn-ghost">See how it works</a>
+    </div>
+</section>
+
+<section>
+    <h2>The gap this fills</h2>
+    <div class="prose">
+        <p>Most agents already have a safety habit: text a colleague the address before a showing, then text again when you're out. It works right up until the moment it matters &mdash; because the second text is the one that never gets sent, and nobody notices for hours.</p>
+        <p>That's the whole problem. The manual system depends on somebody else <em>remembering to worry about you</em>. A missed check-in should raise an alarm by itself.</p>
+        <p>SafePulse is the automated version of the habit you already have. You set the timer on the way in. If you come out fine, you tap once and nothing happens. If you don't, the alarm raises itself.</p>
+    </div>
+</section>
+
+<section id="how" style="padding-top:0;">
+    <h2>How it works</h2>
+    <p class="section-sub">Three steps, and only the first one happens while you're busy.</p>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <h3>Set a timer</h3>
+            <p>Before you walk in, pick a window &mdash; anywhere from 30 minutes to 48 hours. A typical showing is 30 or 45 minutes.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <h3>Check in when you're out</h3>
+            <p>One tap and the timer clears. No message to compose, nobody to notify, nothing else to remember.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <h3>Or don't &mdash; and they're told</h3>
+            <p>If the timer expires, your trusted contacts get a text and an email with your last known location. They don't need the app.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Why it's built differently</h2>
+    <p class="section-sub">Three design choices that matter for the way agents actually work.</p>
+    <div class="features">
+        <div class="feature">
+            <div class="ico">&#9201;</div>
+            <h3>Short windows, not daily check-ins</h3>
+            <p>Most check-in apps are built around a once-a-day "are you okay" for someone living alone. That's the wrong shape for a showing. SafePulse starts at 30 minutes because the risk is the appointment, not the day.</p>
+        </div>
+        <div class="feature">
+            <div class="ico">&#128205;</div>
+            <h3>Location is inside the alert</h3>
+            <p>The people you chose don't get a vague "she hasn't checked in." They get your last known location in the message itself, so the first thing they do is drive there, not start calling around.</p>
+        </div>
+        <div class="feature">
+            <div class="ico">&#128244;</div>
+            <h3>It fires with the phone off</h3>
+            <p>The countdown is mirrored on a server. If your phone is switched off, out of battery, out of signal, or taken from you, the server sends the alert anyway. Nothing on your phone has to still be working.</p>
+        </div>
+    </div>
+</section>
+
+<section id="limits">
+    <h2>What it is not</h2>
+    <p class="section-sub">Worth stating plainly, because safety tools get oversold.</p>
+    <div class="limits">
+        <ul>
+            <li><strong>Not an emergency service.</strong> SafePulse does not call 911, police, fire, or EMS, and there is no monitoring center behind it. It notifies the contacts you chose. If you are in danger and able to call, call 911.</li>
+            <li><strong>Not a panic button.</strong> A panic button needs you to be able to press it. This is the opposite design &mdash; it goes off when you <em>can't</em> act. Many agents carry both, and that's reasonable.</li>
+            <li><strong>Not location tracking.</strong> Nobody can look up where you are while a check-in is running normally. Location is read for the alert and shared only if you miss the check-in. Your broker does not get a map of your day.</li>
+            <li><strong>Not a guarantee.</strong> It depends on cell and internet service reaching your contacts. It reduces the hours between "something went wrong" and "somebody knows." It does not prevent anything.</li>
+            <li><strong>Not a substitute for the basics.</strong> Meeting new clients at the office first, verifying identity, telling someone where you're going &mdash; keep doing all of it. This is a backstop for the times you didn't.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="brokers" id="brokers">
+    <h2>For brokers, associations and safety educators</h2>
+    <p class="section-sub">If you're responsible for a group of agents, this part is for you.</p>
+    <div class="broker-card">
+        <p><strong>Free download codes, no catch.</strong> I'll provide Google Play promo codes for your agents or members at no cost &mdash; no upsell, no trial that converts, and no contact information collected from anyone who redeems one. They download the paid app for free and it stays theirs.</p>
+        <p><strong>Free to list as a resource.</strong> If you maintain a safety resource page, a newsletter, or a sales-meeting deck, you're welcome to link this page. Nothing here is gated and there's no signup form.</p>
+        <p><strong>I'll do a short walkthrough if it's useful.</strong> Fifteen minutes at a sales meeting or on a call, showing what an agent sees and what a contact receives. No charge and no pitch attached.</p>
+        <p>Email <a href="mailto:checkinonme@checkinonme.app">checkinonme@checkinonme.app</a> and say roughly how many agents you have. I'm a solo developer in Roseville, Michigan &mdash; not a vendor with a sales team, so you'll be talking to the person who wrote the app.</p>
+    </div>
+    <div class="platform-note">
+        <p><strong>Android only right now.</strong> SafePulse is on Google Play today. The iOS version is in development and not yet released, so please don't hand codes to an all-iPhone office expecting them to work &mdash; I'd rather say this up front than waste your agents' time.</p>
+    </div>
+</section>
+
+<section id="faq">
+    <h2>Questions agents ask</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <h3>Does it track my location all day?</h3>
+            <p>No. Location is read only while a check-in is running, and shared only if you miss one. Nobody &mdash; including your broker &mdash; can look up where you are while everything is fine.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What if my phone is taken or dies?</h3>
+            <p>The alert still goes out. The countdown is mirrored on a server, so if your phone never checks in, the server sends the alert on its own.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Who gets the alert?</h3>
+            <p>Contacts you choose &mdash; a spouse, your broker, an office manager, another agent. They get a text and an email with your last known location. They don't need the app installed.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What if I just forget to check in?</h3>
+            <p>Your contacts get an alert and you'll have an awkward phone call. That's the correct failure mode for a safety tool &mdash; it should err toward telling someone.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can my brokerage see my check-ins?</h3>
+            <p>Only if you add them as a contact. There's no broker dashboard, no admin console, and no way for an office to monitor agents through this app.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is there a subscription?</h3>
+            <p>No. It's $4.99 once on Google Play. No subscription, no in-app purchases, no ads, and no selling of personal data.</p>
+        </div>
+    </div>
+</section>
+
+<section class="download" id="download">
+    <h2>Get SafePulse</h2>
+    <p class="section-sub">Android, $4.99 once. Set your first check-in in about two minutes.</p>
+    <div class="stores">
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=app.safepulse" target="_blank" rel="noopener">
+            <span class="store-icon">&#9654;</span>
+            <span><small>Get it on</small>Google Play</span>
+        </a>
+    </div>
+    <p class="price-note">One payment. No subscription, no in-app purchases, no ads.<br>iOS version in development &mdash; it is not available yet.</p>
+    <div class="disclaimer">
+        <p><strong>Please read:</strong> SafePulse is not an emergency service and does not contact police, fire, or emergency medical services. It notifies contacts you choose, and depends on cellular and internet service to deliver those alerts. It is not a substitute for calling 911 or for your brokerage's own safety procedures.</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Frank Nowicki. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">Frank Paul Nowicki, Sole Proprietor &middot; Roseville, MI 48066, USA &middot; <a href="tel:+15868720488">586-872-0488</a></p>
+    <p style="margin-top: 0.5rem;">SafePulse&trade; is a brand of Frank Nowicki. &middot; <a href="/">Home</a> &middot; <a href="/setup">Setup Guide</a> &middot; <a href="/compare">Compare</a> &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Service</a></p>
+    <p class="affil">Not affiliated with, sponsored by, or endorsed by the National Association of REALTORS&reg;, any local or state association, or any brokerage. REALTOR&reg; is a registered trademark of the National Association of REALTORS&reg;.</p>
+</footer>
+
+</body>
+</html>
