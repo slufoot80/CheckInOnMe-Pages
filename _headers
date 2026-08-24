@@ -2,3 +2,6 @@
 # via header instead. The HTML résumé pages use meta noindex directly.
 /*.pdf
   X-Robots-Tag: noindex, nofollow
+
+/*.doc
+  X-Robots-Tag: noindex, nofollow
