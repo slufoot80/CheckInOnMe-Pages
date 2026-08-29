@@ -5,3 +5,10 @@
 
 /*.doc
   X-Robots-Tag: noindex, nofollow
+
+# Private App Review demo video for Apple. Apple requires a direct file link
+# (not YouTube/Vimeo), so it must be publicly fetchable — but it shows a real
+# third-party phone number on screen, so keep it out of search results.
+/safepulse-consent-demo.mp4
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: public, max-age=3600
