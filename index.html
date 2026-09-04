@@ -467,6 +467,52 @@
             box-shadow: inset 0 0 0 1px rgba(46,125,50,0.08);
         }
 
+        .audience {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 420px));
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .audience-card {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            padding: 1.75rem 1.6rem;
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid rgba(46,125,50,0.10);
+            box-shadow: 0 6px 20px rgba(27,94,32,0.06);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .audience-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2e7d32, #66bb6a);
+        }
+        .audience-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(27,94,32,0.15);
+        }
+        .audience-card .ico {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px; height: 50px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            font-size: 1.55rem;
+            margin-bottom: 0.9rem;
+            box-shadow: inset 0 0 0 1px rgba(46,125,50,0.08);
+        }
+        .audience-card h3 { margin: 0 0 0.5rem; }
+        .audience-card p { margin: 0 0 1rem; color: #555; }
+        .audience-more { color: #2e7d32; font-weight: 600; }
+        .audience-card:hover .audience-more { text-decoration: underline; }
+
         .steps {
             display: flex;
             justify-content: center;
@@ -633,6 +679,7 @@
     <div class="nav-links">
         <a href="#features">Features</a>
         <a href="/compare">Compare</a>
+        <a href="/realtor-safety">For Realtors</a>
         <a href="#faq">FAQ</a>
         <a href="#download">Get the app</a>
         <a class="nav-social" href="https://www.facebook.com/profile.php?id=61591385941511" target="_blank" rel="noopener" aria-label="Check In On Me on Facebook" title="Follow on Facebook">
@@ -733,6 +780,19 @@
                 <p>SafePulse warns you first &mdash; it vibrates and opens the app so you can tap &ldquo;I'm OK.&rdquo; If you still don't respond, your trusted contacts get a text and email with your last known location and your callback number. This happens even if your device is dead or off.</p>
             </div>
         </div>
+    </div>
+</section>
+
+<section id="for-work">
+    <h2>When being alone is part of the job</h2>
+    <p class="section-sub">Some people meet strangers alone as a normal part of the work day, in a building nobody else knows they are in. If that is your job, the timer is worth setting up a little differently.</p>
+    <div class="audience">
+        <a class="audience-card" href="/realtor-safety">
+            <span class="ico">&#127968;</span>
+            <h3>Real estate agents</h3>
+            <p>Start a check-in before you walk into a showing. If you don't tap &ldquo;I'm OK&rdquo; before it runs out, your contacts get a text and email with your last known location &mdash; even if your phone is off or dead.</p>
+            <span class="audience-more">Safety for showings &rarr;</span>
+        </a>
     </div>
 </section>
 
