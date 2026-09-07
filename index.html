@@ -589,6 +589,42 @@
         .support-card a { color: #2e7d32; font-weight: 600; text-decoration: none; }
         .support-card a:hover { text-decoration: underline; }
 
+        .share-band {
+            background: linear-gradient(180deg, #f6fbf7, #eef7f0);
+            border-top: 1px solid rgba(46,125,50,0.08);
+            border-bottom: 1px solid rgba(46,125,50,0.08);
+        }
+        .share-inner { max-width: 760px; margin: 0 auto; }
+        .share-btns { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; }
+        .share-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            background: #fff;
+            color: #1a1a2e;
+            border: 1px solid rgba(46,125,50,0.18);
+            box-shadow: 0 4px 14px rgba(27,94,32,0.06);
+            font: inherit; font-size: 0.95rem; font-weight: 600;
+            text-decoration: none; cursor: pointer;
+            transition: transform 0.18s, box-shadow 0.18s, background 0.18s, color 0.18s, border-color 0.18s;
+        }
+        .share-btn:hover, .share-btn:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(27,94,32,0.14);
+        }
+        .share-btn svg { flex-shrink: 0; }
+        .share-btn[hidden] { display: none; }
+        .share-btn.s-native:hover, .share-btn.s-native:focus-visible,
+        .share-btn.s-sms:hover, .share-btn.s-sms:focus-visible,
+        .share-btn.s-email:hover, .share-btn.s-email:focus-visible { background: #2e7d32; border-color: #2e7d32; color: #fff; }
+        .share-btn.s-facebook:hover, .share-btn.s-facebook:focus-visible { background: #1877f2; border-color: #1877f2; color: #fff; }
+        .share-btn.s-x:hover, .share-btn.s-x:focus-visible { background: #000; border-color: #000; color: #fff; }
+        .share-btn.s-whatsapp:hover, .share-btn.s-whatsapp:focus-visible { background: #25d366; border-color: #25d366; color: #fff; }
+        .share-btn.s-linkedin:hover, .share-btn.s-linkedin:focus-visible { background: #0a66c2; border-color: #0a66c2; color: #fff; }
+        .share-btn.s-copy:hover, .share-btn.s-copy:focus-visible { background: #1a1a2e; border-color: #1a1a2e; color: #fff; }
+        .share-btn.is-copied { background: #2e7d32; border-color: #2e7d32; color: #fff; }
+        .share-note { margin: 1.75rem auto 0; max-width: 560px; text-align: center; font-size: 0.85rem; color: #777; }
+
         .disclaimer {
             background: #fff8e1;
             border-left: 4px solid #f9a825;
@@ -905,6 +941,23 @@
     </div>
 </section>
 
+<section class="share-band" id="share" style="max-width:none;">
+    <div class="share-inner">
+        <h2>Know someone who is often alone?</h2>
+        <p class="section-sub">Nobody goes looking for a check-in app until something happens. People find out about SafePulse because someone who cares about them sent it over &mdash; a parent living alone, a partner who works late, a friend who runs after dark.</p>
+        <div class="share-btns" data-share-url="https://checkinonme.app/" data-share-text="SafePulse alerts the people you trust if you don't check in — even if your phone is dead, off, or has no signal." data-share-title="SafePulse — someone should always know you're okay">
+            <button type="button" class="share-btn s-native" data-share="native" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.75 4.5a3 3 0 1 1 .825 2.066l-8.421 4.679a3.002 3.002 0 0 1 0 1.51l8.421 4.679a3 3 0 1 1-.729 1.31l-8.421-4.678a3 3 0 1 1 0-4.132l8.421-4.679a3 3 0 0 1-.096-.755z"/></svg><span class="share-text">Share</span></button>
+            <a class="share-btn s-sms" data-share="sms" href="sms:?&amp;body=SafePulse%20alerts%20the%20people%20you%20trust%20if%20you%20don%27t%20check%20in%20%E2%80%94%20even%20if%20your%20phone%20is%20dead%2C%20off%2C%20or%20has%20no%20signal.%20https%3A%2F%2Fcheckinonme.app%2F" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.848 2.771A49.14 49.14 0 0 1 12 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97a48.9 48.9 0 0 1-3.476.383.39.39 0 0 0-.297.17l-2.755 4.133a.75.75 0 0 1-1.248 0l-2.755-4.133a.39.39 0 0 0-.297-.17 48.9 48.9 0 0 1-3.476-.384c-1.978-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.37-3.678 3.348-3.97z"/></svg><span class="share-text">Text message</span></a>
+            <a class="share-btn s-whatsapp" href="https://api.whatsapp.com/send?text=SafePulse%20alerts%20the%20people%20you%20trust%20if%20you%20don%27t%20check%20in%20%E2%80%94%20even%20if%20your%20phone%20is%20dead%2C%20off%2C%20or%20has%20no%20signal.%20https%3A%2F%2Fcheckinonme.app%2F" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896 9.83 9.83 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.9 11.9 0 0 0 5.71 1.454h.005c6.585 0 11.946-5.359 11.949-11.945a11.9 11.9 0 0 0-3.479-8.408"/></svg><span class="share-text">WhatsApp</span></a>
+            <a class="share-btn s-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcheckinonme.app%2F" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg><span class="share-text">Facebook</span></a>
+            <a class="share-btn s-x" href="https://x.com/intent/post?url=https%3A%2F%2Fcheckinonme.app%2F&amp;text=SafePulse%20alerts%20the%20people%20you%20trust%20if%20you%20don%27t%20check%20in%20%E2%80%94%20even%20if%20your%20phone%20is%20dead%2C%20off%2C%20or%20has%20no%20signal." target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></svg><span class="share-text">X</span></a>
+            <a class="share-btn s-email" href="mailto:?subject=SafePulse%20%E2%80%94%20someone%20should%20always%20know%20you%27re%20okay&amp;body=SafePulse%20alerts%20the%20people%20you%20trust%20if%20you%20don%27t%20check%20in%20%E2%80%94%20even%20if%20your%20phone%20is%20dead%2C%20off%2C%20or%20has%20no%20signal.%0A%0Ahttps%3A%2F%2Fcheckinonme.app%2F"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67zM22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908z"/></svg><span class="share-text">Email</span></a>
+            <button type="button" class="share-btn s-copy" data-share="copy"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.902 4.098a3.75 3.75 0 0 0-5.304 0l-4.5 4.5a3.75 3.75 0 0 0 1.035 6.037.75.75 0 0 1-.646 1.353 5.25 5.25 0 0 1-1.449-8.45l4.5-4.5a5.25 5.25 0 1 1 7.424 7.424l-1.757 1.757a.75.75 0 1 1-1.06-1.06l1.757-1.758a3.75 3.75 0 0 0 0-5.303zm-7.389 4.267a.75.75 0 0 1 1-.353 5.25 5.25 0 0 1 1.449 8.45l-4.5 4.5a5.25 5.25 0 1 1-7.424-7.424l1.757-1.757a.75.75 0 1 1 1.06 1.06l-1.757 1.758a3.75 3.75 0 1 0 5.304 5.303l4.5-4.5a3.75 3.75 0 0 0-1.035-6.037.75.75 0 0 1-.354-1z"/></svg><span class="share-text">Copy link</span></button>
+        </div>
+        <p class="share-note">These are ordinary links. No tracking pixels, no third-party scripts, and nothing about you is sent anywhere when you use them.</p>
+    </div>
+</section>
+
 <section id="support">
     <h2>Support &amp; contact</h2>
     <div class="support-card">
@@ -1029,5 +1082,73 @@
     });
 })();
 </script>
+<script>
+// Share buttons: plain links, no third-party scripts. JS only adds the
+// clipboard copy, the OS share sheet, and the SMS button on touch devices.
+(function () {
+    var groups = document.querySelectorAll('[data-share-url]');
+    if (!groups.length) return;
+
+    var canNative = !!(navigator.share);
+    var isTouch = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+
+    Array.prototype.forEach.call(groups, function (group) {
+        var url = group.getAttribute('data-share-url');
+        var text = group.getAttribute('data-share-text') || '';
+        var title = group.getAttribute('data-share-title') || document.title;
+
+        // Texting a link is only useful on something that can send a text.
+        var sms = group.querySelector('[data-share="sms"]');
+        if (sms && isTouch) sms.hidden = false;
+
+        var nativeBtn = group.querySelector('[data-share="native"]');
+        if (nativeBtn && canNative) {
+            nativeBtn.hidden = false;
+            nativeBtn.addEventListener('click', function () {
+                navigator.share({ title: title, text: text, url: url }).catch(function () {});
+            });
+        }
+
+        var copyBtn = group.querySelector('[data-share="copy"]');
+        if (!copyBtn) return;
+        var label = copyBtn.querySelector('.share-text');
+        var original = label ? label.textContent : '';
+        var timer;
+
+        function done(ok) {
+            copyBtn.classList.toggle('is-copied', ok);
+            if (label) label.textContent = ok ? 'Copied!' : 'Copy failed';
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                copyBtn.classList.remove('is-copied');
+                if (label) label.textContent = original;
+            }, 2200);
+        }
+
+        function fallback() {
+            var ta = document.createElement('textarea');
+            ta.value = url;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.top = '-1000px';
+            document.body.appendChild(ta);
+            ta.select();
+            var ok = false;
+            try { ok = document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(ta);
+            done(ok);
+        }
+
+        copyBtn.addEventListener('click', function () {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(function () { done(true); }, fallback);
+            } else {
+                fallback();
+            }
+        });
+    });
+})();
+</script>
+
 </body>
 </html>
