@@ -1,0 +1,97 @@
+name: Verify cited statistics
+
+# Re-checks the figures cited on /home-health-safety against their sources and
+# re-stamps "Statistics last verified <Month Year>". It never rewrites a
+# statistic — if a cited figure can no longer be confirmed, it stamps nothing
+# and opens an issue instead.
+#
+# Pushing to master is the deploy: the checkinonme-pages Worker picks up the
+# commit roughly 45 seconds later.
+
+on:
+  schedule:
+    - cron: "0 12 1 * *"   # 12:00 UTC on the 1st of each month
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: verify-stats
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check sources and re-stamp
+        id: check
+        run: node tools/verify-stats.mjs 2>&1 | tee check.log
+        continue-on-error: true
+
+      - name: Commit the new verification date
+        if: steps.check.outcome == 'success'
+        run: |
+          if git diff --quiet -- home-health-safety.html; then
+            echo "Date unchanged — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add home-health-safety.html
+          git commit -m "Re-verify cited statistics ($(date -u '+%B %Y'))"
+          git push origin HEAD:master
+
+      - name: Open an issue if a citation could not be confirmed
+        if: steps.check.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let log = '';
+            try { log = fs.readFileSync('check.log', 'utf8'); } catch (e) { log = '(no log captured)'; }
+
+            const title = 'Cited statistics on /home-health-safety could not be verified';
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'stats-verification',
+            });
+
+            const body = [
+              'The monthly source check did not pass, so the page was **not** re-stamped',
+              'and still shows its previous verification date.',
+              '',
+              'Either a source page changed, or BLS published a new data year. Figures are',
+              'updated by hand on purpose — check the source, edit the numbers in',
+              '`home-health-safety.html`, then run `node tools/verify-stats.mjs` locally.',
+              '',
+              '```',
+              log.trim(),
+              '```',
+            ].join('\n');
+
+            if (existing.data.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.data[0].number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['stats-verification'],
+              });
+            }
