@@ -91,15 +91,6 @@ Also served: `safepulse-alerts.vcf` (the "add SafePulse to my contacts" card lin
   is the single source of truth for those facts — edit it first, then propagate here.
 - **Never claim "no servers" or "your data never leaves your phone."** False since the gateway
   switch, on every platform. That claim has been removed from this site; do not reintroduce it.
-- **The statistics on `/home-health-safety` are checked monthly by CI, but never rewritten by it.**
-  `.github/workflows/verify-stats.yml` runs `tools/verify-stats.mjs` on the 1st of each month. It
-  re-fetches each cited source, confirms the quoted figures are still there, and only then updates
-  the "Statistics last verified" stamp and pushes to `master` (which deploys). If a figure can no
-  longer be confirmed it stamps nothing and opens an issue instead — a number in front of clinicians
-  gets updated by a human who read the new source. Note the script's User-Agent: **BLS answers 403 to
-  browser-impersonating agents** and 200 to an honest identifying one, so do not "fix" it by faking
-  Chrome.
-
 - **Cross-promo bars** at the top of `index.html` link to `paulgeise.com`. The reverse link
   lives on that site, which is a **manual** Cloudflare Pages upload — a commit there deploys
   nothing.
