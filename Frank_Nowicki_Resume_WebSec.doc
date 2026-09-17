@@ -1,0 +1,126 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="UTF-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word">
+<title>Frank Nowicki - Linux Systems Administrator (Web Infrastructure, Security & Compliance)</title>
+<!--[if gte mso 9]><xml>
+<w:WordDocument>
+<w:View>Print</w:View>
+<w:Zoom>100</w:Zoom>
+<w:DoNotOptimizeForBrowser/>
+</w:WordDocument>
+</xml><![endif]-->
+<style>
+@page { size: 8.5in 11.0in; margin: 0.6in 0.7in; }
+body { font-family: Calibri, Arial, sans-serif; font-size: 10pt; color: #000000; line-height: 1.25; }
+h1 { font-size: 20pt; font-weight: bold; margin: 0 0 2pt 0; color: #1F4E79; }
+.subtitle { font-size: 11pt; font-weight: bold; color: #1F4E79; margin: 0 0 4pt 0; }
+.contact { font-size: 9.5pt; margin: 0 0 6pt 0; }
+.clearance { font-size: 9.5pt; margin: 0 0 8pt 0; padding: 4pt 6pt; background: #F2F5F9; border-left: 3pt solid #1F4E79; }
+h2 { font-size: 10.5pt; font-weight: bold; color: #1F4E79; text-transform: uppercase; letter-spacing: 0.5pt; margin: 12pt 0 4pt 0; border-bottom: 1pt solid #BFC9D8; padding-bottom: 2pt; }
+p { margin: 0 0 6pt 0; }
+.summary { font-size: 10pt; text-align: justify; }
+.skill { margin: 0 0 3pt 0; font-size: 9.5pt; }
+.skill b { color: #000000; }
+.jobhead { margin: 8pt 0 1pt 0; font-size: 10.5pt; }
+.jobhead .role { font-weight: bold; }
+.jobhead .org { font-weight: bold; color: #1F4E79; }
+.jobmeta { font-size: 9pt; color: #666666; margin: 0 0 3pt 0; font-style: italic; }
+ul { margin: 0 0 6pt 0; padding-left: 20pt; }
+li { font-size: 9.5pt; margin: 0 0 2pt 0; }
+.quote { margin: 0 0 6pt 0; padding: 5pt 8pt; background: #F2F5F9; border-left: 3pt solid #1F4E79; font-size: 9.5pt; font-style: italic; }
+.quote .cite { font-style: normal; font-size: 8.5pt; color: #666666; display: block; margin-top: 3pt; }
+a { color: #1F4E79; }
+</style>
+</head>
+<body>
+<h1>Frank Nowicki</h1>
+<div class="subtitle">Linux Systems Administrator &middot; Web Infrastructure, Security &amp; Compliance</div>
+<p class="contact">
+Metro Detroit, MI &mdash; open to remote &nbsp;|&nbsp;
+<a href="mailto:frank.nowicki@gmail.com">frank.nowicki@gmail.com</a> &nbsp;|&nbsp;
+<a href="https://www.linkedin.com/in/frank-nowicki-linux/">linkedin.com/in/frank-nowicki-linux</a> &nbsp;|&nbsp;
+<a href="https://checkinonme.app/">checkinonme.app</a>
+</p>
+
+<h2>Summary</h2>
+<p class="summary">Linux systems administrator with 20+ years provisioning, patching, securing, and operating RHEL, CentOS, Ubuntu, and SUSE servers in production, including Apache web servers and MySQL and Oracle databases I have installed, configured, and troubleshot. Hands-on across the whole data center short of facilities power and cooling. Because I have built so many systems from scratch, I know what a healthy default looks like, and returning a failing system to that known-good baseline resolves most problems fast. As senior escalation point, took one enterprise estate from roughly 300 monthly incident tickets to 80 through root-cause analysis, then kept it stable with monitoring, hardened builds, enforced patch levels, and documented runbooks. Strong on access control and VPNs, security patching, backup and recovery (large migrations completed with zero data loss), and scripting that removes manual work. Today I run my own production cloud backend end to end &mdash; DNS, secrets, CI/CD, monitoring, and cost controls &mdash; and keep its data-handling disclosures current through five app-store compliance reviews. AWS Certified Solutions Architect and SysOps Administrator; Oracle 12c Certified Professional; previously held an SF-86 clearance.</p>
+
+<h2>Core Skills</h2>
+<p class="skill"><b>Linux &amp; Web Services:</b> RHEL, CentOS, Ubuntu, SUSE, Solaris 8&ndash;11 &mdash; server provisioning and build standardization, patching and lifecycle management, systemd services, LVM and filesystems, kernel tuning; Apache web server installation, configuration, and troubleshooting; mail and FTP/SFTP services</p>
+<p class="skill"><b>Access Control:</b> User account lifecycle and automated provisioning; SSH access and role-based permission standards; privileged-access and secrets management; DNS, LDAP, and NFS; access administration across mixed Unix/Windows estates</p>
+<p class="skill"><b>Security &amp; Vulnerability Remediation:</b> Security patching and patch compliance, SELinux policy, host firewall configuration, service hardening, configuration baselines; TLS certificate-chain and trust-store troubleshooting; CI/CD built to a no-long-lived-credentials security policy; Red Hat security administration training</p>
+<p class="skill"><b>Monitoring &amp; Troubleshooting:</b> Health, capacity, and performance monitoring; alerting and process thresholds; log analysis; diagnostic testing and root-cause analysis; restoring failing systems to a known-good default baseline; uptime-focused remediation of recurring failure classes</p>
+<p class="skill"><b>Backup, Archive &amp; Recovery:</b> NetBackup and NetVault; network-attached backup appliances; rsync replication; mirrored volumes (Solstice DiskSuite); EMC Isilon and Celerra, NetApp; AWS Backup; data migration and restore with zero data loss</p>
+<p class="skill"><b>Scripting, CI/CD &amp; Integrations:</b> Bash/Shell, Python, PHP, Perl, PowerShell; Jenkins, Ansible, Puppet, Chef; Git; automated build, signing, and release pipelines; REST API integrations with third-party messaging and email providers</p>
+<p class="skill"><b>Databases:</b> MySQL and Oracle (12c certified DBA) &mdash; installation, configuration, and troubleshooting; PostgreSQL, SQL; supporting application teams on database, dependency, and environment issues</p>
+<p class="skill"><b>Compliance &amp; Documentation:</b> Runbooks, build documentation, and configuration standards; incident, request, and change work tracked in ticketing systems; release coordination; data-handling, privacy, and consent disclosures maintained through recurring platform compliance reviews</p>
+<p class="skill"><b>Data Center, Network &amp; Endpoints:</b> Full data center operations short of facilities power and cooling &mdash; hardware installation, new-system builds, storage, networking, and backup; AWS (EC2, S3, RDS, Lambda, IAM, Backup) &mdash; Solutions Architect &amp; SysOps certified; Cloudflare DNS, Workers, KV, and Pages; Cisco routing and switching (CCENT); VPN access and configuration; laptop provisioning and end-user technical support on Windows and macOS; Docker and Kubernetes</p>
+
+<h2>Experience</h2>
+<p class="jobhead"><span class="role">Senior Unix/Linux System Administrator</span> &mdash; <span class="org">SourceHOV / Exela</span></p>
+<p class="jobmeta">Oct 2011 &ndash; Jan 2017 &middot; Troy, MI</p>
+<ul>
+<li>Senior technical escalation point for a neglected, failure-prone Linux/Unix estate spanning development, test, and production; assessed it end to end, set configuration and operational standards, and rebuilt it into a stable, predictable, monitored platform. Held a security clearance (SF-86).</li>
+<li>Reduced monthly incident tickets from roughly 300 to 80 through root-cause analysis, diagnostic testing, and reprioritization of recurring failure classes &mdash; fixing causes instead of reissuing workarounds.</li>
+<li>Built monitoring, alerting, and log management for the web, mail, and FTP servers, adding process-threshold alerting where none existed so degradation was caught before it became downtime.</li>
+<li>Hardened and standardized server builds and patch levels across the estate, closing the configuration drift and unpatched exposure behind a large share of recurring incidents.</li>
+<li>Automated user-account provisioning and permission changes, cutting a two-hour manual process to twenty minutes and removing a standing source of access errors; wrote the runbooks and build documentation the team worked from.</li>
+<li>Migrated 600+ users to a new secure FTP platform and relocated multiple file systems onto EMC Isilon &mdash; mapped dependencies and rollback paths first, finished both cutovers with zero data loss.</li>
+</ul>
+<p class="jobhead"><span class="role">Independent Cloud &amp; Platform Developer</span> &mdash; <span class="org">Self-Employed</span></p>
+<p class="jobmeta">2024 &ndash; Present &middot; Remote</p>
+<ul>
+<li>Run a production serverless backend end to end &mdash; authenticated API endpoints, scheduled jobs, key-value state, per-client rate limits and spend caps &mdash; plus DNS and domain management for my production websites.</li>
+<li>Diagnosed a silent multi-day outage from user symptoms alone: a credential had been removed from configuration and never re-provisioned as a secret. Fixed it, then added a zero-cost authentication probe that catches the same failure in seconds instead of days.</li>
+<li>Built release automation using Workload Identity Federation to meet a security policy that bans long-lived service-account keys; maintain five separate signing and release pipelines, each with its own review and compliance requirements.</li>
+<li>Audited published privacy and data-handling statements against what the systems actually do, corrected four inaccurate claims, and keep those disclosures current through recurring app-store compliance reviews.</li>
+<li>Replaced a device-dependent notification path with redundant server-side delivery across two independent providers, removing a single point of failure.</li>
+</ul>
+<p class="jobhead"><span class="role">Career Break</span> &mdash; <span class="org">Family Caregiving &amp; Professional Development</span></p>
+<p class="jobmeta">2017 &ndash; 2023</p>
+<ul>
+<li>Full-time caregiver for a family member while keeping skills current through certification study and Red Hat administration and security training.</li>
+<li>Earned <strong>AWS Certified Solutions Architect &ndash; Associate</strong> and <strong>AWS Certified SysOps Administrator &ndash; Associate</strong> (2018), and <strong>Oracle Database 12c Administrator Certified Professional</strong> (2019&ndash;2020, 4.0 GPA).</li>
+</ul>
+<p class="jobhead"><span class="role">Unix System Administrator</span> &mdash; <span class="org">TEKsystems (Contract)</span></p>
+<p class="jobmeta">May 2007 &ndash; Jan 2008 &middot; Warren, MI</p>
+<ul>
+<li>Built and maintained a production-parity test environment &mdash; patch levels, security configuration, telecom access, and kernel tuning &mdash; so changes were validated against production behavior; coordinated each release with test leads, project managers, and suppliers.</li>
+</ul>
+<p class="jobhead"><span class="role">Unix System Administrator</span> &mdash; <span class="org">Incentra Solutions / DaimlerChrysler (SHAP)</span></p>
+<p class="jobmeta">Apr 2005 &ndash; Nov 2006 &middot; Sterling Heights, MI</p>
+<ul>
+<li>Deployed and configured network-attached backup appliances protecting plant servers across multiple Chrysler facilities; administered the Linux-based GuardianOS, DNS, and NFS.</li>
+<li>Led migration of Unix and Windows backup clients from NetBackup to NetVault across Solaris 2.6&ndash;9, sequencing cutovers around production windows.</li>
+</ul>
+<p class="jobhead"><span class="role">Unix System Administrator</span> &mdash; <span class="org">LaSalle Bank (Contract)</span></p>
+<p class="jobmeta">Jun 2004 &ndash; Jan 2005 &middot; Troy, MI</p>
+<ul>
+<li>Scripted EMC Celerra volume creation and rsync-based replication in Bash; built mirrored volumes with Solstice DiskSuite and standardized Solaris 8 builds through JumpStart imaging.</li>
+</ul>
+<p class="jobhead"><span class="role">Systems Engineer</span> &mdash; <span class="org">Technical Solutions, LLC</span></p>
+<p class="jobmeta">Jun 1997 &ndash; Jun 2003 &middot; Troy, MI</p>
+<ul>
+<li>Pre- and post-sales engineering and Level 2/3 support: technical presentations, proofs of concept, product integration, and hands-on troubleshooting at customer sites.</li>
+</ul>
+
+<h2>What Colleagues Say</h2>
+<p class="quote">&ldquo;Frank was the senior Unix admin when I worked with him at SourceHOV. He expertly fixed a neglected Unix environment, proactively configured systems so they no longer failed, and added value by putting monitoring in place and setting standards. Under his leadership it became a stable, predictable platform. He is one of the very best Unix admins I have worked with and would be a benefit to any company that hires him.&rdquo;<span class="cite">&mdash; Steve Allison, Backup and Recovery Engineer &middot; worked with Frank at SourceHOV</span></p>
+<p class="quote">&ldquo;Frank is an awesome System Administrator. Professional. Effective. Solution-oriented. Looking forward to working with Frank again soon.&rdquo;<span class="cite">&mdash; Kuldip Bhatt, Senior Technology &amp; CRM Operations Leader</span></p>
+
+<h2>Certifications &amp; Education</h2>
+<ul>
+<li><strong>AWS Certified Solutions Architect &ndash; Associate</strong> (2018) &middot; <strong>AWS Certified SysOps Administrator &ndash; Associate</strong> (2018)</li>
+<li><strong>Oracle Database 12c Administrator Certified Professional</strong> (2019&ndash;2020, 4.0 GPA) &mdash; Global Institute of Information Technology</li>
+<li><strong>Cisco Certified Entry Networking Technician (CCENT)</strong> &mdash; Cisco Networking Academy</li>
+<li><strong>Red Hat Enterprise Linux administration and security training</strong> &mdash; system administration, SELinux, hardening, monitoring, and performance tuning</li>
+<li><strong>Associate of Applied Science, Information Technology</strong> &mdash; Macomb Community College</li>
+<li><strong>Unix/C Certificate Program</strong> &mdash; Marygrove College: Unix system and network administration, shell scripting, C programming</li>
+</ul>
+
+<p style="font-size:9pt;color:#666666;">References available on request.</p>
+
+</body>
+</html>
