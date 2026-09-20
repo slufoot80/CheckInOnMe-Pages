@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Check-In App for People Who Live Alone &mdash; SafePulse | Check In On Me</title>
+    <meta name="description" content="If something happened tonight, how long before anyone knew? SafePulse asks you to tap once. Miss it, and up to 10 contacts get a text and an email with your last known location — even if your phone is off or dead. $4.99 once on Android, $2.99 a month on iPhone.">
+    <link rel="canonical" href="https://checkinonme.app/living-alone">
+    <meta property="og:title" content="Check-In App for People Who Live Alone &mdash; SafePulse">
+    <meta property="og:description" content="Tap once to say you're okay. If you don't, the people you chose get a text and an email with your last known location — even if your phone is off or dead.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://checkinonme.app/living-alone">
+    <meta property="og:site_name" content="Check In On Me">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://checkinonme.app/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="SafePulse &mdash; check-in app for people who live alone">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Check-In App for People Who Live Alone &mdash; SafePulse">
+    <meta name="twitter:description" content="Tap once to say you're okay. If you don't, the people you chose get a text and an email with your last known location.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "SafePulse",
+          "applicationCategory": "HealthApplication",
+          "applicationSubCategory": "Personal Safety",
+          "operatingSystem": "Android, iOS",
+          "description": "A personal safety check-in app for people who live alone. Tap once to say you are okay. If you miss a check-in, SafePulse alerts up to 10 trusted contacts by text and email with your last known location — even if your phone is dead, off, or has no signal.",
+          "url": "https://checkinonme.app/living-alone",
+          "downloadUrl": "https://play.google.com/store/apps/details?id=app.safepulse",
+          "offers": { "@type": "Offer", "price": "4.99", "priceCurrency": "USD" },
+          "author": { "@type": "Person", "name": "Frank Nowicki" }
+        },
+        {
+          "@type": "FAQPage",
+          "url": "https://checkinonme.app/living-alone#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is there an app that alerts someone if I live alone and something happens?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes. SafePulse asks you to check in on a schedule you set — anywhere from every 30 minutes to every 48 hours. If you miss a check-in, it texts and emails up to 10 contacts you chose, with your last known location. They do not need the app, and there is no pendant to wear." }
+            },
+            {
+              "@type": "Question",
+              "name": "Does SafePulse detect falls?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. There is no fall sensor. SafePulse works on missed check-ins, which covers a fall, a medical episode, or any situation where you can't reach your phone — but it reacts to silence, not to impact, so nothing happens until your check-in is due." }
+            },
+            {
+              "@type": "Question",
+              "name": "What if my phone is off, dead, or out of signal?",
+              "acceptedAnswer": { "@type": "Answer", "text": "The alert still goes out. Your deadline is mirrored on a server, so if your phone never checks in, the server sends the alert on its own. This is the difference between a check-in app and a panic button — a panic button needs a working phone and a conscious person to press it." }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I set SafePulse up for my elderly parent?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes, and this is a common way it is used. The app goes on their phone and you are the contact. You are not given a dashboard or a map of their day — you are simply told, by text and email, if they stop responding. Contacts confirm by reply before they are stored, so nobody is added without agreeing." }
+            },
+            {
+              "@type": "Question",
+              "name": "Are there free check-in apps for people who live alone?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes. Snug Safety offers a free daily check-in with alerts to your contacts, and Demumu (formerly \"Are You Dead?\") is a low-cost daily tap that emails one contact. SafePulse costs more and does more: check-ins as short as 30 minutes, your location inside the alert, text as well as email, up to 10 contacts, SOS, and alerts that still fire when your phone is off. If a free once-a-day email to one person covers your situation, use the free one." }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this a medical alert service?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. SafePulse is not an emergency service, there is no monitoring center, and no human dispatcher will call you or request a welfare check. It notifies the contacts you chose. Services with a live dispatcher exist and cost considerably more per month; if you have nobody to list as a contact, one of those is a better fit than this app." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1a1a2e;
+            line-height: 1.6;
+            background-color: #ffffff;
+            background-image:
+                radial-gradient(1100px 480px at 50% -140px, rgba(76,175,80,0.12), transparent 68%),
+                linear-gradient(180deg, #ffffff 0%, #f3f9f4 100%);
+            background-attachment: fixed;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            z-index: 100;
+        }
+        .logo { font-size: 1.4rem; font-weight: 800; color: #2e7d32; text-decoration: none; letter-spacing: -0.5px; }
+        nav .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        nav .nav-links a { font-size: 0.95rem; color: #555; text-decoration: none; font-weight: 500; }
+        nav .nav-links a:hover { color: #2e7d32; }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 5rem 2rem 5.5rem;
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 45%, #4caf50 100%);
+            color: #fff;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 34px), 0 100%);
+        }
+        .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
+        .hero::before { width: 460px; height: 460px; top: -160px; left: -120px; background: radial-gradient(circle, rgba(255,255,255,0.22), transparent 62%); }
+        .hero::after { width: 520px; height: 520px; bottom: -220px; right: -140px; background: radial-gradient(circle, rgba(129,199,132,0.35), transparent 60%); }
+        .hero > * { position: relative; z-index: 1; }
+        .hero h1 { font-size: 2.9rem; margin-bottom: 1rem; font-weight: 800; line-height: 1.15; max-width: 780px; margin-left: auto; margin-right: auto; }
+        .hero .tagline { font-size: 1.2rem; opacity: 0.95; max-width: 660px; margin: 0 auto 2.25rem; }
+        .hero .cta { display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.9rem 1.75rem; border-radius: 50px; text-decoration: none;
+            font-weight: 600; font-size: 1.05rem; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.25); }
+        .btn-primary { background: #fff; color: #1b5e20; }
+        .btn-ghost { background: rgba(255,255,255,0.15); color: #fff; border: 2px solid rgba(255,255,255,0.4); }
+
+        section { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
+        h2 { font-size: 2rem; margin-bottom: 1.25rem; color: #1a1a2e; text-align: center; }
+        .section-sub { text-align: center; color: #666; max-width: 660px; margin: 0 auto 2.5rem; }
+        h3 { font-size: 1.15rem; margin-bottom: 0.5rem; color: #2e7d32; }
+        p { margin-bottom: 1rem; color: #444; }
+        .prose { max-width: 700px; margin: 0 auto; }
+        .prose p:last-child { margin-bottom: 0; }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .feature {
+            position: relative; overflow: hidden; padding: 1.75rem 1.6rem;
+            background: #ffffff; border-radius: 16px; border: 1px solid rgba(46,125,50,0.10);
+            box-shadow: 0 6px 20px rgba(27,94,32,0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .feature::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #2e7d32, #66bb6a); }
+        .feature:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(27,94,32,0.15); }
+        .feature .ico {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 50px; height: 50px; border-radius: 14px;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            font-size: 1.55rem; margin-bottom: 0.9rem;
+            box-shadow: inset 0 0 0 1px rgba(46,125,50,0.08);
+        }
+        .feature p:last-child { margin-bottom: 0; }
+
+        .steps { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+        .step { flex: 1; min-width: 220px; max-width: 280px; text-align: center; }
+        .step p:last-child { margin-bottom: 0; }
+        .step-num {
+            width: 58px; height: 58px; border-radius: 50%;
+            background: linear-gradient(135deg, #2e7d32, #66bb6a); color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.45rem; font-weight: 800; margin: 0 auto 1rem;
+            box-shadow: 0 10px 22px rgba(46,125,50,0.32);
+        }
+
+        .limits { background: #fff; border-radius: 16px; border: 1px solid rgba(46,125,50,0.10); box-shadow: 0 6px 20px rgba(27,94,32,0.06); padding: 2rem 2rem 1.5rem; max-width: 720px; margin: 0 auto; }
+        .limits ul { list-style: none; }
+        .limits li { position: relative; padding-left: 1.9rem; margin-bottom: 0.9rem; color: #444; }
+        .limits li:last-child { margin-bottom: 0; }
+        .limits li::before { content: "\2716"; position: absolute; left: 0; top: 0; color: #c62828; font-weight: 700; }
+        .limits strong { color: #1a1a2e; }
+
+        .brokers { background: linear-gradient(180deg, #f1f8f2, #e8f3ea); border-top: 1px solid rgba(46,125,50,0.08); border-bottom: 1px solid rgba(46,125,50,0.08); }
+        .broker-card {
+            background: #fff; padding: 2.25rem 2rem; border-radius: 16px;
+            border: 1px solid rgba(46,125,50,0.10); box-shadow: 0 8px 26px rgba(27,94,32,0.07);
+            max-width: 700px; margin: 0 auto;
+        }
+        .broker-card a { color: #2e7d32; font-weight: 600; text-decoration: none; }
+        .broker-card a:hover { text-decoration: underline; }
+        .broker-card p:last-child { margin-bottom: 0; }
+
+        .faq { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+        .faq-item { padding: 1.6rem 1.5rem; background: #ffffff; border-radius: 16px; border: 1px solid rgba(46,125,50,0.10); box-shadow: 0 6px 20px rgba(27,94,32,0.06); }
+        .faq-item h3 { font-size: 1.05rem; color: #1a1a2e; margin-bottom: 0.55rem; line-height: 1.35; }
+        .faq-item p { font-size: 0.97rem; margin-bottom: 0; }
+
+        .download { background: linear-gradient(180deg, #f1f8f2, #e8f3ea); text-align: center; border-top: 1px solid rgba(46,125,50,0.08); }
+        .stores { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .store-badge {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            padding: 0.85rem 1.4rem; background: #1a1a2e; color: #fff;
+            text-decoration: none; border-radius: 12px; font-weight: 600;
+            box-shadow: 0 6px 18px rgba(26,26,46,0.18);
+            transition: transform 0.2s, box-shadow 0.2s; text-align: left;
+        }
+        .store-badge:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(26,26,46,0.28); }
+        .store-badge small { display: block; font-size: 0.65rem; opacity: 0.8; font-weight: 500; }
+        .store-badge .store-icon { font-size: 1.4rem; }
+        .price-note { margin-top: 1.25rem; font-size: 0.95rem; color: #555; }
+
+        .disclaimer {
+            background: #fff8e1; border-left: 4px solid #f9a825;
+            padding: 1rem 1.25rem; margin: 2rem auto 0; max-width: 700px;
+            font-size: 0.95rem; color: #555; border-radius: 0 8px 8px 0;
+        }
+        .disclaimer p:last-child { margin-bottom: 0; }
+        .platform-note {
+            background: #e8f3ea; border-left: 4px solid #2e7d32;
+            padding: 1rem 1.25rem; margin: 2rem auto 0; max-width: 700px;
+            font-size: 0.95rem; color: #33502f; border-radius: 0 8px 8px 0;
+        }
+        .platform-note p:last-child { margin-bottom: 0; }
+
+        .share-band {
+            background: linear-gradient(180deg, #f6fbf7, #eef7f0);
+            border-top: 1px solid rgba(46,125,50,0.08);
+            border-bottom: 1px solid rgba(46,125,50,0.08);
+        }
+        .share-inner { max-width: 760px; margin: 0 auto; }
+        .share-btns { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; }
+        .share-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            background: #fff;
+            color: #1a1a2e;
+            border: 1px solid rgba(46,125,50,0.18);
+            box-shadow: 0 4px 14px rgba(27,94,32,0.06);
+            font: inherit; font-size: 0.95rem; font-weight: 600;
+            text-decoration: none; cursor: pointer;
+            transition: transform 0.18s, box-shadow 0.18s, background 0.18s, color 0.18s, border-color 0.18s;
+        }
+        .share-btn:hover, .share-btn:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(27,94,32,0.14);
+        }
+        .share-btn svg { flex-shrink: 0; }
+        .share-btn[hidden] { display: none; }
+        .share-btn.s-native:hover, .share-btn.s-native:focus-visible,
+        .share-btn.s-sms:hover, .share-btn.s-sms:focus-visible,
+        .share-btn.s-email:hover, .share-btn.s-email:focus-visible { background: #2e7d32; border-color: #2e7d32; color: #fff; }
+        .share-btn.s-facebook:hover, .share-btn.s-facebook:focus-visible { background: #1877f2; border-color: #1877f2; color: #fff; }
+        .share-btn.s-x:hover, .share-btn.s-x:focus-visible { background: #000; border-color: #000; color: #fff; }
+        .share-btn.s-whatsapp:hover, .share-btn.s-whatsapp:focus-visible { background: #25d366; border-color: #25d366; color: #fff; }
+        .share-btn.s-linkedin:hover, .share-btn.s-linkedin:focus-visible { background: #0a66c2; border-color: #0a66c2; color: #fff; }
+        .share-btn.s-copy:hover, .share-btn.s-copy:focus-visible { background: #1a1a2e; border-color: #1a1a2e; color: #fff; }
+        .share-btn.is-copied { background: #2e7d32; border-color: #2e7d32; color: #fff; }
+        .share-note { margin: 1.75rem auto 0; max-width: 560px; text-align: center; font-size: 0.85rem; color: #777; }
+
+        footer { background: #1a1a2e; color: #aaa; padding: 2rem; text-align: center; font-size: 0.9rem; }
+        footer a { color: #81c784; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        footer .affil { max-width: 640px; margin: 1.25rem auto 0; font-size: 0.82rem; color: #888; line-height: 1.6; }
+
+        @media (max-width: 600px) {
+            .hero { padding: 3.5rem 1.25rem; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero .tagline { font-size: 1.02rem; }
+            section { padding: 3rem 1.25rem; }
+            nav { flex-direction: column; gap: 0.5rem; padding: 0.6rem 1rem; }
+            nav .logo { font-size: 1.25rem; }
+            nav .nav-links { gap: 1.1rem; font-size: 0.9rem; flex-wrap: wrap; justify-content: center; }
+            .limits, .broker-card { padding: 1.5rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo">Check In On Me</a>
+    <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#limits">Honest limits</a>
+        <a href="#family">For family</a>
+        <a href="#faq">FAQ</a>
+        <a href="#download">Get the app</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>If something happened tonight, how long before anyone knew?</h1>
+    <p class="tagline">That question is why check-in apps exist. SafePulse answers it with a tap. Miss the tap, and the people you chose get a text and an email with your last known location &mdash; even if your phone is off, dead, or out of reach.</p>
+    <div class="cta">
+        <a href="#download" class="btn btn-primary">Get SafePulse</a>
+        <a href="#how" class="btn btn-ghost">See how it works</a>
+    </div>
+</section>
+
+<section>
+    <h2>The gap this fills</h2>
+    <div class="prose">
+        <p>Living alone is not the problem. Most people who live alone are fine, like it, and have no intention of moving in with anyone. The problem is narrower than that: there is no longer anyone in the building who would notice.</p>
+        <p>You already know the stories &mdash; the ones that end with <em>found days later</em>. What makes them land isn't the emergency. It's the gap between the emergency and anybody finding out. A fall on a Friday night, a stroke, a bad reaction to a new medication. In a house with someone else in it, that's an ambulance in ten minutes. Alone, the same event can go unnoticed until work calls on Monday.</p>
+        <p>The usual patch is a person: a daughter who calls every evening, a friend who texts in the morning. That works until the night she's travelling, or you don't pick up and she decides not to worry, or she does worry and spends two hours calling around before she thinks to drive over. It puts the job of noticing on someone who has their own life, and it is silent in exactly the way that matters &mdash; nothing happens when nothing happens.</p>
+        <p>SafePulse inverts that. Silence is the trigger. You tap once to say you're okay; if the tap doesn't come, the alarm raises itself, and it says <em>where you are</em> &mdash; not just that you've gone quiet.</p>
+    </div>
+</section>
+
+<section id="how" style="padding-top:0;">
+    <h2>How it works</h2>
+    <p class="section-sub">One tap, on a schedule you choose. Nothing to wear, nobody to call.</p>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <h3>Pick your rhythm</h3>
+            <p>Once a day is typical at home. You can set anything from every 30 minutes to every 48 hours &mdash; shorter on a bad week, longer when family is around.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <h3>Tap &ldquo;I'm OK&rdquo;</h3>
+            <p>One tap clears the timer. If the deadline is close and you haven't tapped, you get a reminder, then a loud full-screen warning &mdash; so nobody is alerted by surprise.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <h3>Or don't &mdash; and they're told</h3>
+            <p>Up to 10 contacts get a text and an email with your last known location. They don't need the app, an account, or a phone that could run one.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Why it's built differently</h2>
+    <p class="section-sub">There are simpler check-in apps and some are free. These are the things worth paying for &mdash; or not, depending on your situation.</p>
+    <div class="features">
+        <div class="feature">
+            <div class="ico">&#128205;</div>
+            <h3>The alert says where you are</h3>
+            <p>Most check-in apps tell your contact you've gone quiet. That's worrying, not actionable. SafePulse puts your last known location in the message, so the first thing your daughter does is drive there &mdash; not start phoning hospitals.</p>
+        </div>
+        <div class="feature">
+            <div class="ico">&#128244;</div>
+            <h3>It fires with the phone off</h3>
+            <p>Your deadline is mirrored on a server. If your phone is switched off, out of battery, out of signal, or across the room where you can't reach it, the alert goes out anyway. Nothing on your phone has to still be working.</p>
+        </div>
+        <div class="feature">
+            <div class="ico">&#128172;</div>
+            <h3>Text, not just email</h3>
+            <p>An email can sit unread all night. Contacts get a text message and an email, and up to 10 people can be on the list &mdash; so it isn't resting on one person happening to check their inbox.</p>
+        </div>
+        <div class="feature">
+            <div class="ico">&#9201;</div>
+            <h3>Hours, not days</h3>
+            <p>Apps built around a once-a-day tap generally wait for several missed days before telling anyone. If you fell on Friday, that's the wrong arithmetic. Here the window is yours to set, and a missed check-in is acted on the same day.</p>
+        </div>
+        <div class="feature">
+            <div class="ico">&#128680;</div>
+            <h3>SOS when you're awake for it</h3>
+            <p>Waiting for a timer isn't always right. An SOS button alerts everyone immediately, can auto-call your first contact, and can sound a siren on the phone to attract anyone nearby.</p>
+        </div>
+        <div class="feature">
+            <div class="ico">&#128267;</div>
+            <h3>A dead battery says so</h3>
+            <p>If your phone is about to die, your contacts are told that's what happened &mdash; so a flat battery isn't mistaken for a flat you, and nobody drives over at midnight for a charger.</p>
+        </div>
+    </div>
+</section>
+
+<section id="limits">
+    <h2>What it is not</h2>
+    <p class="section-sub">Worth stating plainly, because this is a corner of the app store where things get oversold to worried people.</p>
+    <div class="limits">
+        <ul>
+            <li><strong>Not a fall detector.</strong> There is no sensor watching for impact. SafePulse reacts to silence, not to a fall, so nothing happens until your check-in is due. If you want something that responds within seconds of hitting the floor, you want a fall-detection pendant or watch &mdash; a different product at a different price.</li>
+            <li><strong>Not a medical alert service.</strong> There is no monitoring center and no human dispatcher. Nobody will call to see if you're all right or request a welfare check on your behalf. If you have nobody to list as a contact, a monitored service is genuinely the better answer &mdash; that's the part a one-time app purchase cannot replace.</li>
+            <li><strong>Not an emergency service.</strong> SafePulse does not call 911, police, fire, or EMS. It notifies the people you chose. If you're in trouble and able to call, call 911.</li>
+            <li><strong>Not location tracking.</strong> Nobody can look up where you are while your check-ins are running normally &mdash; not your children, not me. Location is read for the alert and shared only if you miss a check-in.</li>
+            <li><strong>Not free, and free options exist.</strong> Snug Safety gives away a daily check-in with alerts to your contacts. Demumu &mdash; the app that went viral as &ldquo;Are You Dead?&rdquo; &mdash; is about a dollar for a daily tap that emails one person. If a once-a-day email to one contact covers your situation, use one of those. Pay for this one if the location, the text alerts, the short windows, or the phone-off backstop matter to you. <a href="/compare">Here's the full comparison</a>.</li>
+            <li><strong>Not a guarantee.</strong> Alerts depend on cell and internet service reaching your contacts. This shortens the hours between something going wrong and somebody knowing. It does not prevent anything, and it cannot help anyone who hasn't got someone willing to come.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="brokers" id="family">
+    <h2>If you're setting this up for a parent</h2>
+    <p class="section-sub">Most people who buy a check-in app are not the person who will be tapping the button.</p>
+    <div class="broker-card">
+        <p><strong>It goes on their phone; you're the contact.</strong> They tap once a day. You do nothing at all unless they stop &mdash; then you get a text and an email with their last known location. No daily report, no &ldquo;all clear&rdquo; notification to skim past and stop reading after a fortnight.</p>
+        <p><strong>There's no dashboard, and that's deliberate.</strong> You cannot open the app and see where your mother is. A tool that lets adult children watch their parents gets uninstalled, usually in the first week, and fairly. This one only speaks up when something is wrong, which is the version a parent will actually leave running.</p>
+        <p><strong>They have to agree to it.</strong> Contacts confirm by reply before they are stored or texted, so nobody is added to anything behind their back &mdash; including you.</p>
+        <p><strong>Nothing to wear, nothing to charge.</strong> No pendant, no wristband, no second device on the nightstand. The objection you're expecting &mdash; <em>I'm not wearing one of those things</em> &mdash; doesn't apply here.</p>
+        <p>If you're weighing this against a monitored medical alert system: those have a human on the other end and this doesn't. Some families run both. If money is tight and there's nobody nearby to list as a contact, buy the monitoring rather than the app &mdash; I'd rather say so than sell you something that doesn't fit.</p>
+    </div>
+    <div class="platform-note">
+        <p><strong>Before you buy it for someone else:</strong> check which phone they have. On Android it is a one-time $4.99 purchase and you can buy it on their behalf. On iPhone the app is free to download with a $2.99 monthly subscription, which has to be set up on their own Apple ID &mdash; so that one is easier to do sitting next to them than from your own kitchen.</p>
+    </div>
+</section>
+
+<section class="share-band" id="share" style="max-width:none;">
+    <div class="share-inner">
+        <h2>Send this to someone who lives alone</h2>
+        <p class="section-sub">Nobody goes looking for a check-in app until something happens. Almost everyone who uses one heard about it from a person who cares about them. Nothing here is gated and there's no signup form.</p>
+        <div class="share-btns" data-share-url="https://checkinonme.app/living-alone" data-share-text="If you live alone: tap once a day to say you're OK. If you don't, SafePulse texts and emails your contacts your last known location — even if your phone is off." data-share-title="SafePulse — a check-in app for people who live alone">
+            <button type="button" class="share-btn s-native" data-share="native" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.75 4.5a3 3 0 1 1 .825 2.066l-8.421 4.679a3.002 3.002 0 0 1 0 1.51l8.421 4.679a3 3 0 1 1-.729 1.31l-8.421-4.678a3 3 0 1 1 0-4.132l8.421-4.679a3 3 0 0 1-.096-.755z"/></svg><span class="share-text">Share</span></button>
+            <a class="share-btn s-sms" data-share="sms" href="sms:?&amp;body=If%20you%20live%20alone%3A%20tap%20once%20a%20day%20to%20say%20you%27re%20OK.%20If%20you%20don%27t%2C%20SafePulse%20texts%20and%20emails%20your%20contacts%20your%20last%20known%20location%20%E2%80%94%20even%20if%20your%20phone%20is%20off.%20https%3A%2F%2Fcheckinonme.app%2Fliving-alone" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.848 2.771A49.14 49.14 0 0 1 12 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97a48.9 48.9 0 0 1-3.476.383.39.39 0 0 0-.297.17l-2.755 4.133a.75.75 0 0 1-1.248 0l-2.755-4.133a.39.39 0 0 0-.297-.17 48.9 48.9 0 0 1-3.476-.384c-1.978-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.37-3.678 3.348-3.97z"/></svg><span class="share-text">Text message</span></a>
+            <a class="share-btn s-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcheckinonme.app%2Fliving-alone" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg><span class="share-text">Facebook</span></a>
+            <a class="share-btn s-whatsapp" href="https://api.whatsapp.com/send?text=If%20you%20live%20alone%3A%20tap%20once%20a%20day%20to%20say%20you%27re%20OK.%20If%20you%20don%27t%2C%20SafePulse%20texts%20and%20emails%20your%20contacts%20your%20last%20known%20location%20%E2%80%94%20even%20if%20your%20phone%20is%20off.%20https%3A%2F%2Fcheckinonme.app%2Fliving-alone" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg><span class="share-text">WhatsApp</span></a>
+            <a class="share-btn s-x" href="https://x.com/intent/post?url=https%3A%2F%2Fcheckinonme.app%2Fliving-alone&amp;text=If%20you%20live%20alone%3A%20tap%20once%20a%20day%20to%20say%20you%27re%20OK.%20If%20you%20don%27t%2C%20SafePulse%20texts%20and%20emails%20your%20contacts%20your%20last%20known%20location%20%E2%80%94%20even%20if%20your%20phone%20is%20off." target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></svg><span class="share-text">X</span></a>
+            <a class="share-btn s-email" href="mailto:?subject=A%20check-in%20app%20for%20living%20alone%20%E2%80%94%20SafePulse&amp;body=If%20you%20live%20alone%3A%20tap%20once%20a%20day%20to%20say%20you%27re%20OK.%20If%20you%20don%27t%2C%20SafePulse%20texts%20and%20emails%20your%20contacts%20your%20last%20known%20location%20%E2%80%94%20even%20if%20your%20phone%20is%20off.%0A%0Ahttps%3A%2F%2Fcheckinonme.app%2Fliving-alone"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67zM22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908z"/></svg><span class="share-text">Email</span></a>
+            <button type="button" class="share-btn s-copy" data-share="copy"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.902 4.098a3.75 3.75 0 0 0-5.304 0l-4.5 4.5a3.75 3.75 0 0 0 1.035 6.037.75.75 0 0 1-.646 1.353 5.25 5.25 0 0 1-1.449-8.45l4.5-4.5a5.25 5.25 0 1 1 7.424 7.424l-1.757 1.757a.75.75 0 1 1-1.06-1.06l1.757-1.758a3.75 3.75 0 0 0 0-5.303zm-7.389 4.267a.75.75 0 0 1 1-.353 5.25 5.25 0 0 1 1.449 8.45l-4.5 4.5a5.25 5.25 0 1 1-7.424-7.424l1.757-1.757a.75.75 0 1 1 1.06 1.06l-1.757 1.758a3.75 3.75 0 1 0 5.304 5.303l4.5-4.5a3.75 3.75 0 0 0-1.035-6.037.75.75 0 0 1-.354-1z"/></svg><span class="share-text">Copy link</span></button>
+        </div>
+        <p class="share-note">These are ordinary links. No tracking pixels, no third-party scripts, and nothing about you is sent anywhere when you use them.</p>
+    </div>
+</section>
+
+<section id="faq">
+    <h2>Questions people ask</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <h3>How often do I have to check in?</h3>
+            <p>You decide &mdash; anywhere from every 30 minutes to every 48 hours. Once a day is what most people use at home. You can change it whenever you like, or turn it off while you've got company.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What if I just forget?</h3>
+            <p>You get a reminder first, then a loud full-screen warning while there's still time to tap. If you sleep through all of it, your contacts get an alert and you'll have a slightly embarrassing phone call. That's the correct failure mode &mdash; a safety tool should err toward telling someone.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does it detect falls?</h3>
+            <p>No. There is no fall sensor. It works on missed check-ins, which covers a fall, a medical episode, or anything else that stops you reaching your phone &mdash; but it reacts to silence rather than to impact, so nothing happens until your check-in is due. Nothing to wear, and no button you have to be conscious enough to press.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What if my phone is off or the battery dies?</h3>
+            <p>The alert still goes out. Your deadline is mirrored on a server, so if your phone never checks in, the server sends the alert on its own. Your contacts are also warned separately if the phone is simply running out of battery.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Who gets the alert, and do they need the app?</h3>
+            <p>People you choose &mdash; up to 10 of them. They get a text message and an email with your last known location, and they don't need the app, an account, or a smartphone. They confirm by reply before they're added, so nobody is signed up without knowing.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can my family see where I am?</h3>
+            <p>Only if you miss a check-in. There's no map, no dashboard and no way for anyone &mdash; including me &mdash; to look up where you are while everything is fine. Location is read for the alert and shared only when one is sent.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I set it up for my mother or father?</h3>
+            <p>Yes, and plenty of people do. The app goes on their phone and you're the contact. Check which phone they have first: on Android it's a one-time purchase you can buy for them, and on iPhone the subscription has to be set up on their own Apple ID.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Aren't there free apps that do this?</h3>
+            <p>Yes &mdash; Snug Safety's free tier does a daily check-in with alerts to your contacts, and Demumu is about a dollar. If that covers your situation, use it. SafePulse charges for the location in the alert, text messages rather than email alone, check-ins as short as 30 minutes, and alerts that fire with the phone off. <a href="/compare">Side-by-side comparison here</a>.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is this a medical alert or monitoring service?</h3>
+            <p>No. There's no monitoring center and no dispatcher who will call you or send someone to check. It tells the people you chose. If you don't have anyone to list, a monitored service is the honest recommendation &mdash; it costs a great deal more per month, and what you're paying for is a human being.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What does it cost?</h3>
+            <p>On Google Play, the Samsung Galaxy Store and Amazon it's $4.99 once, with no subscription. On iPhone it's $2.99 a month, and anyone who bought SafePulse before the switch keeps full access free, permanently. No ads, and no selling of personal data.</p>
+        </div>
+    </div>
+</section>
+
+<section class="download" id="download">
+    <h2>Get SafePulse</h2>
+    <p class="section-sub">$4.99 once on Android, $2.99 a month on iPhone. Your first check-in takes about two minutes to set up.</p>
+    <div class="stores">
+        <a class="store-badge" href="https://apps.apple.com/app/safepulse-check-in-alert/id6760568365" target="_blank" rel="noopener">
+            <span class="store-icon">&#63743;</span>
+            <span><small>Download on the</small>App Store</span>
+        </a>
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=app.safepulse" target="_blank" rel="noopener">
+            <span class="store-icon">&#9654;</span>
+            <span><small>Get it on</small>Google Play</span>
+        </a>
+    </div>
+    <p class="price-note">No ads, and your data is never sold.<br>Also on the Samsung Galaxy Store, Huawei AppGallery, and as <strong>PulseGuard</strong> on Amazon Fire tablets.</p>
+    <div class="disclaimer">
+        <p><strong>Please read:</strong> SafePulse is not an emergency service, a medical alert service, or a fall-detection device. It does not contact police, fire, or emergency medical services, and there is no monitoring center or dispatcher behind it. It notifies contacts you choose, and depends on cellular and internet service to deliver those alerts. It is not a substitute for calling 911.</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Frank Nowicki. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">Frank Paul Nowicki, Sole Proprietor &middot; Roseville, MI 48066, USA &middot; <a href="tel:+15863511298">586-351-1298</a></p>
+    <p style="margin-top: 0.5rem;">SafePulse&trade; is a brand of Frank Nowicki. &middot; <a href="/">Home</a> &middot; <a href="/setup">Setup Guide</a> &middot; <a href="/compare">Compare</a> &middot; <a href="/realtor-safety">Realtors</a> &middot; <a href="/home-health-safety">Health Care</a> &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Service</a></p>
+    <p class="affil">Snug Safety and Demumu are products of other companies and are named here only for comparison. SafePulse is not affiliated with, sponsored by, or endorsed by either, and details of their products come from their public app listings as of September 2026.</p>
+</footer>
+<script>
+// Share buttons: plain links, no third-party scripts. JS only adds the
+// clipboard copy, the OS share sheet, and the SMS button on touch devices.
+(function () {
+    var groups = document.querySelectorAll('[data-share-url]');
+    if (!groups.length) return;
+
+    var canNative = !!(navigator.share);
+    var isTouch = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+
+    Array.prototype.forEach.call(groups, function (group) {
+        var url = group.getAttribute('data-share-url');
+        var text = group.getAttribute('data-share-text') || '';
+        var title = group.getAttribute('data-share-title') || document.title;
+
+        // Texting a link is only useful on something that can send a text.
+        var sms = group.querySelector('[data-share="sms"]');
+        if (sms && isTouch) sms.hidden = false;
+
+        var nativeBtn = group.querySelector('[data-share="native"]');
+        if (nativeBtn && canNative) {
+            nativeBtn.hidden = false;
+            nativeBtn.addEventListener('click', function () {
+                navigator.share({ title: title, text: text, url: url }).catch(function () {});
+            });
+        }
+
+        var copyBtn = group.querySelector('[data-share="copy"]');
+        if (!copyBtn) return;
+        var label = copyBtn.querySelector('.share-text');
+        var original = label ? label.textContent : '';
+        var timer;
+
+        function done(ok) {
+            copyBtn.classList.toggle('is-copied', ok);
+            if (label) label.textContent = ok ? 'Copied!' : 'Copy failed';
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                copyBtn.classList.remove('is-copied');
+                if (label) label.textContent = original;
+            }, 2200);
+        }
+
+        function fallback() {
+            var ta = document.createElement('textarea');
+            ta.value = url;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.top = '-1000px';
+            document.body.appendChild(ta);
+            ta.select();
+            var ok = false;
+            try { ok = document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(ta);
+            done(ok);
+        }
+
+        copyBtn.addEventListener('click', function () {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(function () { done(true); }, fallback);
+            } else {
+                fallback();
+            }
+        });
+    });
+})();
+</script>
+
+</body>
+</html>

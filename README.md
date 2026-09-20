@@ -63,6 +63,7 @@ Clean, extension-less URLs are served for every `*.html` file.
 |------|----------|---------|--------|
 | `index.html` | `/` | Landing page | indexed |
 | `compare.html` | `/compare` | SafePulse vs. competitors | indexed |
+| `living-alone.html` | `/living-alone` | Vertical landing page for people who live alone and the family buying for them | indexed |
 | `realtor-safety.html` | `/realtor-safety` | Vertical landing page for real estate agents | indexed |
 | `home-health-safety.html` | `/home-health-safety` | Vertical landing page for home health and hospice nurses | indexed |
 | `setup.html` | `/setup` | Setup guide | indexed |
