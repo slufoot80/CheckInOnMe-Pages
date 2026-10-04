@@ -44,10 +44,6 @@
   .mary-icon .inner{text-align:center;position:relative;z-index:1}
   .mary-icon .emoji{font-size:3.5rem;line-height:1}
   .mary-icon .lbl{font-size:0.65rem;color:#a0b0d0;margin-top:4px;font-style:italic}
-  .rosary-dots{display:flex;justify-content:center;gap:12px;margin:16px 0}
-  .rosary-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:600;transition:all 0.3s;cursor:pointer;border:none;font-family:inherit}
-  .rosary-dot.done{background:linear-gradient(135deg,#f0c27f,#c7a04f);color:#1a0a2e;box-shadow:0 0 12px rgba(240,194,127,0.4)}
-  .rosary-dot.pending{background:rgba(255,255,255,0.05);color:#6a5a4a;border:1.5px solid rgba(240,194,127,0.2)}
   .counter-box{margin:0 auto 20px;background:rgba(0,0,0,0.3);border-radius:20px;padding:28px 24px;border:1px solid rgba(240,194,127,0.1);max-width:360px;text-align:center}
   .counter-label{font-size:0.75rem;color:#a89880;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.15em}
   .counter-num{font-size:4.5rem;font-weight:300;line-height:1;margin:8px 0;background:linear-gradient(135deg,#f0c27f,#fff,#f0c27f);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
@@ -117,8 +113,6 @@
 <div class="tab-content" id="tab-counter">
   <div style="text-align:center">
     <div class="mary-icon"><div class="inner"><div class="emoji">🙏</div><div class="lbl">Mother Mary<br>be with me</div></div></div>
-    <div class="rosary-dots" id="rosary-dots"></div>
-    <p style="font-size:0.75rem;color:#8a7a6a;margin:4px 0 20px" id="rosary-status"></p>
     <div class="counter-box">
       <p class="counter-label">Hail Marys</p>
       <div class="counter-num" id="hm-count">0</div>
@@ -218,11 +212,11 @@ const AFFIRMATIONS = [
 ];
 
 // STATE
-const TOTAL_HM = 53, TOTAL_R = 153;
-// Remember progress on this device so the 153 count survives closing the page.
+const TOTAL_HM = 53;
+// Remember progress on this device so it survives closing the page.
 function load(k){try{const v=parseInt(localStorage.getItem(k),10);return isNaN(v)?0:v;}catch(e){return 0;}}
-function save(){try{localStorage.setItem("rosary-hm",hm);localStorage.setItem("rosary-done",rosaries);}catch(e){}}
-let hm = Math.min(load("rosary-hm"),TOTAL_HM), rosaries = load("rosary-done"), novDay = 0;
+function save(){try{localStorage.setItem("rosary-hm",hm);}catch(e){}}
+let hm = Math.min(load("rosary-hm"),TOTAL_HM), novDay = 0;
 const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 const today = days[new Date().getDay()];
 const todayM = SCHEDULE.find(s=>s.day===today).m;
@@ -301,21 +295,6 @@ function updateCounter() {
     info=`Decade ${d} of 5 — Bead ${b}/10`;
   } else info="Complete!";
   document.getElementById("decade-info").textContent=info;
-  document.getElementById("rosary-status").textContent=`Rosaries Completed: ${rosaries} / ${TOTAL_R}`;
-
-  // Rosary dots
-  const rd=document.getElementById("rosary-dots");
-  rd.innerHTML="";
-  // The five dots are the five decades of the rosary being prayed now.
-  for(let i=1;i<=5;i++){
-    const d=document.createElement("button");
-    d.className="rosary-dot "+(hm>=3+i*10?"done":"pending");
-    d.textContent=i;
-    d.title="Decade "+i;
-    d.onclick=()=>setHM(3+i*10);
-    rd.appendChild(d);
-  }
-
   // Beads
   const bb=document.getElementById("beads-box");
   let html='<p class="beads-title">Rosary Beads</p><p class="beads-label">3 Intro Beads</p><div class="bead-row">';
@@ -330,13 +309,7 @@ function updateCounter() {
   bb.innerHTML=html;
 }
 
-// Count a rosary once when the 53rd bead is reached; stepping back off it undoes that.
-function setHM(v){
-  v=Math.max(0,Math.min(v,TOTAL_HM));
-  if(hm<TOTAL_HM&&v===TOTAL_HM)rosaries=Math.min(rosaries+1,TOTAL_R);
-  else if(hm===TOTAL_HM&&v<TOTAL_HM)rosaries=Math.max(rosaries-1,0);
-  hm=v;save();updateCounter();
-}
+function setHM(v){hm=Math.max(0,Math.min(v,TOTAL_HM));save();updateCounter();}
 function incHM(){setHM(hm+1);}
 function decHM(){setHM(hm-1);}
 function resetHM(){hm=0;save();updateCounter();}
