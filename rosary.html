@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>✝ The Holy Rosary</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    min-height:100vh;
+    background:linear-gradient(165deg,#1a0a2e 0%,#16213e 30%,#0f3460 60%,#1a1a3e 100%);
+    color:#e8dcc8;
+    font-family:"Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    overflow-x:hidden;
+  }
+  body::before {
+    content:'';position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:0;
+    background:radial-gradient(ellipse at 50% 20%,rgba(240,194,127,0.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 80%,rgba(100,149,237,0.05) 0%,transparent 50%);
+  }
+  .header{position:relative;z-index:1;text-align:center;padding:32px 16px 16px;background:linear-gradient(180deg,rgba(26,10,46,0.9) 0%,transparent 100%)}
+  .header h1{font-size:2rem;margin:4px 0;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;background:linear-gradient(135deg,#f0c27f,#e8b960,#f0c27f);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .header .sub{font-size:0.85rem;color:#a89880;margin:4px 0;font-style:italic}
+  .cross{color:#f0c27f;font-size:1.8rem;margin-bottom:4px}
+  .tabs{position:sticky;top:0;z-index:10;display:flex;background:rgba(15,10,30,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(240,194,127,0.15);overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tabs button{flex:1 0 auto;padding:12px 14px;background:transparent;border:none;border-bottom:2px solid transparent;color:#8a7a6a;font-size:0.78rem;cursor:pointer;font-family:inherit;transition:all 0.2s;white-space:nowrap}
+  .tabs button.active{background:rgba(240,194,127,0.12);border-bottom-color:#f0c27f;color:#f0c27f}
+  .content{position:relative;z-index:1;padding:16px;max-width:680px;margin:0 auto}
+  .tab-content{display:none}.tab-content.active{display:block}
+  .prayer-btn{width:100%;text-align:left;padding:14px 18px;background:rgba(255,255,255,0.03);border:1px solid rgba(240,194,127,0.1);border-radius:10px;cursor:pointer;color:#f0c27f;font-size:0.95rem;font-family:inherit;font-weight:500;transition:all 0.2s;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .prayer-btn:hover,.prayer-btn.open{background:rgba(240,194,127,0.1)}
+  .prayer-btn .arrow{font-size:0.7rem;opacity:0.5;transition:transform 0.2s}
+  .prayer-btn.open .arrow{transform:rotate(180deg)}
+  .prayer-text{padding:16px 20px;margin:-8px 0 12px;background:rgba(0,0,0,0.2);border-radius:0 0 10px 10px;border:1px solid rgba(240,194,127,0.06);border-top:none;line-height:1.8;font-size:0.9rem;color:#d4c4a8;white-space:pre-line;display:none}
+  .prayer-text.open{display:block}
+  .schedule-box{text-align:center;margin:0 0 24px;padding:12px 16px;background:rgba(240,194,127,0.06);border:1px solid rgba(240,194,127,0.12);border-radius:12px;font-size:0.8rem;color:#a89880}
+  .schedule-box strong{color:#f0c27f}
+  .schedule-box .today{color:#f0c27f;font-weight:600}
+  .opening{text-align:center;margin:16px 0 24px;padding:20px;background:radial-gradient(ellipse at center,rgba(100,149,237,0.08),transparent 70%);border-radius:16px;font-size:0.9rem;color:#c8b8a0;line-height:1.6;font-style:italic}
+
+  /* Counter */
+  .mary-icon{margin:20px auto;width:160px;height:200px;border-radius:50% 50% 45% 45%;background:radial-gradient(ellipse at center,rgba(100,149,237,0.2),rgba(65,105,225,0.1),rgba(240,194,127,0.05),transparent);border:2px solid rgba(240,194,127,0.15);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(100,149,237,0.15),0 0 80px rgba(240,194,127,0.05);position:relative;overflow:hidden}
+  .mary-icon::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,0.08),transparent 60%)}
+  .mary-icon .inner{text-align:center;position:relative;z-index:1}
+  .mary-icon .emoji{font-size:3.5rem;line-height:1}
+  .mary-icon .lbl{font-size:0.65rem;color:#a0b0d0;margin-top:4px;font-style:italic}
+  .rosary-dots{display:flex;justify-content:center;gap:12px;margin:16px 0}
+  .rosary-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:600;transition:all 0.3s}
+  .rosary-dot.done{background:linear-gradient(135deg,#f0c27f,#c7a04f);color:#1a0a2e;box-shadow:0 0 12px rgba(240,194,127,0.4)}
+  .rosary-dot.pending{background:rgba(255,255,255,0.05);color:#6a5a4a;border:1.5px solid rgba(240,194,127,0.2)}
+  .counter-box{margin:0 auto 20px;background:rgba(0,0,0,0.3);border-radius:20px;padding:28px 24px;border:1px solid rgba(240,194,127,0.1);max-width:360px;text-align:center}
+  .counter-label{font-size:0.75rem;color:#a89880;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.15em}
+  .counter-num{font-size:4.5rem;font-weight:300;line-height:1;margin:8px 0;background:linear-gradient(135deg,#f0c27f,#fff,#f0c27f);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .counter-of{font-size:0.8rem;color:#8a7a6a;margin:4px 0 16px}
+  .progress-bar{height:6px;border-radius:3px;background:rgba(255,255,255,0.06);margin:0 0 20px;overflow:hidden}
+  .progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#c7a04f,#f0c27f);transition:width 0.3s ease;box-shadow:0 0 8px rgba(240,194,127,0.4)}
+  .decade-info{font-size:0.75rem;color:#a89880;margin:0 0 16px}
+  .btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn-minus,.btn-reset-sm{width:56px;height:56px;border-radius:50%;border:1.5px solid rgba(240,194,127,0.3);background:rgba(255,255,255,0.03);color:#f0c27f;font-size:1.5rem;cursor:pointer;font-family:inherit;transition:all 0.15s}
+  .btn-reset-sm{font-size:0.65rem;letter-spacing:0.05em}
+  .btn-plus{width:80px;height:80px;border-radius:50%;border:none;background:linear-gradient(135deg,#f0c27f,#c7a04f);color:#1a0a2e;font-size:2rem;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 20px rgba(240,194,127,0.3);transition:all 0.15s}
+  .btn-plus:active{transform:scale(0.95)}
+  .beads-box{background:rgba(0,0,0,0.2);border-radius:16px;padding:16px;border:1px solid rgba(240,194,127,0.06);max-width:360px;margin:0 auto 16px;text-align:center}
+  .beads-title{font-size:0.7rem;color:#8a7a6a;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.1em}
+  .beads-label{font-size:0.65rem;color:#6a5a4a;margin:8px 0 4px}
+  .bead-row{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:4px 0}
+  .bead{width:28px;height:28px;border-radius:50%;cursor:pointer;transition:all 0.2s;border:2px solid rgba(255,255,255,0.4);background:rgba(255,255,255,0.08)}
+  .bead.filled{border:none;background:linear-gradient(135deg,#f0c27f,#c7a04f);box-shadow:0 0 8px rgba(240,194,127,0.5)}
+  .btn-reset-all{padding:10px 24px;border-radius:8px;border:1px solid rgba(240,194,127,0.2);background:rgba(255,255,255,0.03);color:#a89880;font-size:0.8rem;cursor:pointer;font-family:inherit;margin-top:8px}
+
+  /* Novena */
+  .novena-days{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:0 0 20px}
+  .novena-day{width:36px;height:36px;border-radius:50%;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;border:1px solid rgba(240,194,127,0.15);background:rgba(255,255,255,0.05);color:#a89880}
+  .novena-day.active{background:linear-gradient(135deg,#f0c27f,#c7a04f);color:#1a0a2e;border:none}
+  .novena-body{background:rgba(0,0,0,0.2);border-radius:14px;padding:24px 20px;border:1px solid rgba(240,194,127,0.08);line-height:1.8;font-size:0.9rem;color:#d4c4a8}
+  .novena-body h3{color:#f0c27f;font-size:1rem;font-weight:500;margin:0 0 16px;text-align:center}
+  .novena-body .amen{font-style:italic;color:#a89880;text-align:center;font-size:0.85rem}
+  .novena-body .intention{margin:16px 0;padding:12px 16px;background:rgba(240,194,127,0.06);border-radius:8px;border-left:3px solid rgba(240,194,127,0.3);font-style:italic;color:#c8b8a0;font-size:0.85rem}
+
+  /* Affirmations */
+  .affirm-hero{text-align:center;margin:0 0 24px;padding:24px 20px;background:radial-gradient(ellipse at center,rgba(240,194,127,0.08),transparent);border-radius:16px;border:1px solid rgba(240,194,127,0.1)}
+  .affirm-hero p{font-size:1.4rem;color:#f0c27f;font-weight:400;font-style:italic}
+  .affirm-sub{font-size:0.8rem;color:#a89880;text-align:center;font-style:italic;margin:0 0 20px}
+  .affirm-heading{font-size:0.85rem;color:#c8b8a0;text-transform:uppercase;letter-spacing:0.12em;margin:0 0 12px;text-align:center}
+  .affirm-item{padding:12px 16px;margin:6px 0;background:rgba(255,255,255,0.03);border:1px solid rgba(240,194,127,0.06);border-radius:8px;font-size:0.88rem;color:#d4c4a8;border-left:3px solid rgba(240,194,127,0.2)}
+
+  .footer{text-align:center;margin:40px 0 20px;padding:20px 0;border-top:1px solid rgba(240,194,127,0.08)}
+  .footer p{font-size:0.75rem;color:#5a4a3a;font-style:italic}
+  .section-title{font-size:1.2rem;color:#f0c27f;font-weight:400;text-align:center;margin:20px 0;letter-spacing:0.08em}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="cross">✝</div>
+  <h1>The Holy Rosary</h1>
+  <p class="sub" id="todayMystery"></p>
+</div>
+
+<div class="tabs" id="tabs">
+  <button class="active" data-tab="rosary">✝ Rosary</button>
+  <button data-tab="counter">📿 Counter</button>
+  <button data-tab="personal">🙏 Personal</button>
+  <button data-tab="novena">⛪ Novena</button>
+  <button data-tab="affirm">✨ Affirmations</button>
+</div>
+
+<div class="content">
+
+<!-- ROSARY TAB -->
+<div class="tab-content active" id="tab-rosary">
+  <div class="opening">In the name of the Father, and of the Son, and of the Holy Spirit. Amen.</div>
+  <div class="schedule-box" id="schedule"></div>
+  <div id="rosary-prayers"></div>
+</div>
+
+<!-- COUNTER TAB -->
+<div class="tab-content" id="tab-counter">
+  <div style="text-align:center">
+    <div class="mary-icon"><div class="inner"><div class="emoji">🙏</div><div class="lbl">Mother Mary<br>be with me</div></div></div>
+    <div class="rosary-dots" id="rosary-dots"></div>
+    <p style="font-size:0.75rem;color:#8a7a6a;margin:4px 0 20px" id="rosary-status"></p>
+    <div class="counter-box">
+      <p class="counter-label">Hail Marys</p>
+      <div class="counter-num" id="hm-count">0</div>
+      <p class="counter-of">of 53</p>
+      <div class="progress-bar"><div class="progress-fill" id="hm-bar" style="width:0%"></div></div>
+      <p class="decade-info" id="decade-info">Introductory Hail Marys: 0/3</p>
+      <div class="btn-row">
+        <button class="btn-minus" onclick="decHM()">−</button>
+        <button class="btn-plus" onclick="incHM()">+</button>
+        <button class="btn-reset-sm" onclick="resetHM()">Reset</button>
+      </div>
+    </div>
+    <div class="beads-box" id="beads-box"></div>
+    <button class="btn-reset-all" onclick="resetAll()">Reset All Rosaries</button>
+  </div>
+</div>
+
+<!-- PERSONAL TAB -->
+<div class="tab-content" id="tab-personal">
+  <h2 class="section-title">Personal Prayers & Devotions</h2>
+  <div id="personal-prayers"></div>
+</div>
+
+<!-- NOVENA TAB -->
+<div class="tab-content" id="tab-novena">
+  <h2 class="section-title">Blessed Solanus Casey Novena</h2>
+  <div class="novena-days" id="novena-days"></div>
+  <div class="novena-body" id="novena-body"></div>
+</div>
+
+<!-- AFFIRMATIONS TAB -->
+<div class="tab-content" id="tab-affirm">
+  <h2 class="section-title">Daily Affirmation</h2>
+  <div class="affirm-hero"><p>"Today is going to be a great day"</p></div>
+  <p class="affirm-sub">"Write down what you want, write it in the present tense. Read it every night before you sleep."</p>
+  <h3 class="affirm-heading">Gratitude & Affirmations</h3>
+  <div id="affirm-list"></div>
+</div>
+
+<div class="footer"><p>In the name of the Father, and of the Son, and of the Holy Spirit. Amen. ✝</p></div>
+</div>
+
+<script>
+// DATA
+const SCHEDULE = [
+  {day:"Sunday",m:"The Glorious Mysteries"},{day:"Monday",m:"The Joyful Mysteries"},
+  {day:"Tuesday",m:"The Sorrowful Mysteries"},{day:"Wednesday",m:"The Glorious Mysteries"},
+  {day:"Thursday",m:"The Luminous Mysteries"},{day:"Friday",m:"The Sorrowful Mysteries"},
+  {day:"Saturday",m:"The Joyful Mysteries"}
+];
+
+const ROSARY_PRAYERS = [
+  {t:"The Apostles' Creed",p:"I believe in God, the Father Almighty, Creator of heaven and earth and in Jesus Christ, His only Son, our Lord; Who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died, and was buried. He descended into hell; the third day He arose again from the dead; He ascended into Heaven, sitteth at the right hand of God, the Father Almighty, from thence He shall come to judge the living and the dead. I believe in the Holy Spirit, the Holy Catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. Amen."},
+  {t:"The Our Father",p:"Our Father, Who art in Heaven, hallowed be Thy name; Thy Kingdom come, Thy will be done on earth as it is in Heaven. Give us this day our daily bread; and forgive us our trespasses as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil. Amen."},
+  {t:"The Hail Mary",p:"Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb Jesus. Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen."},
+  {t:"The Glory Be",p:"Glory be to the Father, and to the Son, and to the Holy Spirit. As it was in the beginning, is now, and ever shall be, world without end. Amen."},
+  {t:"O My Jesus",p:"O my Jesus, forgive us our sins, save us from the fires of hell, lead all souls to Heaven, especially those in most need of Thy mercy. Amen."},
+  {t:"Decade Prayer — Prayer for Priests",p:"God, our Father, please send us holy priests, all for the sacred and eucharistic heart of Jesus, all for the sorrowful and immaculate heart of Mary, in union with saint Joseph. Amen."},
+  {t:"The Hail Holy Queen (Salve Regina)",p:"Hail Holy Queen, Mother of Mercy, our life, our sweetness and our hope. To thee do we cry, poor banished children of Eve. To thee do we send up our sighs, mourning and weeping in this valley of tears. Turn then, most gracious advocate, thine eyes of mercy toward us, and after this our exile, show unto us the blessed fruit of thy womb, Jesus. O clement, O loving, O sweet Virgin Mary.\n\n℣ Pray for us, O Holy Mother of God.\n℟ That we may be made worthy of the promises of Christ."},
+  {t:"Closing Rosary Prayer",p:"O God, whose only begotten Son, by His life, death, and resurrection, has purchased for us the rewards of eternal life, grant, we beseech Thee, that meditating upon these mysteries of the Most Holy Rosary of the Blessed Virgin Mary, we may imitate what they contain and obtain what they promise, through the same Christ Our Lord. Amen.\n\nMost Sacred Heart of Jesus, have mercy on us. Immaculate Heart of Mary, pray for us."},
+  {t:"Mother Mary Be With Me",p:"Mother Mary be with me."},
+  {t:"Fatima Prayer",p:"Most Holy Trinity — Father, Son, and Holy Spirit — I adore thee profoundly. I offer Thee the most precious Body, Blood, Soul and Divinity of Jesus Christ, present in all the tabernacles of the world, in reparation for the outrages, sacrileges and indifference's whereby He is offended. And through the infinite merits of His Most Sacred Heart and the Immaculate Heart of Mary, I beg of Thee the conversion of poor sinners."},
+  {t:"Short Fatima Prayer",p:"My God, I believe, I adore, I hope, and I love You. I beg pardon of You for those who do not believe, do not adore, do not hope, and do not love You."},
+  {t:"St. Michael Prayer",p:"St. Michael the Archangel, defend us in battle. Be our defense against the wickedness and snares of the Devil. May God rebuke him, we humbly pray, and do thou, O Prince of the heavenly hosts, by the power of God, thrust into hell Satan, and all the evil spirits, who prowl about the world seeking the ruin of souls. Amen."},
+  {t:"Angelus Prayer",p:"Pour forth we beseech Thee, O Lord, Thy grace into our hearts, that we to whom the incarnation of Christ, Thy Son, was made known by the message of an angel, may by His passion and cross be brought to the glory of His resurrection, through the same Christ Our Lord. Amen."},
+  {t:"Memorare",p:"Remember, O most gracious Virgin Mary that never was it known that anyone who fled to Your protection, implored Your help, or sought Your intercession was left unaided. Inspired with this confidence, we fly to you, O Virgin of virgins, our Mother. To You we come; before You we stand, sinful and sorrowful. O Mother of the Word Incarnate, despise not our petitions, but in Your mercy, hear and answer us. Amen."},
+  {t:"We Fly to Your Protection (Sub Tuum Praesidium)",p:"We fly to your protection, O Holy Mother of God; Do not despise our petitions in our necessities, but deliver us always from every danger, O Glorious and Blessed Virgin Mary."},
+  {t:"Prayer to Mary, Health of the Sick",p:"O Mary, You shine continuously on our journey, as a sign of salvation and hope. We entrust ourselves to you, Health of the Sick, who, at the foot of the cross, were united with Jesus' suffering, and persevered in your faith.\n\n\"Protectress of the Roman people\", you know our needs, and we know that you will provide, so that, as at Cana in Galilee, joy and celebration may return after this time of trial.\n\nHelp us, Mother of Divine Love, to conform ourselves to the will of the Father and to do what Jesus tells us. For he took upon himself our suffering, and burdened himself with our sorrows to bring us, through the cross, to the joy of the Resurrection. Amen."},
+  {t:"Psalm 23",p:"The Lord is my Shepherd, I shall not want."}
+];
+
+const PERSONAL_PRAYERS = [
+  {t:"Opening Prayer",p:"Hear oh God my prayers. Look in favor at my pain and family's pain. Oh great and merciful lord, Hear and act, Don't delay for I and all the people I have prayed for bear your name."},
+  {t:"Prayer to the Blessed Virgin Mary",p:"O Most Blessed Virgin Mary, Loving Mother of Mercy and Compassion, I come before you with faith and humility. I place myself in your gentle care. Mother Mary, you know my heart. You see my struggles, my pain, and my silent tears. Nothing is hidden from you. Today, I ask for your powerful intercession.\n\nPlease pray for my healing. If there is sickness in my body, remove it. If there is pain within me, ease it. If there is weakness, restore my strength. Touch every organ, every cell, every part of my body, that needs healing. Take away all physical pain. Remove inflammation, infection, and disease. Protect me from serious illness. Shield me from life-threatening sickness.\n\nStrengthen my immune system. Renew my energy each morning. If I am carrying emotional pain, heal my heart. If I am struggling mentally, clear my mind. If anxiety or fear troubles me, replace it with calm and confidence. Bless me with long life, dear mother.\n\nPreserve my life according to God's holy will. Protect me from sudden accidents and unexpected harm. Guard me on the road, at home, at work, and wherever I go. Send your angels to watch over me and over my family. Do not let danger come near us. Keep us safe from harm, disaster, and tragedy.\n\nProtect my family, Blessed Mother. Cover them with your mantle of protection. Keep them healthy and strong. Remove sickness from their bodies. Protect them from accidents. Guard their steps each day. If anyone in my family is suffering, please bring healing and comfort. Ease their pain. Restore their health. Fill our home with peace and unity. Mother Mary, help me in the difficult situations I face.\n\nWhen I feel trapped, show me a way out. When I feel confused, guide my decisions. When I feel afraid, give me courage. Deliver me from bad situations. Protect me from harmful people. Keep me away from danger and poor choices. Help me make wise and righteous decisions. Bless me with success in life. Bless the work of my hands. Open doors of opportunity for me. Provide stability in my finances. Grant me wisdom, discipline, and perseverance.\n\nMay my success bring security to my family, and glory to God. Help me choose healthy food and wise habits that will strengthen my body. Guide me toward what nourishes me. Remove harmful cravings and unhealthy desires. Teach me self-control and discipline. Give me peace in my challenges. When life feels overwhelming, calm my spirit.\n\nWhen burdens feel heavy, lighten my heart. When trials seem endless, remind me that God is near. Forgive me, loving mother, for my sins. Forgive my impatience, my pride, and my doubts. Forgive my wrong decisions and harmful words. Help me turn away from sin. Lead me to repentance and renewal. Purify my heart. Strengthen my conscience.\n\nHelp me live a life that pleases God. Guide me always on the righteous path. When I am tempted, strengthen me. When I am lost, direct me. When I am weak, support me. Lead me closer to your Son, our Lord Jesus Christ. Teach me to trust him fully. Help me follow his teachings faithfully. Mother Mary, I surrender my life to your care.\n\nI surrender my health, my family, my future, and my dreams. Grant me healing. Grant me protection. Grant me long life and good health. Remove all pain. Protect my family from harm and accidents. Keep us free from serious sickness. Bless me with success. Help me in difficult situations. Give me peace in every challenge. Forgive my sins.\n\nGuide me on the straight and righteous path. I trust in your loving intercession. I trust in God's mercy and power. Thank you for always watching over me. Amen."},
+  {t:"Personal Intercession for Forgiveness & Salvation",p:"Dear Mother Mary I would ask for your intercession from your son to ask Jesus to forgive my sins and fill my soul with every grace necessary for my salvation and for the salvation of everyone I ever prayed for."},
+  {t:"Personal Intercession for Enemies & Abundance",p:"Mother Mary I would ask for your intercession and ask the father for the salvation and forgiveness for my enemies and pray for those who abused me and pray for those that hurt me and my family and everyone I have ever prayed for and I ask that they be cleansed by the blood of Jesus, and I would ask for the swiftness of any abundance that I should receive."}
+];
+
+const NOVENA = [
+  {day:1,med:"Blessed Solanus Casey, you once wrote that detachment from earthly affections is a first step toward growing in holiness. Pray today that the earthly desires of my heart may be replaced with a burning desire to pursue God alone."},
+  {day:2,med:"Blessed Solanus Casey, you once wrote that meditating on the Passion of Jesus Christ is a second step toward growing in holiness. Bring His Passion to my mind throughout the day today."},
+  {day:3,med:"Blessed Solanus Casey, you once wrote that uniting my will with God's will is a third step toward growing in holiness. Pray that my heart may be softened, so that God may mold it and conformed to His will."},
+  {day:4,med:"Blessed Solanus Casey, you once wrote that meditation and contemplation are a fourth step toward growing in holiness. Quiet my heart and mind during prayer that I may be disposed to hearing God's voice."},
+  {day:5,med:'Blessed Solanus Casey, you once wrote that prayer is a fifth step toward growing in holiness. Grant me your confidence that God will hear and answer my prayers, and your conviction that whatever the outcome, "we know that in all things, God works for the good of those who love Him" (Rom 8:28, NIV).'},
+  {day:6,med:'Blessed Solanus Casey, you once said, "I have two loves: the sick and the poor." Comfort the sick today that they may know the love and presence of God.'},
+  {day:7,med:'Blessed Solanus Casey, you once said, "I have two loves: the sick and the poor." Comfort the poor today that they may know the love and presence of God.'},
+  {day:8,med:"Blessed Solanus Casey, when people came to your door seeking counsel and blessings, you told them to love and support the missions in return. I offer up my day today for the missions around the world, that all missionaries may be close to God and lead others closer to Him through their work."},
+  {day:9,med:'Blessed Solanus Casey, at the end of your life, you said, "I\'m offering my suffering that all might be one. If only I could see the conversion of the whole world." Today, I offer my suffering for the uniting of the world through conversion.'}
+];
+
+const AFFIRMATIONS = [
+  "Thank you for waking me up","Thank you for the unexpected blessing",
+  "Thank you for allowing me to take care of my family","That I was able to eat good food",
+  "Thank you for allowing me to have good health, healing me",
+  "The healing power of God is working in me right now","What God has promised He will provide",
+  "Be healed in Jesus Name. Amen.","For giving me abundance in all areas of my life",
+  "I am a multi-millionaire","I am a great stock trader"
+];
+
+// STATE
+let hm = 0, rosaries = 0, novDay = 0;
+const TOTAL_HM = 53, TOTAL_R = 5;
+const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const today = days[new Date().getDay()];
+const todayM = SCHEDULE.find(s=>s.day===today).m;
+
+// INIT
+document.getElementById("todayMystery").textContent = today + " — " + todayM;
+
+// Schedule
+document.getElementById("schedule").innerHTML = "<strong>Rosary Prayer Schedule</strong><br>" +
+  SCHEDULE.map(s => `<span class="${s.day===today?'today':''}">${s.day} — ${s.m}</span>`).join(" · ");
+
+// Build prayer lists
+function buildPrayers(arr, containerId, prefix) {
+  const c = document.getElementById(containerId);
+  arr.forEach((p, i) => {
+    const btn = document.createElement("button");
+    btn.className = "prayer-btn";
+    btn.innerHTML = `<span>${p.t}</span><span class="arrow">▼</span>`;
+    const txt = document.createElement("div");
+    txt.className = "prayer-text";
+    txt.textContent = p.p;
+    btn.onclick = () => { btn.classList.toggle("open"); txt.classList.toggle("open"); };
+    c.appendChild(btn);
+    c.appendChild(txt);
+  });
+}
+buildPrayers(ROSARY_PRAYERS, "rosary-prayers", "r");
+buildPrayers(PERSONAL_PRAYERS, "personal-prayers", "p");
+
+// Affirmations
+const al = document.getElementById("affirm-list");
+AFFIRMATIONS.forEach(a => { const d = document.createElement("div"); d.className="affirm-item"; d.textContent=a; al.appendChild(d); });
+
+// Novena
+function buildNovena() {
+  const nd = document.getElementById("novena-days");
+  nd.innerHTML = "";
+  NOVENA.forEach((n,i) => {
+    const b = document.createElement("button");
+    b.className = "novena-day" + (i===novDay?" active":"");
+    b.textContent = n.day;
+    b.onclick = () => { novDay=i; buildNovena(); };
+    nd.appendChild(b);
+  });
+  const nb = document.getElementById("novena-body");
+  const n = NOVENA[novDay];
+  nb.innerHTML = `<h3>Day ${n.day}</h3>
+    <p class="amen">In the name of the Father, and of the Son, and of the Holy Spirit. Amen.</p>
+    <p style="margin-top:16px">Blessed be God in all His designs. Praise Him as our good Father who is attentive to our needs and hears us when we pray. He told us, "Ask and you shall receive." With the same confidence that permits us to say "Our Father," we approach God now with our intentions, through the intercession of His holy servant Solanus Casey.</p>
+    <div class="intention">(State your intentions here.)</div>
+    <p>${n.med}</p>
+    <p style="margin-top:16px">Heavenly Father, I pray for the advancement of Blessed Solanus Casey's cause for sainthood, that more may become aware of him, and that many people may be led to You by seeking his counsel and blessings, just as they were during his earthly life.</p>
+    <p class="amen" style="margin-top:16px">In the name of the Father, and of the Son, and of the Holy Spirit. Amen.</p>`;
+}
+buildNovena();
+
+// Tabs
+document.querySelectorAll(".tabs button").forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll(".tabs button").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".tab-content").forEach(t=>t.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("tab-"+btn.dataset.tab).classList.add("active");
+  };
+});
+
+// Counter
+function updateCounter() {
+  document.getElementById("hm-count").textContent = hm;
+  document.getElementById("hm-bar").style.width = (hm/TOTAL_HM*100)+"%";
+  let info;
+  if(hm<=3) info=`Introductory Hail Marys: ${hm}/3`;
+  else if(hm<=53){
+    const d=Math.min(Math.ceil((hm-3)/10),5);
+    const b=(hm-3)%10===0&&hm>3?10:(hm-3)%10;
+    info=`Decade ${d} of 5 — Bead ${b}/10`;
+  } else info="Complete!";
+  document.getElementById("decade-info").textContent=info;
+  document.getElementById("rosary-status").textContent=`Rosaries Completed: ${rosaries} / ${TOTAL_R}`;
+
+  // Rosary dots
+  const rd=document.getElementById("rosary-dots");
+  rd.innerHTML="";
+  for(let i=0;i<TOTAL_R;i++){
+    const d=document.createElement("div");
+    d.className="rosary-dot "+(i<rosaries?"done":"pending");
+    d.textContent=i+1;
+    rd.appendChild(d);
+  }
+
+  // Beads
+  const bb=document.getElementById("beads-box");
+  let html='<p class="beads-title">Rosary Beads</p><p class="beads-label">3 Intro Beads</p><div class="bead-row">';
+  for(let i=0;i<3;i++) html+=`<div class="bead ${i<Math.min(hm,3)?'filled':''}" onclick="setHM(${i+1})"></div>`;
+  html+='</div>';
+  for(let d=1;d<=5;d++){
+    html+=`<p class="beads-label">Decade ${d}</p><div class="bead-row">`;
+    const filled=hm>=3+d*10?10:Math.max(0,hm-3-(d-1)*10);
+    for(let i=0;i<10;i++) html+=`<div class="bead ${i<filled?'filled':''}" onclick="setHM(${3+(d-1)*10+i+1})"></div>`;
+    html+='</div>';
+  }
+  bb.innerHTML=html;
+}
+
+function incHM(){if(hm<TOTAL_HM){hm++;if(hm===TOTAL_HM)rosaries=Math.min(rosaries+1,TOTAL_R);}updateCounter();}
+function decHM(){if(hm>0)hm--;updateCounter();}
+function resetHM(){hm=0;updateCounter();}
+function resetAll(){hm=0;rosaries=0;updateCounter();}
+function setHM(v){hm=Math.min(v,TOTAL_HM);updateCounter();}
+updateCounter();
+</script>
+</body>
+</html>

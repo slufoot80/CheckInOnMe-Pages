@@ -12,3 +12,10 @@
 /safepulse-consent-demo.mp4
   X-Robots-Tag: noindex, nofollow
   Cache-Control: public, max-age=3600
+
+# Personal rosary page. Direct link only: not in the sitemap or nav, kept out of search.
+/rosary
+  X-Robots-Tag: noindex, nofollow
+
+/rosary.html
+  X-Robots-Tag: noindex, nofollow
