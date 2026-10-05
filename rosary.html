@@ -24,6 +24,7 @@
   .cross{color:#f0c27f;font-size:1.8rem;margin-bottom:4px}
   .tabs{position:sticky;top:0;z-index:10;display:flex;background:rgba(15,10,30,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(240,194,127,0.15);overflow-x:auto;-webkit-overflow-scrolling:touch}
   .tabs button{flex:1 0 auto;padding:12px 14px;background:transparent;border:none;border-bottom:2px solid transparent;color:#8a7a6a;font-size:0.78rem;cursor:pointer;font-family:inherit;transition:all 0.2s;white-space:nowrap}
+  .tab-photo{width:22px;height:22px;border-radius:50%;object-fit:cover;vertical-align:middle;margin:-4px 6px -4px 0;border:1px solid rgba(240,194,127,0.4)}
   .tabs button.active{background:rgba(240,194,127,0.12);border-bottom-color:#f0c27f;color:#f0c27f}
   .content{position:relative;z-index:1;padding:16px;max-width:680px;margin:0 auto}
   .tab-content{display:none}.tab-content.active{display:block}
@@ -96,7 +97,7 @@
   <button class="active" data-tab="rosary">✝ Rosary</button>
   <button data-tab="counter">📿 Counter</button>
   <button data-tab="personal">🙏 Prayers</button>
-  <button data-tab="novena">⛪ Novena</button>
+  <button data-tab="novena"><img class="tab-photo" src="img/solanus-casey.jpg" alt="Blessed Solanus Casey">Novena</button>
   <button data-tab="affirm">✨ Affirmations</button>
 </div>
 
@@ -140,6 +141,7 @@
   <h2 class="section-title">Blessed Solanus Casey Novena</h2>
   <div class="novena-days" id="novena-days"></div>
   <div class="novena-body" id="novena-body"></div>
+  <p style="font-size:0.65rem;color:#5a4a3a;text-align:center;margin-top:12px">Photo of Blessed Solanus Casey cropped from a scapular photo by FekNeim, <a href="https://commons.wikimedia.org/wiki/File:PXL_20211005_153114892.MP.jpg" style="color:inherit">Wikimedia Commons</a>, CC BY-SA 4.0</p>
 </div>
 
 <!-- AFFIRMATIONS TAB -->
