@@ -132,7 +132,7 @@
 
 <!-- PERSONAL TAB -->
 <div class="tab-content" id="tab-personal">
-  <h2 class="section-title">Prayers &amp; Devotions</h2>
+  <h2 class="section-title">My Prayer Intentions</h2>
   <div id="personal-prayers"></div>
 </div>
 
@@ -141,7 +141,7 @@
   <h2 class="section-title">Blessed Solanus Casey Novena</h2>
   <div class="novena-days" id="novena-days"></div>
   <div class="novena-body" id="novena-body"></div>
-  <p style="font-size:0.65rem;color:#5a4a3a;text-align:center;margin-top:12px">Photo of Blessed Solanus Casey cropped from a scapular photo by FekNeim, <a href="https://commons.wikimedia.org/wiki/File:PXL_20211005_153114892.MP.jpg" style="color:inherit">Wikimedia Commons</a>, CC BY-SA 4.0</p>
+  <p style="font-size:0.65rem;color:#5a4a3a;text-align:center;margin-top:12px">Novena adapted from the <a href="https://www.praymorenovenas.com/blessed-solanus-casey" style="color:inherit">Blessed Solanus Casey Novena</a> at PrayMoreNovenas.com.<br>Photo of Blessed Solanus Casey cropped from a scapular photo by FekNeim, <a href="https://commons.wikimedia.org/wiki/File:PXL_20211005_153114892.MP.jpg" style="color:inherit">Wikimedia Commons</a>, CC BY-SA 4.0</p>
 </div>
 
 <!-- AFFIRMATIONS TAB -->
@@ -175,10 +175,10 @@ const ROSARY_PRAYERS = [
   {t:"The Hail Holy Queen (Salve Regina)",p:"Hail Holy Queen, Mother of Mercy, our life, our sweetness and our hope. To thee do we cry, poor banished children of Eve. To thee do we send up our sighs, mourning and weeping in this valley of tears. Turn then, most gracious advocate, thine eyes of mercy toward us, and after this our exile, show unto us the blessed fruit of thy womb, Jesus. O clement, O loving, O sweet Virgin Mary.\n\n℣ Pray for us, O Holy Mother of God.\n℟ That we may be made worthy of the promises of Christ."},
   {t:"Closing Rosary Prayer",p:"O God, whose only begotten Son, by His life, death, and resurrection, has purchased for us the rewards of eternal life, grant, we beseech Thee, that meditating upon these mysteries of the Most Holy Rosary of the Blessed Virgin Mary, we may imitate what they contain and obtain what they promise, through the same Christ Our Lord. Amen.\n\nMost Sacred Heart of Jesus, have mercy on us. Immaculate Heart of Mary, pray for us."},
   {t:"Mother Mary Be With Me",p:"Mother Mary be with me."},
-  {t:"Fatima Prayer",p:"Most Holy Trinity — Father, Son, and Holy Spirit — I adore thee profoundly. I offer Thee the most precious Body, Blood, Soul and Divinity of Jesus Christ, present in all the tabernacles of the world, in reparation for the outrages, sacrileges and indifference's whereby He is offended. And through the infinite merits of His Most Sacred Heart and the Immaculate Heart of Mary, I beg of Thee the conversion of poor sinners."},
+  {t:"Fatima Prayer",p:"Most Holy Trinity — Father, Son, and Holy Spirit — I adore thee profoundly. I offer Thee the most precious Body, Blood, Soul and Divinity of Jesus Christ, present in all the tabernacles of the world, in reparation for the outrages, sacrileges and indifferences whereby He is offended. And through the infinite merits of His Most Sacred Heart and the Immaculate Heart of Mary, I beg of Thee the conversion of poor sinners."},
   {t:"Short Fatima Prayer",p:"My God, I believe, I adore, I hope, and I love You. I beg pardon of You for those who do not believe, do not adore, do not hope, and do not love You."},
   {t:"St. Michael Prayer",p:"St. Michael the Archangel, defend us in battle. Be our defense against the wickedness and snares of the Devil. May God rebuke him, we humbly pray, and do thou, O Prince of the heavenly hosts, by the power of God, thrust into hell Satan, and all the evil spirits, who prowl about the world seeking the ruin of souls. Amen."},
-  {t:"Angelus Prayer",p:"Pour forth we beseech Thee, O Lord, Thy grace into our hearts, that we to whom the incarnation of Christ, Thy Son, was made known by the message of an angel, may by His passion and cross be brought to the glory of His resurrection, through the same Christ Our Lord. Amen."},
+  {t:"Closing Prayer of the Angelus",p:"Pour forth we beseech Thee, O Lord, Thy grace into our hearts, that we to whom the incarnation of Christ, Thy Son, was made known by the message of an angel, may by His passion and cross be brought to the glory of His resurrection, through the same Christ Our Lord. Amen."},
   {t:"Memorare",p:"Remember, O most gracious Virgin Mary that never was it known that anyone who fled to Your protection, implored Your help, or sought Your intercession was left unaided. Inspired with this confidence, we fly to you, O Virgin of virgins, our Mother. To You we come; before You we stand, sinful and sorrowful. O Mother of the Word Incarnate, despise not our petitions, but in Your mercy, hear and answer us. Amen."},
   {t:"We Fly to Your Protection (Sub Tuum Praesidium)",p:"We fly to your protection, O Holy Mother of God; Do not despise our petitions in our necessities, but deliver us always from every danger, O Glorious and Blessed Virgin Mary."},
   {t:"Prayer to Mary, Health of the Sick",p:"O Mary, You shine continuously on our journey, as a sign of salvation and hope. We entrust ourselves to you, Health of the Sick, who, at the foot of the cross, were united with Jesus' suffering, and persevered in your faith.\n\n\"Protectress of the Roman people\", you know our needs, and we know that you will provide, so that, as at Cana in Galilee, joy and celebration may return after this time of trial.\n\nHelp us, Mother of Divine Love, to conform ourselves to the will of the Father and to do what Jesus tells us. For he took upon himself our suffering, and burdened himself with our sorrows to bring us, through the cross, to the joy of the Resurrection. Amen."},
@@ -195,7 +195,7 @@ const PERSONAL_PRAYERS = [
 const NOVENA = [
   {day:1,med:"Blessed Solanus Casey, you once wrote that detachment from earthly affections is a first step toward growing in holiness. Pray today that the earthly desires of my heart may be replaced with a burning desire to pursue God alone."},
   {day:2,med:"Blessed Solanus Casey, you once wrote that meditating on the Passion of Jesus Christ is a second step toward growing in holiness. Bring His Passion to my mind throughout the day today."},
-  {day:3,med:"Blessed Solanus Casey, you once wrote that uniting my will with God's will is a third step toward growing in holiness. Pray that my heart may be softened, so that God may mold it and conformed to His will."},
+  {day:3,med:"Blessed Solanus Casey, you once wrote that uniting my will with God's will is a third step toward growing in holiness. Pray that my heart may be softened, so that God may mold it and conform it to His will."},
   {day:4,med:"Blessed Solanus Casey, you once wrote that meditation and contemplation are a fourth step toward growing in holiness. Quiet my heart and mind during prayer that I may be disposed to hearing God's voice."},
   {day:5,med:'Blessed Solanus Casey, you once wrote that prayer is a fifth step toward growing in holiness. Grant me your confidence that God will hear and answer my prayers, and your conviction that whatever the outcome, "we know that in all things, God works for the good of those who love Him" (Rom 8:28, NIV).'},
   {day:6,med:'Blessed Solanus Casey, you once said, "I have two loves: the sick and the poor." Comfort the sick today that they may know the love and presence of God.'},
